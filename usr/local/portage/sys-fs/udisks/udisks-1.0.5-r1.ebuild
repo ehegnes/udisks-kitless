@@ -59,14 +59,13 @@ pkg_setup() {
 }
 
 src_prepare() {
-	#epatch \
-		#"${FILESDIR}"/${PN}-1.0.2-ntfs-3g.patch \
-		#"${FILESDIR}"/${PN}-1.0.4-revert-floppy.patch
+	epatch \
+		"${FILESDIR}"/${PN}-1.0.2-ntfs-3g.patch \
+		"${FILESDIR}"/${PN}-1.0.4-revert-floppy.patch
 
-	#sed -i -e "s:/lib/udev:$(get_udevdir):" data/80-udisks.rules || die
+	sed -i -e "s:/lib/udev:$(get_udevdir):" data/80-udisks.rules || die
 
-	#epatch_user
-	ls ${S}
+	epatch_user
 	eautoreconf
 }
 
