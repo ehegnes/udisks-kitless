@@ -1569,7 +1569,7 @@ Optional Features:
   --enable-gtk-doc        use gtk-doc to build documentation @<:@@<:@default=no@:>@@:>@
   --enable-gtk-doc-html   build documentation in html format @<:@@<:@default=yes@:>@@:>@
   --enable-gtk-doc-pdf    build documentation in pdf format @<:@@<:@default=no@:>@@:>@
-  --enable-polkit         enable Policykit support
+  --enable-policykit      enable Policykit support
   --enable-lvm2           enable LVM2 support
   --enable-dmmp           enable dm-multipath support
   --disable-remote-access disable remote access
@@ -15002,7 +15002,7 @@ if test "${enable_polkit+set}" = set; then :
   enableval=$enable_polkit; 
 fi
 
-if test "x$enable_polkit" = "xyes"; then
+if test "x$enable_policykit" = "xyes"; then
   
 pkg_failed=no
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for POLKIT_GOBJECT_1" >&5
