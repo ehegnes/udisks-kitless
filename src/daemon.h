@@ -22,7 +22,9 @@
 #define __DAEMON_H__
 
 #include <gudev/gudev.h>
+#ifdef HAVE_POLKIT
 #include <polkit/polkit.h>
+#endif
 #include <dbus/dbus-glib.h>
 
 #include "types.h"

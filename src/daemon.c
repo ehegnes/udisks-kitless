@@ -112,7 +112,9 @@ struct DaemonPrivate
   DBusGConnection *system_bus_connection;
   DBusGProxy *system_bus_proxy;
 
+#ifdef HAVE_POLKIT
   PolkitAuthority *authority;
+#endif
 
   GUdevClient *gudev_client;
 
@@ -661,8 +663,10 @@ daemon_finalize (GObject *object)
 
   g_return_if_fail (daemon->priv != NULL);
 
+#ifdef HAVE_POLKIT
   if (daemon->priv->authority != NULL)
     g_object_unref (daemon->priv->authority);
+#endif
 
   if (daemon->priv->system_bus_proxy != NULL)
     g_object_unref (daemon->priv->system_bus_proxy);
@@ -1791,6 +1795,7 @@ register_disks_daemon (Daemon *daemon)
       "sas_expander", /* SAS Expanders */
       NULL };
 
+#ifdef HAVE_POLKIT
   daemon->priv->authority = polkit_authority_get_sync ((GCancellable *) NULL, &error);
   if (daemon->priv->authority == NULL)
     {
@@ -1801,8 +1806,10 @@ register_disks_daemon (Daemon *daemon)
         }
       goto error;
     }
+#endif
 
   error = NULL;
+#ifdef HAVE_POLKIT
   daemon->priv->system_bus_connection = dbus_g_bus_get (DBUS_BUS_SYSTEM, &error);
   if (daemon->priv->system_bus_connection == NULL)
     {
@@ -1813,6 +1820,7 @@ register_disks_daemon (Daemon *daemon)
         }
       goto error;
     }
+#endif
   connection = dbus_g_connection_get_connection (daemon->priv->system_bus_connection);
 
   dbus_g_connection_register_g_object (daemon->priv->system_bus_connection,
@@ -2111,7 +2119,9 @@ typedef struct
   Daemon *daemon;
   Device *device;
 
+#ifdef HAVE_POLKIT
   GCancellable *cancellable;
+#endif
   guint num_user_data;
   gpointer *user_data_elements;
   GDestroyNotify *user_data_notifiers;
@@ -2129,8 +2139,10 @@ lca_device_went_away (gpointer user_data,
   g_object_weak_unref (G_OBJECT (data->device), lca_device_went_away, data);
   data->device = NULL;
 
+#ifdef HAVE_POLKIT
   /* this will trigger lca_check_authorization_callback() */
   g_cancellable_cancel (data->cancellable);
+#endif
 }
 
 /* invoked when caller disconnects during authorization check */
@@ -2140,8 +2152,10 @@ lca_caller_disconnected_cb (Inhibitor *inhibitor,
 {
   CheckAuthData *data = user_data;
 
+#ifdef HAVE_POLKIT
   /* this will trigger lca_check_authorization_callback() */
   g_cancellable_cancel (data->cancellable);
+#endif
 }
 
 static void
@@ -2153,7 +2167,9 @@ check_auth_data_free (CheckAuthData *data)
   g_object_unref (data->daemon);
   if (data->device != NULL)
     g_object_weak_unref (G_OBJECT (data->device), lca_device_went_away, data);
+#ifdef HAVE_POLKIT
   g_object_unref (data->cancellable);
+#endif
   for (n = 0; n < data->num_user_data; n++)
     {
       if (data->user_data_notifiers[n] != NULL)
@@ -2166,6 +2182,7 @@ check_auth_data_free (CheckAuthData *data)
   g_free (data);
 }
 
+#ifdef HAVE_POLKIT
 static void
 lca_check_authorization_callback (PolkitAuthority *authority,
                                   GAsyncResult *res,
@@ -2214,6 +2231,7 @@ lca_check_authorization_callback (PolkitAuthority *authority,
 
   check_auth_data_free (data);
 }
+#endif
 
 /* num_user_data param is followed by @num_user_data (gpointer, GDestroyNotify) pairs.. */
 void
@@ -2240,7 +2258,9 @@ daemon_local_check_auth (Daemon *daemon,
   if (device != NULL)
     g_object_weak_ref (G_OBJECT (device), lca_device_went_away, data);
 
+#ifdef HAVE_POLKIT
   data->cancellable = g_cancellable_new ();
+#endif
   data->num_user_data = num_user_data;
   data->user_data_elements = g_new0 (gpointer, num_user_data);
   data->user_data_notifiers = g_new0 (GDestroyNotify, num_user_data);
@@ -2261,6 +2281,7 @@ daemon_local_check_auth (Daemon *daemon,
     }
   else if (action_id != NULL)
     {
+#ifdef HAVE_POLKIT
       PolkitSubject *subject;
       PolkitCheckAuthorizationFlags flags;
 
@@ -2282,6 +2303,7 @@ daemon_local_check_auth (Daemon *daemon,
                                             data);
 
       g_object_unref (subject);
+#endif
     }
   else
     {

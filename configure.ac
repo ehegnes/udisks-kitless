@@ -151,9 +151,16 @@ PKG_CHECK_MODULES(DBUS_GLIB, [dbus-glib-1 >= 0.82])
 AC_SUBST(DBUS_GLIB_CFLAGS)
 AC_SUBST(DBUS_GLIB_LIBS)
 
-PKG_CHECK_MODULES(POLKIT_GOBJECT_1, [polkit-gobject-1 >= 0.97])
-AC_SUBST(POLKIT_GOBJECT_1_CFLAGS)
-AC_SUBST(POLKIT_GOBJECT_1_LIBS)
+have_polkit=no
+AC_ARG_ENABLE(polkit, AS_HELP_STRING([--enable-polkit], [enable Policykit support]))
+if test "x$enable_polkit" = "xyes"; then
+  PKG_CHECK_MODULES(POLKIT_GOBJECT_1, polkit-gobject-1 >= 0.97,
+                    [AC_DEFINE(HAVE_POLKIT, 1, [Define if Policykit is available]) have_polkit=yes],
+                    have_polkit=no)
+  AC_SUBST(POLKIT_GOBJECT_1_CFLAGS)
+  AC_SUBST(POLKIT_GOBJECT_1_LIBS)
+fi
+AM_CONDITIONAL(HAVE_POLKIT, [test "$have_polkit" = "yes"])
 
 PKG_CHECK_MODULES(LIBPARTED, [libparted >= 1.8.8])
 AC_SUBST(LIBPARTED_CFLAGS)
