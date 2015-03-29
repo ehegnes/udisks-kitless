@@ -1,0 +1,357 @@
+<refentry id="udisks.1">
+  <refentryinfo>
+    <title>udisks</title>
+    <date>April 2008</date>
+    <productname>udisks</productname>
+  </refentryinfo>
+
+  <refmeta>
+    <refentrytitle>udisks</refentrytitle>
+    <manvolnum>1</manvolnum>
+    <refmiscinfo class="version"></refmiscinfo>
+  </refmeta>
+
+  <refnamediv>
+    <refname>udisks</refname>
+    <refpurpose>udisks command line tool</refpurpose>
+  </refnamediv>
+
+  <refsynopsisdiv>
+    <cmdsynopsis>
+      <command>udisks</command>
+      <arg><option>OPTIONS</option></arg>
+    </cmdsynopsis>
+  </refsynopsisdiv>
+
+
+  <refsect1><title>DESCRIPTION</title>
+    <para>
+      <emphasis><refentrytitle>udisks</refentrytitle></emphasis> is a
+      simple command line client for the
+      <citerefentry><refentrytitle>udisks</refentrytitle><manvolnum>7</manvolnum></citerefentry>
+      system bus service.
+    </para>
+  </refsect1>
+
+  <refsect1>
+    <title>OPTIONS</title>
+    <variablelist>
+      <varlistentry>
+        <term><option>--dump</option></term>
+        <listitem>
+          <para>
+            Dump all information about all devices. Please include this when filing bugs.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>--enumerate</option></term>
+        <listitem>
+          <para>
+            Lists all object paths of devices know to the daemon.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>--enumerate-device-files</option></term>
+        <listitem>
+          <para>
+            Lists all device files of devices know to the daemon.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>--monitor</option></term>
+        <listitem>
+          <para>
+            Connect to the daemon and print a line every time an event
+            happens.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>--monitor-detail</option></term>
+        <listitem>
+          <para>
+            Like <option>--monitor</option> but prints the full
+            details of the device whenever an event happens.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>
+          <option>--show-info</option>
+          <arg choice="plain"><replaceable>device_file</replaceable></arg>
+        </term>
+        <listitem>
+          <para>
+            Shows information about <replaceable>device_file</replaceable>.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>
+          <option>--inhibit-polling</option>
+          <arg choice="plain"><replaceable>device_file</replaceable></arg>
+          <arg><option>-- program arg ...</option></arg>
+        </term>
+        <listitem>
+          <para>
+            Inhibits polling on <replaceable>device_file</replaceable>. If no program is given,
+            polling is inhibited until Ctrl+C is pressed. Otherwise the program is spawned and the polling
+            is only inhibited until the program terminates.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>
+          <option>--poll-for-media</option>
+          <arg choice="plain"><replaceable>device_file</replaceable></arg>
+        </term>
+        <listitem>
+          <para>
+            Polls <replaceable>device_file</replaceable> to perform media detection.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>
+          <option>--inhibit-all-polling</option>
+          <arg><option>-- program arg ...</option></arg>
+        </term>
+        <listitem>
+          <para>
+            Inhibits polling on all devices. If no program is given,
+            polling is inhibited until Ctrl+C is pressed. Otherwise the program is spawned and the polling
+            is only inhibited until the program terminates.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>
+          <option>--mount</option>
+          <arg choice="plain"><replaceable>device_file</replaceable></arg>
+          <arg><option>--mount-fstype</option><arg choice="plain"><replaceable>fstype</replaceable></arg></arg>
+          <arg><option>--mount-options</option><arg choice="plain"><replaceable>options</replaceable></arg></arg>
+        </term>
+        <listitem>
+          <para>
+            Mounts the device represented by <replaceable>device_file</replaceable> using
+            the file system <replaceable>fstype</replaceable> and a comma-separated list
+            of <replaceable>options</replaceable>.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>
+          <option>--unmount</option>
+          <arg choice="plain"><replaceable>device_file</replaceable></arg>
+          <arg><option>--unmount-options</option><arg choice="plain"><replaceable>options</replaceable></arg></arg>
+        </term>
+        <listitem>
+          <para>
+            Unmounts the device represented by <replaceable>device_file</replaceable> using
+            a comma-separated list of <replaceable>options</replaceable>.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>
+          <option>--detach</option>
+          <arg choice="plain"><replaceable>device_file</replaceable></arg>
+          <arg><option>--detach-options</option><arg choice="plain"><replaceable>options</replaceable></arg></arg>
+        </term>
+        <listitem>
+          <para>
+            Detaches (e.g. powering down the physical port the device
+            is connected to) the device represented
+            by <replaceable>device_file</replaceable> using a
+            comma-separated list
+            of <replaceable>options</replaceable>.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>
+          <option>--eject</option>
+          <arg choice="plain"><replaceable>device_file</replaceable></arg>
+          <arg><option>--eject-options</option><arg choice="plain"><replaceable>options</replaceable></arg></arg>
+        </term>
+        <listitem>
+          <para>
+            Ejects media from the device represented
+            by <replaceable>device_file</replaceable> using a
+            comma-separated list
+            of <replaceable>options</replaceable>.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>
+          <option>--ata-smart-refresh</option>
+          <arg choice="plain"><replaceable>device_file</replaceable></arg>
+          <arg><option>--ata-smart-wakeup</option></arg>
+        </term>
+        <listitem>
+          <para>
+            Refreshes ATA SMART data for <replaceable>device_file</replaceable>. If the disk is
+            sleeping it will not be woken up unless <option>--ata-smart-wakeup</option> is passed.
+            will be used.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>
+          <option>--ata-smart-refresh</option>
+          <arg choice="plain"><replaceable>device_file</replaceable></arg>
+          <option>--ata-smart-simulate</option> <replaceable>blob</replaceable>
+        </term>
+        <listitem>
+          <para>
+            Read ATA SMART data from <replaceable>blob</replaceable> for <replaceable>device_file</replaceable>.
+            This can only be done by the super user and is typically used for testing that clients
+            relying on the ATA SMART data provided by udisks behave correctly.
+            The libatasmart git repository at
+            <ulink url="http://git.0pointer.de/?p=libatasmart.git;a=summary"/>
+            contains a collection of blobs from failing disks.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>
+          <option>--inhibit</option>
+          <arg><option>-- program arg ...</option></arg>
+        </term>
+        <listitem>
+          <para>
+             Inhibits clients from invoking methods on the daemon that
+             require authorization (all methods will return the
+             <literal>org.freedesktop.UDisks.Error.Inhibited</literal> error) if
+             the caller is not the super user. This is typically used
+             by OS installers and other programs that expects full
+             control of the system, specifically to avoid automounting
+             devices. Only the super user can do this.
+          </para>
+          <para>
+            If no program is given, the daemon is inhibited until
+            Ctrl+C is pressed. Otherwise the program is spawned and
+            the daemon is only inhibited until the program terminates.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>
+          <option>--set-spindown</option>
+          <arg choice="plain"><replaceable>device_file</replaceable></arg>
+          <option>--spindown-timeout</option>
+          <arg choice="plain"><replaceable>seconds</replaceable></arg>
+          <arg><option>-- program arg ...</option></arg>
+        </term>
+        <listitem>
+          <para>
+            Configures disk spindown timeout on <replaceable>device_file</replaceable> to
+            <replaceable>seconds</replaceable>.
+            See <xref linkend="udisks-spindown"/> for important information before using this option.
+          </para>
+          <para>
+            If no program is given, the spindown time will be used until Ctrl+C is pressed. Otherwise the program is
+            spawned and the the spindown timeout will only be used until the program terminates.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>
+          <option>--set-spindown-all</option>
+          <option>--spindown-timeout</option>
+          <arg choice="plain"><replaceable>seconds</replaceable></arg>
+          <arg><option>-- program arg ...</option></arg>
+        </term>
+        <listitem>
+          <para>
+            Configures disk spindown timeout on all disks that can be spun down to <replaceable>seconds</replaceable>.
+            See <xref linkend="udisks-spindown"/> for important information before using this option.
+          </para>
+          <para>
+            If no program is given, the spindown time will be used until Ctrl+C is pressed. Otherwise the program is
+            spawned and the the spindown timeout will only be used until the program terminates.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><option>--help</option></term>
+        <listitem>
+          <para>
+            Show help options.
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+
+  <refsect1 id="udisks-spindown"><title>SPINNING DOWN DISKS</title>
+    <para>
+      Caution should be exercised when configuring disk spin down timeouts.
+    </para>
+    <para>
+      Note that every time a disk is spun down,
+      the <quote>start-stop-count</quote> ATA SMART attribute will
+      increase by 1 and most disks are only good for a limited number
+      (typically 50,000 but it varies by manufacturer and model). In
+      addition, the drive may take as long as 30 seconds to respond to
+      subsequent disk access – most drives are typically faster, see
+      the <quote>spin-up-time</quote> ATA SMART attribute.
+    </para>
+    <para>
+      On the other hand, cautious use (e.g. using conservative
+      timeouts) of the ability to spin down disks, can be a good way
+      to trade power consumption (typically 8 vs 1 Watts for 3.5&#34;
+      drives) and heat emission for a slightly higher latency.
+    </para>
+  </refsect1>
+
+  <refsect1><title>AUTHOR</title>
+    <para>
+      Written by David Zeuthen <email>david@fubar.dk</email> with
+      a lot of help from many others.
+    </para>
+  </refsect1>
+
+  <refsect1>
+    <title>BUGS</title>
+    <para>
+      Please send bug reports to either the distribution bug tracker
+      or the upstream bug tracker at
+      <ulink url="http://bugs.freedesktop.org/enter_bug.cgi?product=udisks"/>.
+    </para>
+  </refsect1>
+
+  <refsect1>
+    <title>SEE ALSO</title>
+    <para>
+      <citerefentry>
+        <refentrytitle>udisks-daemon</refentrytitle><manvolnum>8</manvolnum>
+      </citerefentry>,
+      <citerefentry>
+        <refentrytitle>udisks</refentrytitle><manvolnum>7</manvolnum>
+      </citerefentry>,
+    </para>
+  </refsect1>
+</refentry>

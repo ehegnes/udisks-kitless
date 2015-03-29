@@ -1,0 +1,154 @@
+<?xml version="1.0"?><!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="Expander">
+  <refmeta>
+    <refentrytitle role="top_of_page">org.freedesktop.UDisks.Expander</refentrytitle>
+  </refmeta>
+  <refnamediv>
+    <refname>org.freedesktop.UDisks.Expander</refname>
+    <refpurpose>Expander interface</refpurpose>
+  </refnamediv>
+  <refsynopsisdiv role="synopsis">
+    <title role="synopsis.title">Methods</title>
+    <synopsis/>
+  </refsynopsisdiv>
+  <refsect1 role="signal_proto">
+    <title role="signal_proto.title">Signals</title>
+    <synopsis><link linkend="Expander::Changed">Changed</link>()
+</synopsis>
+  </refsect1>
+  <refsect1 role="impl_interfaces">
+    <title role="impl_interfaces.title">Implemented Interfaces</title>
+    <para>
+    Objects implementing org.freedesktop.UDisks.Expander also implements
+    org.freedesktop.DBus.Introspectable,
+    org.freedesktop.DBus.Properties
+    </para>
+  </refsect1>
+  <refsect1 role="properties">
+    <title role="properties.title">Properties</title>
+    <synopsis><link linkend="Expander:NativePath">'NativePath'</link>read's'
+<link linkend="Expander:Vendor">'Vendor'</link>read's'
+<link linkend="Expander:Model">'Model'</link>read's'
+<link linkend="Expander:Revision">'Revision'</link>read's'
+<link linkend="Expander:NumPorts">'NumPorts'</link>read'u'
+<link linkend="Expander:UpstreamPorts">'UpstreamPorts'</link>read'ao'
+<link linkend="Expander:Adapter">'Adapter'</link>read'o'
+</synopsis>
+  </refsect1>
+  <refsect1 role="desc">
+    <title role="desc.title">Description</title>
+    <para>
+      
+        <para>
+          This interface provides represents port expanders such as SAS Expanders or SATA Port Multipliers.
+        </para>
+      
+    </para>
+  </refsect1>
+  <refsect1 role="details">
+    <title role="details.title">Details</title>
+  </refsect1>
+  <refsect1 role="signals"><title role="signals.title">Signal Details</title><refsect2><title><anchor role="function" id="Expander::Changed"/>The Changed signal</title><indexterm><primary>Changed</primary><secondary>Expander</secondary></indexterm><programlisting>Changed ()</programlisting></refsect2>
+          <para>
+            Something on the expander changed.
+          </para>
+        <variablelist role="params"/></refsect1>
+  <refsect1 role="property_details">
+    <title role="property_details.title">Property Details</title>
+    <refsect2>
+      <title><anchor role="function" id="Expander:NativePath"/>The "NativePath" property</title>
+      <indexterm>
+        <primary>NativePath</primary>
+        <secondary>Expander</secondary>
+      </indexterm>
+      <programlisting>'NativePath'read's'
+</programlisting>
+    </refsect2>
+    <para>
+            OS specific native path of the expander. On Linux this is the sysfs path, for example <literal>/sys/devices/pci0000:00/0000:00:03.0/0000:06:00.0/host7/port-7:0/expander-7:0/sas_expander/expander-7:0</literal>.
+      </para>
+    <variablelist role="params"/>
+    <refsect2>
+      <title><anchor role="function" id="Expander:Vendor"/>The "Vendor" property</title>
+      <indexterm>
+        <primary>Vendor</primary>
+        <secondary>Expander</secondary>
+      </indexterm>
+      <programlisting>'Vendor'read's'
+</programlisting>
+    </refsect2>
+    <para>
+            The name of the vendor of the expander.
+      </para>
+    <variablelist role="params"/>
+    <refsect2>
+      <title><anchor role="function" id="Expander:Model"/>The "Model" property</title>
+      <indexterm>
+        <primary>Model</primary>
+        <secondary>Expander</secondary>
+      </indexterm>
+      <programlisting>'Model'read's'
+</programlisting>
+    </refsect2>
+    <para>
+            The name of the model of the expander.
+      </para>
+    <variablelist role="params"/>
+    <refsect2>
+      <title><anchor role="function" id="Expander:Revision"/>The "Revision" property</title>
+      <indexterm>
+        <primary>Revision</primary>
+        <secondary>Expander</secondary>
+      </indexterm>
+      <programlisting>'Revision'read's'
+</programlisting>
+    </refsect2>
+    <para>
+            The name of the revision of the expander.
+      </para>
+    <variablelist role="params"/>
+    <refsect2>
+      <title><anchor role="function" id="Expander:NumPorts"/>The "NumPorts" property</title>
+      <indexterm>
+        <primary>NumPorts</primary>
+        <secondary>Expander</secondary>
+      </indexterm>
+      <programlisting>'NumPorts'read'u'
+</programlisting>
+    </refsect2>
+    <para>
+            Number of downstream ports (aka PHYs) on the expander or 0 if unknown. Note that
+            this may not correspond to the number _physical_ connectors as several PHYs may
+            be ganged together in a separate physical connectors. See the
+            <link linkend="Adapter:NumPorts"><literal>Adapter:NumPorts</literal></link>
+            property for more discussion.
+      </para>
+    <variablelist role="params"/>
+    <refsect2>
+      <title><anchor role="function" id="Expander:UpstreamPorts"/>The "UpstreamPorts" property</title>
+      <indexterm>
+        <primary>UpstreamPorts</primary>
+        <secondary>Expander</secondary>
+      </indexterm>
+      <programlisting>'UpstreamPorts'read'ao'
+</programlisting>
+    </refsect2>
+    <para>
+            The object paths of the upstream ports for the expander.
+      </para>
+    <variablelist role="params"/>
+    <refsect2>
+      <title><anchor role="function" id="Expander:Adapter"/>The "Adapter" property</title>
+      <indexterm>
+        <primary>Adapter</primary>
+        <secondary>Expander</secondary>
+      </indexterm>
+      <programlisting>'Adapter'read'o'
+</programlisting>
+    </refsect2>
+    <para>
+            The object path of the adapter the expander is attached to.
+      </para>
+    <variablelist role="params"/>
+  </refsect1>
+</refentry>

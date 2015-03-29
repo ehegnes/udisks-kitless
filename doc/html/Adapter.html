@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>udisks Reference Manual: org.freedesktop.UDisks.Adapter</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="udisks Reference Manual">
+<link rel="up" href="ref-dbus.html" title="D-Bus API Reference">
+<link rel="prev" href="Device.html" title="org.freedesktop.UDisks.Device">
+<link rel="next" href="Expander.html" title="org.freedesktop.UDisks.Expander">
+<meta name="generator" content="GTK-Doc V1.20 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description"> <span class="dim">|</span> 
+                  <a href="#Adapter.description" class="shortcut">Description</a></span><span id="nav_interfaces"> <span class="dim">|</span> 
+                  <a href="#Adapter.implemented-interfaces" class="shortcut">Implemented Interfaces</a></span><span id="nav_properties"> <span class="dim">|</span> 
+                  <a href="#Adapter.properties" class="shortcut">Properties</a></span><span id="nav_signals"> <span class="dim">|</span> 
+                  <a href="#Adapter.signals" class="shortcut">Signals</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ref-dbus.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="Device.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="Expander.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="Adapter"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle">org.freedesktop.UDisks.Adapter</span></h2>
+<p>org.freedesktop.UDisks.Adapter — Adapter interface</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Methods</h2>
+<pre class="synopsis"></pre>
+</div>
+<div class="refsect1">
+<a name="id-1.2.5.4"></a><h2>Signals</h2>
+<pre class="synopsis"><a class="link" href="Adapter.html#Adapter::Changed">Changed</a>()
+</pre>
+</div>
+<div class="refsect1">
+<a name="id-1.2.5.5"></a><h2>Implemented Interfaces</h2>
+<p>
+    Objects implementing org.freedesktop.UDisks.Adapter also implements
+    org.freedesktop.DBus.Introspectable,
+    org.freedesktop.DBus.Properties
+    </p>
+</div>
+<div class="refsect1">
+<a name="id-1.2.5.6"></a><h2>Properties</h2>
+<pre class="synopsis"><a class="link" href="Adapter.html#Adapter:NativePath">'NativePath'</a>read's'
+<a class="link" href="Adapter.html#Adapter:Vendor">'Vendor'</a>read's'
+<a class="link" href="Adapter.html#Adapter:Model">'Model'</a>read's'
+<a class="link" href="Adapter.html#Adapter:Driver">'Driver'</a>read's'
+<a class="link" href="Adapter.html#Adapter:NumPorts">'NumPorts'</a>read'u'
+<a class="link" href="Adapter.html#Adapter:Fabric">'Fabric'</a>read's'
+</pre>
+</div>
+<div class="refsect1">
+<a name="id-1.2.5.7"></a><h2>Description</h2>
+<p>
+      
+        </p>
+<p>
+          This interface provides information about storage adapters.
+        </p>
+<p>
+      
+    </p>
+</div>
+<div class="refsect1">
+<a name="id-1.2.5.8"></a><h2>Details</h2>
+</div>
+<div class="refsect1">
+<a name="id-1.2.5.9"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="id-1.2.5.9.2"></a><h3>
+<a name="Adapter::Changed"></a>The Changed signal</h3>
+<pre class="programlisting">Changed ()</pre>
+</div>
+<p>
+            Something on the adapter changed.
+          </p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody></tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="id-1.2.5.10"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="id-1.2.5.10.2"></a><h3>
+<a name="Adapter:NativePath"></a>The "NativePath" property</h3>
+<pre class="programlisting">'NativePath'read's'
+</pre>
+</div>
+<p>
+            OS specific native path of the adapter. On Linux this is the sysfs path, for example <code class="literal">/sys/devices/pci0000:00/0000:00:1f.2</code>.
+      </p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody></tbody>
+</table></div>
+<hr>
+<div class="refsect2">
+<a name="id-1.2.5.10.5"></a><h3>
+<a name="Adapter:Vendor"></a>The "Vendor" property</h3>
+<pre class="programlisting">'Vendor'read's'
+</pre>
+</div>
+<p>
+            The name of the vendor of the storage adapter.
+      </p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody></tbody>
+</table></div>
+<hr>
+<div class="refsect2">
+<a name="id-1.2.5.10.8"></a><h3>
+<a name="Adapter:Model"></a>The "Model" property</h3>
+<pre class="programlisting">'Model'read's'
+</pre>
+</div>
+<p>
+            The name of the model of the storage adapter.
+      </p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody></tbody>
+</table></div>
+<hr>
+<div class="refsect2">
+<a name="id-1.2.5.10.11"></a><h3>
+<a name="Adapter:Driver"></a>The "Driver" property</h3>
+<pre class="programlisting">'Driver'read's'
+</pre>
+</div>
+<p>
+            The name of the driver used for the storage adapter.
+      </p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody></tbody>
+</table></div>
+<hr>
+<div class="refsect2">
+<a name="id-1.2.5.10.14"></a><h3>
+<a name="Adapter:NumPorts"></a>The "NumPorts" property</h3>
+<pre class="programlisting">'NumPorts'read'u'
+</pre>
+</div>
+<p>
+            Number of ports (aka PHYs) on the storage adapter or 0 if unknown. Note that
+            this may not correspond to the number _physical_ connectors as several PHYs may
+            be ganged together in a separate physical connector using e.g.
+            </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<span class="bold"><strong>SFF-8484: </strong></span>Internal connector, two or four SAS/SATA lanes</li>
+<li class="listitem">
+<span class="bold"><strong>SFF-8470: </strong></span>External/internal, Infiniband, four SAS/SATA lanes</li>
+<li class="listitem">
+<span class="bold"><strong>SFF-8087: </strong></span>Mini-SAS, internal, four SAS/SATA lanes</li>
+<li class="listitem">
+<span class="bold"><strong>SFF-8088: </strong></span>External Mini-SAS, four SAS/SATA lanes</li>
+</ul></div>
+<p>
+            See each port object for more details.
+      </p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody></tbody>
+</table></div>
+<hr>
+<div class="refsect2">
+<a name="id-1.2.5.10.17"></a><h3>
+<a name="Adapter:Fabric"></a>The "Fabric" property</h3>
+<pre class="programlisting">'Fabric'read's'
+</pre>
+</div>
+<p>
+            The fabric used for the storage adapter to communicate with other storage
+            targets and initiators or blank if unknown. See each port object for
+            more details. Known fabric values include
+            </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<span class="bold"><strong>ata: </strong></span>ATA</li>
+<li class="listitem">
+<span class="bold"><strong>ata_pata: </strong></span>Parallel ATA</li>
+<li class="listitem">
+<span class="bold"><strong>ata_sata: </strong></span>Serial ATA</li>
+<li class="listitem">
+<span class="bold"><strong>scsi: </strong></span>SCSI</li>
+<li class="listitem">
+<span class="bold"><strong>scsi_sas: </strong></span>Serial Attached SCSI</li>
+</ul></div>
+<p>
+            TODO: include other fabrics (FC, Parallel SCSI, etc.).
+      </p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody></tbody>
+</table></div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.20</div>
+</body>
+</html>

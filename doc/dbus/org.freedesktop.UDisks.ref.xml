@@ -1,0 +1,515 @@
+<?xml version="1.0"?><!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="UDisks">
+  <refmeta>
+    <refentrytitle role="top_of_page">org.freedesktop.UDisks</refentrytitle>
+  </refmeta>
+  <refnamediv>
+    <refname>org.freedesktop.UDisks</refname>
+    <refpurpose>UDisks interface</refpurpose>
+  </refnamediv>
+  <refsynopsisdiv role="synopsis">
+    <title role="synopsis.title">Methods</title>
+    <synopsis><link linkend="UDisks.EnumerateAdapters">EnumerateAdapters</link>(out'ao'devices)
+<link linkend="UDisks.EnumerateExpanders">EnumerateExpanders</link>(out'ao'devices)
+<link linkend="UDisks.EnumeratePorts">EnumeratePorts</link>(out'ao'devices)
+<link linkend="UDisks.EnumerateDevices">EnumerateDevices</link>(out'ao'devices)
+<link linkend="UDisks.EnumerateDeviceFiles">EnumerateDeviceFiles</link>(out'as'device_files)
+<link linkend="UDisks.FindDeviceByDeviceFile">FindDeviceByDeviceFile</link>(in's'device_file,
+out'o'device)
+<link linkend="UDisks.FindDeviceByMajorMinor">FindDeviceByMajorMinor</link>(in'x'device_major,
+in'x'device_minor,
+out'o'device)
+<link linkend="UDisks.DriveInhibitAllPolling">DriveInhibitAllPolling</link>(in'as'options,
+out's'cookie)
+<link linkend="UDisks.DriveUninhibitAllPolling">DriveUninhibitAllPolling</link>(in's'cookie)
+<link linkend="UDisks.DriveSetAllSpindownTimeouts">DriveSetAllSpindownTimeouts</link>(in'i'timeout_seconds,
+in'as'options,
+out's'cookie)
+<link linkend="UDisks.DriveUnsetAllSpindownTimeouts">DriveUnsetAllSpindownTimeouts</link>(in's'cookie)
+<link linkend="UDisks.LinuxLvm2VGStart">LinuxLvm2VGStart</link>(in's'uuid,
+in'as'options)
+<link linkend="UDisks.LinuxLvm2VGStop">LinuxLvm2VGStop</link>(in's'uuid,
+in'as'options)
+<link linkend="UDisks.LinuxLvm2VGSetName">LinuxLvm2VGSetName</link>(in's'uuid,
+in's'name)
+<link linkend="UDisks.LinuxLvm2VGAddPV">LinuxLvm2VGAddPV</link>(in's'uuid,
+in'o'physical_volume,
+in'as'options)
+<link linkend="UDisks.LinuxLvm2VGRemovePV">LinuxLvm2VGRemovePV</link>(in's'vg_uuid,
+in's'pv_uuid,
+in'as'options)
+<link linkend="UDisks.LinuxLvm2LVSetName">LinuxLvm2LVSetName</link>(in's'group_uuid,
+in's'uuid,
+in's'name)
+<link linkend="UDisks.LinuxLvm2LVStart">LinuxLvm2LVStart</link>(in's'group_uuid,
+in's'uuid,
+in'as'options)
+<link linkend="UDisks.LinuxLvm2LVRemove">LinuxLvm2LVRemove</link>(in's'group_uuid,
+in's'uuid,
+in'as'options)
+<link linkend="UDisks.LinuxLvm2LVCreate">LinuxLvm2LVCreate</link>(in's'group_uuid,
+in's'name,
+in't'size,
+in'u'num_stripes,
+in't'stripe_size,
+in'u'num_mirrors,
+in'as'options,
+in's'fstype,
+in'as'fsoptions,
+out'o'created_device)
+<link linkend="UDisks.LinuxMdStart">LinuxMdStart</link>(in'ao'components,
+in'as'options,
+out'o'device)
+<link linkend="UDisks.LinuxMdCreate">LinuxMdCreate</link>(in'ao'components,
+in's'level,
+in't'stripe_size,
+in's'name,
+in'as'options,
+out'o'device)
+<link linkend="UDisks.Inhibit">Inhibit</link>(out's'cookie)
+<link linkend="UDisks.Uninhibit">Uninhibit</link>(in's'cookie)
+</synopsis>
+  </refsynopsisdiv>
+  <refsect1 role="signal_proto">
+    <title role="signal_proto.title">Signals</title>
+    <synopsis><link linkend="UDisks::DeviceAdded">DeviceAdded</link>('o'device)
+<link linkend="UDisks::DeviceRemoved">DeviceRemoved</link>('o'device)
+<link linkend="UDisks::DeviceChanged">DeviceChanged</link>('o'device)
+<link linkend="UDisks::DeviceJobChanged">DeviceJobChanged</link>('o'device,
+'b'job_in_progress,
+'b'job_is_cancellable,
+'s'job_id,
+'i'job_num_tasks,
+'i'job_cur_task,
+'s'job_cur_task_id,
+'d'job_cur_task_percentage)
+<link linkend="UDisks::AdapterAdded">AdapterAdded</link>('o'adapter)
+<link linkend="UDisks::AdapterRemoved">AdapterRemoved</link>('o'adapter)
+<link linkend="UDisks::AdapterChanged">AdapterChanged</link>('o'adapter)
+<link linkend="UDisks::ExpanderAdded">ExpanderAdded</link>('o'expander)
+<link linkend="UDisks::ExpanderRemoved">ExpanderRemoved</link>('o'expander)
+<link linkend="UDisks::ExpanderChanged">ExpanderChanged</link>('o'expander)
+<link linkend="UDisks::PortAdded">PortAdded</link>('o'port)
+<link linkend="UDisks::PortRemoved">PortRemoved</link>('o'port)
+<link linkend="UDisks::PortChanged">PortChanged</link>('o'port)
+</synopsis>
+  </refsect1>
+  <refsect1 role="impl_interfaces">
+    <title role="impl_interfaces.title">Implemented Interfaces</title>
+    <para>
+    Objects implementing org.freedesktop.UDisks also implements
+    org.freedesktop.DBus.Introspectable,
+    org.freedesktop.DBus.Properties
+    </para>
+  </refsect1>
+  <refsect1 role="properties">
+    <title role="properties.title">Properties</title>
+    <synopsis><link linkend="UDisks:DaemonVersion">'DaemonVersion'</link>read's'
+<link linkend="UDisks:DaemonIsInhibited">'DaemonIsInhibited'</link>read'b'
+<link linkend="UDisks:SupportsLuksDevices">'SupportsLuksDevices'</link>read'b'
+<link linkend="UDisks:KnownFilesystems">'KnownFilesystems'</link>read'a(ssbbbubbbbbbbb)'
+</synopsis>
+  </refsect1>
+  <refsect1 role="desc">
+    <title role="desc.title">Description</title>
+    <para/>
+  </refsect1>
+  <refsect1 role="details"><title role="details.title">Details</title><refsect2><title><anchor role="function" id="UDisks.EnumerateAdapters"/>EnumerateAdapters ()</title><indexterm><primary>EnumerateAdapters</primary><secondary>UDisks</secondary></indexterm><programlisting>EnumerateAdapters (out'ao'devices)</programlisting></refsect2>
+          <para>
+            Enumerate all storage adapters on the system.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>devices</parameter>:</term><listitem><simpara>An array of object paths for storage adapters.</simpara></listitem></varlistentry></variablelist><refsect2><title><anchor role="function" id="UDisks.EnumerateExpanders"/>EnumerateExpanders ()</title><indexterm><primary>EnumerateExpanders</primary><secondary>UDisks</secondary></indexterm><programlisting>EnumerateExpanders (out'ao'devices)</programlisting></refsect2>
+          <para>
+            Enumerate all storage expanders on the system.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>devices</parameter>:</term><listitem><simpara>An array of object paths for storage expanders.</simpara></listitem></varlistentry></variablelist><refsect2><title><anchor role="function" id="UDisks.EnumeratePorts"/>EnumeratePorts ()</title><indexterm><primary>EnumeratePorts</primary><secondary>UDisks</secondary></indexterm><programlisting>EnumeratePorts (out'ao'devices)</programlisting></refsect2>
+          <para>
+            Enumerate all storage ports on the system.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>devices</parameter>:</term><listitem><simpara>An array of object paths for ports.</simpara></listitem></varlistentry></variablelist><refsect2><title><anchor role="function" id="UDisks.EnumerateDevices"/>EnumerateDevices ()</title><indexterm><primary>EnumerateDevices</primary><secondary>UDisks</secondary></indexterm><programlisting>EnumerateDevices (out'ao'devices)</programlisting></refsect2>
+          <para>
+            Enumerate all disk devices on the system.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>devices</parameter>:</term><listitem><simpara>An array of object paths for devices.</simpara></listitem></varlistentry></variablelist><refsect2><title><anchor role="function" id="UDisks.EnumerateDeviceFiles"/>EnumerateDeviceFiles ()</title><indexterm><primary>EnumerateDeviceFiles</primary><secondary>UDisks</secondary></indexterm><programlisting>EnumerateDeviceFiles (out'as'device_files)</programlisting></refsect2>
+          <para>
+            Enumerate all device files (including symlinks) for disk devices on the system.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>device_files</parameter>:</term><listitem><simpara>An array device file names.</simpara></listitem></varlistentry></variablelist><refsect2><title><anchor role="function" id="UDisks.FindDeviceByDeviceFile"/>FindDeviceByDeviceFile ()</title><indexterm><primary>FindDeviceByDeviceFile</primary><secondary>UDisks</secondary></indexterm><programlisting>FindDeviceByDeviceFile (in's'device_file,
+out'o'device)</programlisting></refsect2>
+          <para>
+            Finds a device by device path.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>device_file</parameter>:</term><listitem><simpara>UNIX special device file</simpara></listitem></varlistentry><varlistentry><term><parameter>device</parameter>:</term><listitem><simpara>Object path of device</simpara></listitem></varlistentry></variablelist><refsect2><title><anchor role="function" id="UDisks.FindDeviceByMajorMinor"/>FindDeviceByMajorMinor ()</title><indexterm><primary>FindDeviceByMajorMinor</primary><secondary>UDisks</secondary></indexterm><programlisting>FindDeviceByMajorMinor (in'x'device_major,
+in'x'device_minor,
+out'o'device)</programlisting></refsect2>
+          <para>
+            Finds a device by major:minor.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>device_major</parameter>:</term><listitem><simpara>Device major</simpara></listitem></varlistentry><varlistentry><term><parameter>device_minor</parameter>:</term><listitem><simpara>Device minor</simpara></listitem></varlistentry><varlistentry><term><parameter>device</parameter>:</term><listitem><simpara>Object path of device</simpara></listitem></varlistentry></variablelist><refsect2><title><anchor role="function" id="UDisks.DriveInhibitAllPolling"/>DriveInhibitAllPolling ()</title><indexterm><primary>DriveInhibitAllPolling</primary><secondary>UDisks</secondary></indexterm><programlisting>DriveInhibitAllPolling (in'as'options,
+out's'cookie)</programlisting></refsect2>
+          <para>
+            Inhibits the daemon from polling devices for media changes.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>options</parameter>:</term><listitem><simpara>Inhibit options. Currently no options are recognized.</simpara></listitem></varlistentry><varlistentry><term><parameter>cookie</parameter>:</term><listitem><simpara>
+            A cookie that can be used in the
+            <link linkend="Disks.DriveUninhibitAllPolling"><function>DriveUninhibitAllPolling()</function></link> method
+            to stop inhibiting polling of all devices.
+        </simpara></listitem></varlistentry></variablelist><refsect3><title>Errors</title><variablelist role="errors"><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.NotAuthorized</parameter>:</term><listitem><simpara>if the caller lacks the appropriate PolicyKit authorization</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Failed</parameter>:</term><listitem><simpara>if the operation failed</simpara></listitem></varlistentry></variablelist></refsect3><refsect3><title>Permissions</title><para role="permission">
+          The caller will need one of the following PolicyKit authorizations:
+          <para><itemizedlist><listitem><emphasis role="bold">org.freedesktop.udisks.inhibit-polling: </emphasis>To inhibit polling</listitem></itemizedlist></para>
+        </para></refsect3><refsect2><title><anchor role="function" id="UDisks.DriveUninhibitAllPolling"/>DriveUninhibitAllPolling ()</title><indexterm><primary>DriveUninhibitAllPolling</primary><secondary>UDisks</secondary></indexterm><programlisting>DriveUninhibitAllPolling (in's'cookie)</programlisting></refsect2>
+          <para>
+            Uninhibits daemon from polling devices for media changes.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>cookie</parameter>:</term><listitem><simpara>
+            A cookie obtained from the
+            <link linkend="Disks.DriveInhibitAllPolling"><function>DriveInhibitAllPolling()</function></link> method.
+        </simpara></listitem></varlistentry></variablelist><refsect3><title>Errors</title><variablelist role="errors"><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Failed</parameter>:</term><listitem><simpara>if the given cookie is malformed</simpara></listitem></varlistentry></variablelist></refsect3><refsect2><title><anchor role="function" id="UDisks.DriveSetAllSpindownTimeouts"/>DriveSetAllSpindownTimeouts ()</title><indexterm><primary>DriveSetAllSpindownTimeouts</primary><secondary>UDisks</secondary></indexterm><programlisting>DriveSetAllSpindownTimeouts (in'i'timeout_seconds,
+in'as'options,
+out's'cookie)</programlisting></refsect2>
+          <para>
+            Configures spindown timeout for all drives capable of being spun down.
+            Caution should be exercised when using this method, see
+            the SPINNING DOWN DISKS section in the
+            udisks<literal>(1)</literal> man page before using it.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>timeout_seconds</parameter>:</term><listitem><simpara>
+            Number of seconds before drives should be spun down.
+        </simpara></listitem></varlistentry><varlistentry><term><parameter>options</parameter>:</term><listitem><simpara>
+            Options related to setting spindown timeouts. Currently no options are recognized.
+        </simpara></listitem></varlistentry><varlistentry><term><parameter>cookie</parameter>:</term><listitem><simpara>
+            A cookie that can be used in the
+            <link linkend="Drive.DriveUnsetAllSpindownTimeouts"><function>DriveUnsetAllSpindownTimeouts()</function></link> method
+            to unset the spindown timeout for drives.
+        </simpara></listitem></varlistentry></variablelist><refsect3><title>Errors</title><variablelist role="errors"><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.NotAuthorized</parameter>:</term><listitem><simpara>if the caller lacks the appropriate PolicyKit authorization</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Failed</parameter>:</term><listitem><simpara>if the operation failed</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.InvalidOption</parameter>:</term><listitem><simpara>if an invalid or malformed option was given</simpara></listitem></varlistentry></variablelist></refsect3><refsect3><title>Permissions</title><para role="permission">
+          The caller will need one of the following PolicyKit authorizations:
+          <para><itemizedlist><listitem><emphasis role="bold">org.freedesktop.udisks.drive-set-spindown: </emphasis>To set spindown timeouts</listitem></itemizedlist></para>
+        </para></refsect3><refsect2><title><anchor role="function" id="UDisks.DriveUnsetAllSpindownTimeouts"/>DriveUnsetAllSpindownTimeouts ()</title><indexterm><primary>DriveUnsetAllSpindownTimeouts</primary><secondary>UDisks</secondary></indexterm><programlisting>DriveUnsetAllSpindownTimeouts (in's'cookie)</programlisting></refsect2>
+          <para>
+            Unsets spindown timeout for the drive.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>cookie</parameter>:</term><listitem><simpara>
+            A cookie obtained from the
+            <link linkend="Device.DriveSetSpindownTimeout"><function>DriveSetSpindownTimeout()</function></link> method.
+        </simpara></listitem></varlistentry></variablelist><refsect3><title>Errors</title><variablelist role="errors"><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.NotAuthorized</parameter>:</term><listitem><simpara>if the caller lacks the appropriate PolicyKit authorization</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Failed</parameter>:</term><listitem><simpara>if the operation failed</simpara></listitem></varlistentry></variablelist></refsect3><refsect3><title>Permissions</title><para role="permission">
+          The caller will need one of the following PolicyKit authorizations:
+          <para><itemizedlist><listitem><emphasis role="bold">org.freedesktop.udisks.drive-set-spindown: </emphasis>To set spindown timeouts</listitem></itemizedlist></para>
+        </para></refsect3><refsect2><title><anchor role="function" id="UDisks.LinuxLvm2VGStart"/>LinuxLvm2VGStart ()</title><indexterm><primary>LinuxLvm2VGStart</primary><secondary>UDisks</secondary></indexterm><programlisting>LinuxLvm2VGStart (in's'uuid,
+in'as'options)</programlisting></refsect2>
+          <para>
+            Starts all logical volumes in Linux LVM2 Volume Group.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>uuid</parameter>:</term><listitem><simpara>The UUID of the volume group to start.</simpara></listitem></varlistentry><varlistentry><term><parameter>options</parameter>:</term><listitem><simpara>Options for starting the VG. Currently no options are supported.</simpara></listitem></varlistentry></variablelist><refsect3><title>Errors</title><variablelist role="errors"><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.NotAuthorized</parameter>:</term><listitem><simpara>if the caller lacks the appropriate PolicyKit authorization</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Busy</parameter>:</term><listitem><simpara>if one of the given components are busy</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Failed</parameter>:</term><listitem><simpara>if the operation failed</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Cancelled</parameter>:</term><listitem><simpara>if the job was cancelled</simpara></listitem></varlistentry></variablelist></refsect3><refsect3><title>Permissions</title><para role="permission">
+          The caller will need the following PolicyKit authorization:
+          <para><itemizedlist><listitem><emphasis role="bold">org.freedesktop.udisks.linux-lvm2: </emphasis>
+                Needed to configured Linux LVM2 devices.
+              </listitem></itemizedlist></para>
+        </para></refsect3><refsect2><title><anchor role="function" id="UDisks.LinuxLvm2VGStop"/>LinuxLvm2VGStop ()</title><indexterm><primary>LinuxLvm2VGStop</primary><secondary>UDisks</secondary></indexterm><programlisting>LinuxLvm2VGStop (in's'uuid,
+in'as'options)</programlisting></refsect2>
+          <para>
+            Stops all logical volumes in Linux LVM2 Volume Group.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>uuid</parameter>:</term><listitem><simpara>The UUID of the volume group to stop.</simpara></listitem></varlistentry><varlistentry><term><parameter>options</parameter>:</term><listitem><simpara>Options for stopping the VG. Currently no options are supported.</simpara></listitem></varlistentry></variablelist><refsect3><title>Errors</title><variablelist role="errors"><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.NotAuthorized</parameter>:</term><listitem><simpara>if the caller lacks the appropriate PolicyKit authorization</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Busy</parameter>:</term><listitem><simpara>if one of the given components are busy</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Failed</parameter>:</term><listitem><simpara>if the operation failed</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Cancelled</parameter>:</term><listitem><simpara>if the job was cancelled</simpara></listitem></varlistentry></variablelist></refsect3><refsect3><title>Permissions</title><para role="permission">
+          The caller will need the following PolicyKit authorization:
+          <para><itemizedlist><listitem><emphasis role="bold">org.freedesktop.udisks.linux-lvm2: </emphasis>
+                Needed to configured Linux LVM2 devices.
+              </listitem></itemizedlist></para>
+        </para></refsect3><refsect2><title><anchor role="function" id="UDisks.LinuxLvm2VGSetName"/>LinuxLvm2VGSetName ()</title><indexterm><primary>LinuxLvm2VGSetName</primary><secondary>UDisks</secondary></indexterm><programlisting>LinuxLvm2VGSetName (in's'uuid,
+in's'name)</programlisting></refsect2>
+          <para>
+            Sets the name for a volume group.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>uuid</parameter>:</term><listitem><simpara>The UUID of the volume group to set the name for.</simpara></listitem></varlistentry><varlistentry><term><parameter>name</parameter>:</term><listitem><simpara>The new name for the volume group.</simpara></listitem></varlistentry></variablelist><refsect3><title>Errors</title><variablelist role="errors"><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.NotAuthorized</parameter>:</term><listitem><simpara>if the caller lacks the appropriate PolicyKit authorization</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Busy</parameter>:</term><listitem><simpara>if one of the given components are busy</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Failed</parameter>:</term><listitem><simpara>if the operation failed</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Cancelled</parameter>:</term><listitem><simpara>if the job was cancelled</simpara></listitem></varlistentry></variablelist></refsect3><refsect3><title>Permissions</title><para role="permission">
+          The caller will need the following PolicyKit authorization:
+          <para><itemizedlist><listitem><emphasis role="bold">org.freedesktop.udisks.linux-lvm2: </emphasis>
+                Needed to configured Linux LVM2 devices.
+              </listitem></itemizedlist></para>
+        </para></refsect3><refsect2><title><anchor role="function" id="UDisks.LinuxLvm2VGAddPV"/>LinuxLvm2VGAddPV ()</title><indexterm><primary>LinuxLvm2VGAddPV</primary><secondary>UDisks</secondary></indexterm><programlisting>LinuxLvm2VGAddPV (in's'uuid,
+in'o'physical_volume,
+in'as'options)</programlisting></refsect2>
+          <para>
+            Adds a Physical volume to a Linux LVM2 Volume Group. Existing data
+            on the given device to use for a physical volume will be erased.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>uuid</parameter>:</term><listitem><simpara>The UUID of the volume group to add a physical volume to.</simpara></listitem></varlistentry><varlistentry><term><parameter>physical_volume</parameter>:</term><listitem><simpara>The objcet path of the device to use as a physical volume.</simpara></listitem></varlistentry><varlistentry><term><parameter>options</parameter>:</term><listitem><simpara>Currently unused.</simpara></listitem></varlistentry></variablelist><refsect3><title>Errors</title><variablelist role="errors"><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.NotAuthorized</parameter>:</term><listitem><simpara>if the caller lacks the appropriate PolicyKit authorization</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Busy</parameter>:</term><listitem><simpara>if one of the given components are busy</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Failed</parameter>:</term><listitem><simpara>if the operation failed</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Cancelled</parameter>:</term><listitem><simpara>if the job was cancelled</simpara></listitem></varlistentry></variablelist></refsect3><refsect3><title>Permissions</title><para role="permission">
+          The caller will need the following PolicyKit authorization:
+          <para><itemizedlist><listitem><emphasis role="bold">org.freedesktop.udisks.linux-lvm2: </emphasis>
+                Needed to configured Linux LVM2 devices.
+              </listitem></itemizedlist></para>
+        </para></refsect3><refsect2><title><anchor role="function" id="UDisks.LinuxLvm2VGRemovePV"/>LinuxLvm2VGRemovePV ()</title><indexterm><primary>LinuxLvm2VGRemovePV</primary><secondary>UDisks</secondary></indexterm><programlisting>LinuxLvm2VGRemovePV (in's'vg_uuid,
+in's'pv_uuid,
+in'as'options)</programlisting></refsect2>
+          <para>
+            Removes a Physical volume from a Linux LVM2 Volume Group.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>vg_uuid</parameter>:</term><listitem><simpara>The UUID of the volume group to remove the physical volume from.</simpara></listitem></varlistentry><varlistentry><term><parameter>pv_uuid</parameter>:</term><listitem><simpara>The UUID of the physical volume to remove from the VG.</simpara></listitem></varlistentry><varlistentry><term><parameter>options</parameter>:</term><listitem><simpara>Currently unused.</simpara></listitem></varlistentry></variablelist><refsect3><title>Errors</title><variablelist role="errors"><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.NotAuthorized</parameter>:</term><listitem><simpara>if the caller lacks the appropriate PolicyKit authorization</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Busy</parameter>:</term><listitem><simpara>if one of the given components are busy</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Failed</parameter>:</term><listitem><simpara>if the operation failed</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Cancelled</parameter>:</term><listitem><simpara>if the job was cancelled</simpara></listitem></varlistentry></variablelist></refsect3><refsect3><title>Permissions</title><para role="permission">
+          The caller will need the following PolicyKit authorization:
+          <para><itemizedlist><listitem><emphasis role="bold">org.freedesktop.udisks.linux-lvm2: </emphasis>
+                Needed to configured Linux LVM2 devices.
+              </listitem></itemizedlist></para>
+        </para></refsect3><refsect2><title><anchor role="function" id="UDisks.LinuxLvm2LVSetName"/>LinuxLvm2LVSetName ()</title><indexterm><primary>LinuxLvm2LVSetName</primary><secondary>UDisks</secondary></indexterm><programlisting>LinuxLvm2LVSetName (in's'group_uuid,
+in's'uuid,
+in's'name)</programlisting></refsect2>
+          <para>
+            Sets the name for a logical volume.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>group_uuid</parameter>:</term><listitem><simpara>The UUID of the volume group for the logical volume.</simpara></listitem></varlistentry><varlistentry><term><parameter>uuid</parameter>:</term><listitem><simpara>The UUID of the logical volume to set the name for.</simpara></listitem></varlistentry><varlistentry><term><parameter>name</parameter>:</term><listitem><simpara>The new name for the logical volume.</simpara></listitem></varlistentry></variablelist><refsect3><title>Errors</title><variablelist role="errors"><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.NotAuthorized</parameter>:</term><listitem><simpara>if the caller lacks the appropriate PolicyKit authorization</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Busy</parameter>:</term><listitem><simpara>if one of the given components are busy</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Failed</parameter>:</term><listitem><simpara>if the operation failed</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Cancelled</parameter>:</term><listitem><simpara>if the job was cancelled</simpara></listitem></varlistentry></variablelist></refsect3><refsect3><title>Permissions</title><para role="permission">
+          The caller will need the following PolicyKit authorization:
+          <para><itemizedlist><listitem><emphasis role="bold">org.freedesktop.udisks.linux-lvm2: </emphasis>
+                Needed to configured Linux LVM2 devices.
+              </listitem></itemizedlist></para>
+        </para></refsect3><refsect2><title><anchor role="function" id="UDisks.LinuxLvm2LVStart"/>LinuxLvm2LVStart ()</title><indexterm><primary>LinuxLvm2LVStart</primary><secondary>UDisks</secondary></indexterm><programlisting>LinuxLvm2LVStart (in's'group_uuid,
+in's'uuid,
+in'as'options)</programlisting></refsect2>
+          <para>
+            Starts a LVM2 logical volume.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>group_uuid</parameter>:</term><listitem><simpara>The UUID of the volume group of the logical volume to start belongs to.</simpara></listitem></varlistentry><varlistentry><term><parameter>uuid</parameter>:</term><listitem><simpara>The UUID of the logical volume to start.</simpara></listitem></varlistentry><varlistentry><term><parameter>options</parameter>:</term><listitem><simpara>Options for starting the logical volume. Currently no options are supported.</simpara></listitem></varlistentry></variablelist><refsect3><title>Errors</title><variablelist role="errors"><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.NotAuthorized</parameter>:</term><listitem><simpara>if the caller lacks the appropriate PolicyKit authorization</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Busy</parameter>:</term><listitem><simpara>if one of the given components are busy</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Failed</parameter>:</term><listitem><simpara>if the operation failed</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Cancelled</parameter>:</term><listitem><simpara>if the job was cancelled</simpara></listitem></varlistentry></variablelist></refsect3><refsect3><title>Permissions</title><para role="permission">
+          The caller will need the following PolicyKit authorization:
+          <para><itemizedlist><listitem><emphasis role="bold">org.freedesktop.udisks.linux-lvm2: </emphasis>
+                Needed to configured Linux LVM2 devices.
+              </listitem></itemizedlist></para>
+        </para></refsect3><refsect2><title><anchor role="function" id="UDisks.LinuxLvm2LVRemove"/>LinuxLvm2LVRemove ()</title><indexterm><primary>LinuxLvm2LVRemove</primary><secondary>UDisks</secondary></indexterm><programlisting>LinuxLvm2LVRemove (in's'group_uuid,
+in's'uuid,
+in'as'options)</programlisting></refsect2>
+          <para>
+            Removes a LVM2 logical volume.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>group_uuid</parameter>:</term><listitem><simpara>The UUID of the volume group of the logical volume to start belongs to.</simpara></listitem></varlistentry><varlistentry><term><parameter>uuid</parameter>:</term><listitem><simpara>The UUID of the logical volume to remove.</simpara></listitem></varlistentry><varlistentry><term><parameter>options</parameter>:</term><listitem><simpara>Options used for the removal of the logical volume. Currently no options are supported.</simpara></listitem></varlistentry></variablelist><refsect3><title>Errors</title><variablelist role="errors"><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.NotAuthorized</parameter>:</term><listitem><simpara>if the caller lacks the appropriate PolicyKit authorization</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Busy</parameter>:</term><listitem><simpara>if one of the given components are busy</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Failed</parameter>:</term><listitem><simpara>if the operation failed</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Cancelled</parameter>:</term><listitem><simpara>if the job was cancelled</simpara></listitem></varlistentry></variablelist></refsect3><refsect3><title>Permissions</title><para role="permission">
+          The caller will need the following PolicyKit authorization:
+          <para><itemizedlist><listitem><emphasis role="bold">org.freedesktop.udisks.linux-lvm2: </emphasis>
+                Needed to configured Linux LVM2 devices.
+              </listitem></itemizedlist></para>
+        </para></refsect3><refsect2><title><anchor role="function" id="UDisks.LinuxLvm2LVCreate"/>LinuxLvm2LVCreate ()</title><indexterm><primary>LinuxLvm2LVCreate</primary><secondary>UDisks</secondary></indexterm><programlisting>LinuxLvm2LVCreate (in's'group_uuid,
+in's'name,
+in't'size,
+in'u'num_stripes,
+in't'stripe_size,
+in'u'num_mirrors,
+in'as'options,
+in's'fstype,
+in'as'fsoptions,
+out'o'created_device)</programlisting></refsect2>
+          <para>
+            Creates a new LVM2 logical volume.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>group_uuid</parameter>:</term><listitem><simpara>The UUID of the volume group to create a logical volume in.</simpara></listitem></varlistentry><varlistentry><term><parameter>name</parameter>:</term><listitem><simpara>The name for the logical volume.</simpara></listitem></varlistentry><varlistentry><term><parameter>size</parameter>:</term><listitem><simpara>The size of the logical volume, in bytes.</simpara></listitem></varlistentry><varlistentry><term><parameter>num_stripes</parameter>:</term><listitem><simpara>Number of stripes to use.</simpara></listitem></varlistentry><varlistentry><term><parameter>stripe_size</parameter>:</term><listitem><simpara>The stripe size to use or 0 if @num_stripes is 0. This must be a power of two.</simpara></listitem></varlistentry><varlistentry><term><parameter>num_mirrors</parameter>:</term><listitem><simpara>Number of mirrors to use.</simpara></listitem></varlistentry><varlistentry><term><parameter>options</parameter>:</term><listitem><simpara>Options used when creating the logical volume. Currently no options are supported.</simpara></listitem></varlistentry><varlistentry><term><parameter>fstype</parameter>:</term><listitem><simpara>
+            The file system to create in new logical filesystem. Leave
+            blank to skip creating a file system. See the
+            <link linkend="Device.FilesystemCreate"><function>Device.FilesystemCreate()</function></link> method
+            for details.
+        </simpara></listitem></varlistentry><varlistentry><term><parameter>fsoptions</parameter>:</term><listitem><simpara>
+            Options to use for file system creation. See the
+            <link linkend="Device.FilesystemCreate"><function>Device.FilesystemCreate()</function></link> method
+            for details.
+        </simpara></listitem></varlistentry><varlistentry><term><parameter>created_device</parameter>:</term><listitem><simpara>The object path of the newly added logical volume.</simpara></listitem></varlistentry></variablelist><refsect3><title>Errors</title><variablelist role="errors"><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.NotAuthorized</parameter>:</term><listitem><simpara>if the caller lacks the appropriate PolicyKit authorization</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Busy</parameter>:</term><listitem><simpara>if one of the given components are busy</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Failed</parameter>:</term><listitem><simpara>if the operation failed</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Cancelled</parameter>:</term><listitem><simpara>if the job was cancelled</simpara></listitem></varlistentry></variablelist></refsect3><refsect3><title>Permissions</title><para role="permission">
+          The caller will need the following PolicyKit authorization:
+          <para><itemizedlist><listitem><emphasis role="bold">org.freedesktop.udisks.linux-lvm2: </emphasis>
+                Needed to configured Linux LVM2 devices.
+              </listitem></itemizedlist></para>
+        </para></refsect3><refsect2><title><anchor role="function" id="UDisks.LinuxMdStart"/>LinuxMdStart ()</title><indexterm><primary>LinuxMdStart</primary><secondary>UDisks</secondary></indexterm><programlisting>LinuxMdStart (in'ao'components,
+in'as'options,
+out'o'device)</programlisting></refsect2>
+          <para>
+            Starts an Linux md RAID array. The array will be assembled
+            and started in degraded mode if an insufficient number of
+            components are given.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>components</parameter>:</term><listitem><simpara>The object paths of the components of the array to start.</simpara></listitem></varlistentry><varlistentry><term><parameter>options</parameter>:</term><listitem><simpara>Options for starting the array. Currently no options are supported.</simpara></listitem></varlistentry><varlistentry><term><parameter>device</parameter>:</term><listitem><simpara>The object path of the assembled array device.</simpara></listitem></varlistentry></variablelist><refsect3><title>Errors</title><variablelist role="errors"><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.NotAuthorized</parameter>:</term><listitem><simpara>if the caller lacks the appropriate PolicyKit authorization</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Busy</parameter>:</term><listitem><simpara>if one of the given components are busy</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Failed</parameter>:</term><listitem><simpara>if the operation failed</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Cancelled</parameter>:</term><listitem><simpara>if the job was cancelled</simpara></listitem></varlistentry></variablelist></refsect3><refsect3><title>Permissions</title><para role="permission">
+          The caller will need the following PolicyKit authorization:
+          <para><itemizedlist><listitem><emphasis role="bold">org.freedesktop.udisks.linux-md: </emphasis>
+                Needed to configured Linux md Software RAID devices.
+              </listitem></itemizedlist></para>
+        </para></refsect3><refsect2><title><anchor role="function" id="UDisks.LinuxMdCreate"/>LinuxMdCreate ()</title><indexterm><primary>LinuxMdCreate</primary><secondary>UDisks</secondary></indexterm><programlisting>LinuxMdCreate (in'ao'components,
+in's'level,
+in't'stripe_size,
+in's'name,
+in'as'options,
+out'o'device)</programlisting></refsect2>
+          <para>
+            Creates a Linux md RAID array. The array will be created and
+            assembled.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>components</parameter>:</term><listitem><simpara>The object paths of the components to use for the array.</simpara></listitem></varlistentry><varlistentry><term><parameter>level</parameter>:</term><listitem><simpara>RAID level.</simpara></listitem></varlistentry><varlistentry><term><parameter>stripe_size</parameter>:</term><listitem><simpara>Stripe Size in bytes, or 0 to use the default stripe size.</simpara></listitem></varlistentry><varlistentry><term><parameter>name</parameter>:</term><listitem><simpara>Name of the array.</simpara></listitem></varlistentry><varlistentry><term><parameter>options</parameter>:</term><listitem><simpara>Options for creating the array. Currently no options are supported.</simpara></listitem></varlistentry><varlistentry><term><parameter>device</parameter>:</term><listitem><simpara>The object path of the created array device.</simpara></listitem></varlistentry></variablelist><refsect3><title>Errors</title><variablelist role="errors"><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.NotAuthorized</parameter>:</term><listitem><simpara>if the caller lacks the appropriate PolicyKit authorization</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Busy</parameter>:</term><listitem><simpara>if one of the given components are busy</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Failed</parameter>:</term><listitem><simpara>if the operation failed</simpara></listitem></varlistentry><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Cancelled</parameter>:</term><listitem><simpara>if the job was cancelled</simpara></listitem></varlistentry></variablelist></refsect3><refsect3><title>Permissions</title><para role="permission">
+          The caller will need the following PolicyKit authorization:
+          <para><itemizedlist><listitem><emphasis role="bold">org.freedesktop.udisks.linux-md: </emphasis>
+                Needed to configured Linux md Software RAID devices.
+              </listitem></itemizedlist></para>
+        </para></refsect3><refsect2><title><anchor role="function" id="UDisks.Inhibit"/>Inhibit ()</title><indexterm><primary>Inhibit</primary><secondary>UDisks</secondary></indexterm><programlisting>Inhibit (out's'cookie)</programlisting></refsect2>
+          <para>
+            Inhibits clients from invoking methods on the daemon
+            of the daemon that require authorization (all methods
+            will return the <literal>org.freedesktop.PolicyKit.Error.Inhibited</literal> error)
+            if the caller is not the super user.
+            This is typically used by OS installers and other
+            programs that expects full control of the system, specifically
+            to avoid automounting devices.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>cookie</parameter>:</term><listitem><simpara>
+            A cookie that can be used in the
+            <link linkend="Disks.Uninhibit"><function>Uninhibit()</function></link> method.
+            to stop inhibiting the daemon.
+        </simpara></listitem></varlistentry></variablelist><refsect3><title>Errors</title><variablelist role="errors"><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.NotAuthorized</parameter>:</term><listitem><simpara>if the caller is not the super user</simpara></listitem></varlistentry></variablelist></refsect3><refsect3><title>Permissions</title><para role="permission">
+          Only the super user can invoke this method.
+        </para></refsect3><refsect2><title><anchor role="function" id="UDisks.Uninhibit"/>Uninhibit ()</title><indexterm><primary>Uninhibit</primary><secondary>UDisks</secondary></indexterm><programlisting>Uninhibit (in's'cookie)</programlisting></refsect2>
+          <para>
+            Uninhibits other clients from using the daemon.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>cookie</parameter>:</term><listitem><simpara>
+            A cookie obtained from the
+            <link linkend="Disks.Inhibit"><function>Inhibit()</function></link> method.
+        </simpara></listitem></varlistentry></variablelist><refsect3><title>Errors</title><variablelist role="errors"><varlistentry><term><parameter>org.freedesktop.PolicyKit.Error.Failed</parameter>:</term><listitem><simpara>if the given cookie is malformed</simpara></listitem></varlistentry></variablelist></refsect3></refsect1>
+  <refsect1 role="signals"><title role="signals.title">Signal Details</title><refsect2><title><anchor role="function" id="UDisks::DeviceAdded"/>The DeviceAdded signal</title><indexterm><primary>DeviceAdded</primary><secondary>UDisks</secondary></indexterm><programlisting>DeviceAdded ('o'device)</programlisting></refsect2>
+          <para>
+            Emitted when a device is added.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>device</parameter>:</term><listitem><simpara>Object path of device that was added.</simpara></listitem></varlistentry></variablelist><refsect2><title><anchor role="function" id="UDisks::DeviceRemoved"/>The DeviceRemoved signal</title><indexterm><primary>DeviceRemoved</primary><secondary>UDisks</secondary></indexterm><programlisting>DeviceRemoved ('o'device)</programlisting></refsect2>
+          <para>
+            Emitted when a device is removed.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>device</parameter>:</term><listitem><simpara>Object path of device that was removed.</simpara></listitem></varlistentry></variablelist><refsect2><title><anchor role="function" id="UDisks::DeviceChanged"/>The DeviceChanged signal</title><indexterm><primary>DeviceChanged</primary><secondary>UDisks</secondary></indexterm><programlisting>DeviceChanged ('o'device)</programlisting></refsect2>
+          <para>
+            Emitted when a device changed.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>device</parameter>:</term><listitem><simpara>Object path of device that was changed.</simpara></listitem></varlistentry></variablelist><refsect2><title><anchor role="function" id="UDisks::DeviceJobChanged"/>The DeviceJobChanged signal</title><indexterm><primary>DeviceJobChanged</primary><secondary>UDisks</secondary></indexterm><programlisting>DeviceJobChanged ('o'device,
+'b'job_in_progress,
+'b'job_is_cancellable,
+'s'job_id,
+'i'job_num_tasks,
+'i'job_cur_task,
+'s'job_cur_task_id,
+'d'job_cur_task_percentage)</programlisting></refsect2>
+          <para>
+            Emitted when a job on a device changes.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>device</parameter>:</term><listitem><simpara>The object path of the device.</simpara></listitem></varlistentry><varlistentry><term><parameter>job_in_progress</parameter>:</term><listitem><simpara>Whether a job is currently in progress.</simpara></listitem></varlistentry><varlistentry><term><parameter>job_is_cancellable</parameter>:</term><listitem><simpara>Whether the job is cancellable.</simpara></listitem></varlistentry><varlistentry><term><parameter>job_id</parameter>:</term><listitem><simpara>The identifier of the job.</simpara></listitem></varlistentry><varlistentry><term><parameter>job_num_tasks</parameter>:</term><listitem><simpara>Number of tasks in the job.</simpara></listitem></varlistentry><varlistentry><term><parameter>job_cur_task</parameter>:</term><listitem><simpara>Current task number (zero-based offset).</simpara></listitem></varlistentry><varlistentry><term><parameter>job_cur_task_id</parameter>:</term><listitem><simpara>Task identifier for current task.</simpara></listitem></varlistentry><varlistentry><term><parameter>job_cur_task_percentage</parameter>:</term><listitem><simpara>Percentage completed of current task (between 0 and 100, negative if unknown).</simpara></listitem></varlistentry></variablelist><refsect2><title><anchor role="function" id="UDisks::AdapterAdded"/>The AdapterAdded signal</title><indexterm><primary>AdapterAdded</primary><secondary>UDisks</secondary></indexterm><programlisting>AdapterAdded ('o'adapter)</programlisting></refsect2>
+          <para>
+            Emitted when an adapter is added.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>adapter</parameter>:</term><listitem><simpara>Object path of adapter that was added.</simpara></listitem></varlistentry></variablelist><refsect2><title><anchor role="function" id="UDisks::AdapterRemoved"/>The AdapterRemoved signal</title><indexterm><primary>AdapterRemoved</primary><secondary>UDisks</secondary></indexterm><programlisting>AdapterRemoved ('o'adapter)</programlisting></refsect2>
+          <para>
+            Emitted when an adapter is removed.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>adapter</parameter>:</term><listitem><simpara>Object path of adapter that was removed.</simpara></listitem></varlistentry></variablelist><refsect2><title><anchor role="function" id="UDisks::AdapterChanged"/>The AdapterChanged signal</title><indexterm><primary>AdapterChanged</primary><secondary>UDisks</secondary></indexterm><programlisting>AdapterChanged ('o'adapter)</programlisting></refsect2>
+          <para>
+            Emitted when an adapter changed.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>adapter</parameter>:</term><listitem><simpara>Object path of adapter that was changed.</simpara></listitem></varlistentry></variablelist><refsect2><title><anchor role="function" id="UDisks::ExpanderAdded"/>The ExpanderAdded signal</title><indexterm><primary>ExpanderAdded</primary><secondary>UDisks</secondary></indexterm><programlisting>ExpanderAdded ('o'expander)</programlisting></refsect2>
+          <para>
+            Emitted when an expander is added.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>expander</parameter>:</term><listitem><simpara>Object path of expander that was added.</simpara></listitem></varlistentry></variablelist><refsect2><title><anchor role="function" id="UDisks::ExpanderRemoved"/>The ExpanderRemoved signal</title><indexterm><primary>ExpanderRemoved</primary><secondary>UDisks</secondary></indexterm><programlisting>ExpanderRemoved ('o'expander)</programlisting></refsect2>
+          <para>
+            Emitted when an expander is removed.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>expander</parameter>:</term><listitem><simpara>Object path of expander that was removed.</simpara></listitem></varlistentry></variablelist><refsect2><title><anchor role="function" id="UDisks::ExpanderChanged"/>The ExpanderChanged signal</title><indexterm><primary>ExpanderChanged</primary><secondary>UDisks</secondary></indexterm><programlisting>ExpanderChanged ('o'expander)</programlisting></refsect2>
+          <para>
+            Emitted when an expander changed.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>expander</parameter>:</term><listitem><simpara>Object path of expander that was changed.</simpara></listitem></varlistentry></variablelist><refsect2><title><anchor role="function" id="UDisks::PortAdded"/>The PortAdded signal</title><indexterm><primary>PortAdded</primary><secondary>UDisks</secondary></indexterm><programlisting>PortAdded ('o'port)</programlisting></refsect2>
+          <para>
+            Emitted when a port is added.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>port</parameter>:</term><listitem><simpara>Object path of port that was added.</simpara></listitem></varlistentry></variablelist><refsect2><title><anchor role="function" id="UDisks::PortRemoved"/>The PortRemoved signal</title><indexterm><primary>PortRemoved</primary><secondary>UDisks</secondary></indexterm><programlisting>PortRemoved ('o'port)</programlisting></refsect2>
+          <para>
+            Emitted when a port is removed.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>port</parameter>:</term><listitem><simpara>Object path of port that was removed.</simpara></listitem></varlistentry></variablelist><refsect2><title><anchor role="function" id="UDisks::PortChanged"/>The PortChanged signal</title><indexterm><primary>PortChanged</primary><secondary>UDisks</secondary></indexterm><programlisting>PortChanged ('o'port)</programlisting></refsect2>
+          <para>
+            Emitted when a port changed.
+          </para>
+        <variablelist role="params"><varlistentry><term><parameter>port</parameter>:</term><listitem><simpara>Object path of port that was changed.</simpara></listitem></varlistentry></variablelist></refsect1>
+  <refsect1 role="property_details">
+    <title role="property_details.title">Property Details</title>
+    <refsect2>
+      <title><anchor role="function" id="UDisks:DaemonVersion"/>The "DaemonVersion" property</title>
+      <indexterm>
+        <primary>DaemonVersion</primary>
+        <secondary>UDisks</secondary>
+      </indexterm>
+      <programlisting>'DaemonVersion'read's'
+</programlisting>
+    </refsect2>
+    <para>
+            The version of the running daemon.
+      </para>
+    <variablelist role="params"/>
+    <refsect2>
+      <title><anchor role="function" id="UDisks:DaemonIsInhibited"/>The "DaemonIsInhibited" property</title>
+      <indexterm>
+        <primary>DaemonIsInhibited</primary>
+        <secondary>UDisks</secondary>
+      </indexterm>
+      <programlisting>'DaemonIsInhibited'read'b'
+</programlisting>
+    </refsect2>
+    <para>
+            TRUE only if the daemon is inhibited.
+      </para>
+    <variablelist role="params"/>
+    <refsect2>
+      <title><anchor role="function" id="UDisks:SupportsLuksDevices"/>The "SupportsLuksDevices" property</title>
+      <indexterm>
+        <primary>SupportsLuksDevices</primary>
+        <secondary>UDisks</secondary>
+      </indexterm>
+      <programlisting>'SupportsLuksDevices'read'b'
+</programlisting>
+    </refsect2>
+    <para>
+            TRUE only if the daemon can create encrypted LUKS block devices, see the
+            <link linkend="Device.LuksLock"><function>LuksUnlock()</function></link> and
+            <link linkend="Device.LuksLock"><function>LuksLock()</function></link>
+            methods for details.
+      </para>
+    <variablelist role="params"/>
+    <refsect2>
+      <title><anchor role="function" id="UDisks:KnownFilesystems"/>The "KnownFilesystems" property</title>
+      <indexterm>
+        <primary>KnownFilesystems</primary>
+        <secondary>UDisks</secondary>
+      </indexterm>
+      <programlisting>'KnownFilesystems'read'a(ssbbbubbbbbbbb)'
+</programlisting>
+    </refsect2>
+    <para>
+            An array of file systems known to the daemon and what features are supported.
+            Each element in the array contains the following members:
+            <para><itemizedlist><listitem><emphasis role="bold">id: </emphasis>
+                  The name / identifier of the file system (such as <literal>ext3</literal> or <literal>vfat</literal>),
+                  similar to the contents of the
+                  <link linkend="Device:IdType"><literal>Device:IdType</literal></link>
+                  property.
+                </listitem><listitem><emphasis role="bold">name: </emphasis>
+                  A human readable name for the file system such as "Linux Ext3".
+                </listitem><listitem><emphasis role="bold">supports_unix_owners: </emphasis>
+                  Whether the file system supports the UNIX owners model (e.g. ext3 does, but vfat doesn't).
+                </listitem><listitem><emphasis role="bold">can_mount: </emphasis>
+                  Whether the file system can be mounted.
+                </listitem><listitem><emphasis role="bold">can_create: </emphasis>
+                  Whether the file system can be created on a device.
+                </listitem><listitem><emphasis role="bold">max_label_len: </emphasis>
+                  The maximum amount of bytes that the file system label can hold. Set to zero if the file
+                  system doesn't support labels.
+                </listitem><listitem><emphasis role="bold">supports_label_rename: </emphasis>
+                  Whether the label of the file system can be changed.
+                </listitem><listitem><emphasis role="bold">supports_online_label_rename: </emphasis>
+                  Whether the label can be changed while the file system is mounted.
+                </listitem><listitem><emphasis role="bold">supports_fsck: </emphasis>
+                  Whether the file system can be checked.
+                </listitem><listitem><emphasis role="bold">supports_online_fsck: </emphasis>
+                  Whether the file system can be checked while mounted.
+                </listitem><listitem><emphasis role="bold">supports_resize_enlarge: </emphasis>
+                  Whether the file system can be enlarged.
+                </listitem><listitem><emphasis role="bold">supports_online_resize_enlarge: </emphasis>
+                  Whether the file system can be enlarged while mounted.
+                </listitem><listitem><emphasis role="bold">supports_resize_shrink: </emphasis>
+                  Whether the file system can be shrunk.
+                </listitem><listitem><emphasis role="bold">supports_online_resize_shrink: </emphasis>
+                  Whether the file system can be shrunk while mounted.
+                </listitem></itemizedlist></para>
+
+      </para>
+    <variablelist role="params"/>
+  </refsect1>
+</refentry>
