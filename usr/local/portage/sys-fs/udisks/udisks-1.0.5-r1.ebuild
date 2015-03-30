@@ -39,13 +39,16 @@ DEPEND="${COMMON_DEPEND}
 
 QA_MULTILIB_PATHS="usr/lib/${PN}/.*"
 
+USERNAME="ehegnes"
+REPO="udisks-kitless"
+
 src_unpack() {
-	wget -O ${P}.tar.gz https://github.com/ehegnes/udisks/archive/master.tar.gz \
+	wget -O ${P}.tar.gz https://github.com/${USERNAME}/${REPO}/archive/master.tar.gz \
 		|| die "Failed to download source from repository"
 
 	unpack ./${P}.tar.gz
-	# GitHub nests the source in repo-master
-	mv ./udisks-master ./${P}
+	# GitHub nests the source in <repo name>-master
+	mv ./${REPO}-master ./${P}
 }
 
 pkg_setup() {
