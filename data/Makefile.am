@@ -1,59 +1,53 @@
 
 NULL =
 
-dbusifdir = $(datadir)/dbus-1/interfaces
-dbusif_DATA = \
-	org.freedesktop.UDisks.xml 		\
-	org.freedesktop.UDisks.Device.xml 	\
-	org.freedesktop.UDisks.Adapter.xml	\
-	org.freedesktop.UDisks.Port.xml	\
-	org.freedesktop.UDisks.Expander.xml	\
-	$(NULL)
+dbusservicedir       = $(datadir)/dbus-1/system-services
+dbusservice_in_files = org.freedesktop.UDisks2.service.in
+dbusservice_DATA     = $(dbusservice_in_files:.service.in=.service)
 
-servicedir       = $(datadir)/dbus-1/system-services
-service_in_files = org.freedesktop.UDisks.service.in
-service_DATA     = $(service_in_files:.service.in=.service)
-
-$(service_DATA): $(service_in_files) Makefile
-	@sed -e "s|\@libexecdir\@|$(libexecdir)|" $< > $@
+$(dbusservice_DATA): $(dbusservice_in_files) Makefile
+	@sed -e "s|\@udisksdprivdir\@|$(libexecdir)/udisks2|" $< > $@
 
 dbusconfdir = $(sysconfdir)/dbus-1/system.d
-dbusconf_in_files = org.freedesktop.UDisks.conf.in
+dbusconf_in_files = org.freedesktop.UDisks2.conf.in
 dbusconf_DATA = $(dbusconf_in_files:.conf.in=.conf)
 
 $(dbusconf_DATA): $(dbusconf_in_files) Makefile
 	cp $< $@
 
-systemdservice_in_files = systemd/udisks.service.in
+systemdservice_in_files = udisks2.service.in
 
 if HAVE_SYSTEMD
 systemdservicedir       = $(systemdsystemunitdir)
 systemdservice_DATA     = $(systemdservice_in_files:.service.in=.service)
 
 $(systemdservice_DATA): $(systemdservice_in_files) Makefile
-	@sed -e "s|\@libexecdir\@|$(prefix)/lib/udisks|" $< > $@
+	@sed -e "s|\@udisksdprivdir\@|$(libexecdir)/udisks2|" $< > $@
 endif
 
-udevrulesdir = $(slashlibdir)/udev/rules.d
-udevrules_DATA = 80-udisks.rules
+udevrulesdir = $(udevdir)/rules.d
+udevrules_DATA = 80-udisks2.rules
 
-pkgconfigdir = $(datadir)/pkgconfig
-pkgconfig_DATA = udisks.pc
+polkitdir        = $(datadir)/polkit-1/actions
+polkit_in_files  = org.freedesktop.udisks2.policy.in
+polkit_DATA      = $(polkit_in_files:.policy.in=.policy)
 
-if REMOTE_ACCESS_ENABLED
-avahiservicedir = $(sysconfdir)/avahi/services
-avahiservice_DATA = udisks.service
-endif # REMOTE_ACCESS_ENABLED
+completionsdir = $(datadir)/bash-completion/completions
+completions_DATA = 					\
+	completions/udisksctl				\
+	$(NULL)
+
+@INTLTOOL_POLICY_RULE@
 
 EXTRA_DIST = 						\
-	80-udisks.rules					\
-	$(dbusif_DATA)					\
+	80-udisks2.rules				\
+	org.freedesktop.UDisks2.xml			\
 	$(systemdservice_in_files)			\
-	$(service_in_files)				\
+	$(dbusservice_in_files)				\
 	$(dbusconf_in_files)				\
-	udisks.pc.in					\
-	udisks.service					\
+	$(polkit_in_files)				\
+	$(completions_DATA)				\
 	$(NULL)
 
 clean-local :
-	rm -f *~ $(service_DATA) $(dbusconf_DATA) $(systemdservice_DATA)
+	rm -f *~ $(dbusservice_DATA) $(dbusconf_DATA) $(systemdservice_DATA) $(polkit_DATA)

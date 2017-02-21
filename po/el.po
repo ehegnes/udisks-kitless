@@ -1,0 +1,2443 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# ΔΗΜΗΤΡΗΣ ΣΠΙΓΓΟΣ <dmtrs32@gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: udisks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-12 12:53-0700\n"
+"PO-Revision-Date: 2014-10-08 21:02+0000\n"
+"Last-Translator: thanos <tomtryf@gmail.com>\n"
+"Language-Team: Greek (http://www.transifex.com/projects/p/udisks/language/el/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:1
+msgid "Mount a filesystem"
+msgstr "Προσάρτηση συστήματος αρχείων"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:2
+msgid "Authentication is required to mount the filesystem"
+msgstr "Απαιτείται πιστοποίηση για προσάρτηση συστήματος αρχείων"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:3
+msgid "Mount a filesystem on a system device"
+msgstr "Προσάρτηση συστήματος αρχείων σε μια συσκευή του συστήματος"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:4
+msgid "Mount a filesystem from a device plugged into another seat"
+msgstr "Προσάρτηση ενός συστήματος αρχείων από μια συνδεμένη συσκευή σε άλλη θέση"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:5
+msgid ""
+"Mount/unmount filesystems defined in the fstab file with the x-udisks-auth "
+"option"
+msgstr "Προσάρτηση/αποπροσάρτηση συστημάτων αρχείων που ορίστηκαν στο αρχείο fstab με την επιλογή x-udisks-auth"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:6
+msgid "Authentication is required to mount/unmount the filesystem"
+msgstr "Απαιτείται πιστοποίηση για προσάρτηση/αποπροσάρτηση του συστήματος αρχείων"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:7
+msgid "Unmount a device mounted by another user"
+msgstr "Αποπροσάρτηση προσαρτημένης συσκευής από άλλον χρήστη"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:8
+msgid ""
+"Authentication is required to unmount a filesystem mounted by another user"
+msgstr "Η πιστοποίηση απαιτείται για αποπροσάρτηση προσαρτημένου συστήματος αρχείων από άλλον χρήστη"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:9
+msgid "Unlock an encrypted device"
+msgstr "Ξεκλείδωμα κρυπτογραφημένης συσκευής"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:10
+msgid "Authentication is required to unlock an encrypted device"
+msgstr "Απαιτείται πιστοποίηση για ξεκλείδωμα μιας κρυπτογραφημένης συσκευής"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:11
+msgid "Unlock an encrypted system device"
+msgstr "Ξεκλείδωμα μιας κρυπτογραφημένης συσκευής του συστήματος"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:12
+msgid "Unlock an encrypted device plugged into another seat"
+msgstr "Ξεκλείδωμα μιας κρυπτογραφημένης συσκευής προσαρτημένης σε άλλη θέση"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:13
+msgid ""
+"Unlock an encrypted device specified in the crypttab file with the x-udisks-"
+"auth option"
+msgstr "Ξεκλείδωμα μιας κρυπτογραφημένης συσκευής ορισμένης στο αρχείο crypttab με την επιλογή x-udisks-auth"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:14
+msgid "Lock an encrypted device unlocked by another user"
+msgstr "Κλείδωμα μιας κρυπτογραφημένης συσκευής ξεκλειδωμένης από άλλον χρήστη"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:15
+msgid ""
+"Authentication is required to lock an encrypted device unlocked by another "
+"user"
+msgstr "Απαιτείται πιστοποίηση για κλείδωμα μιας κρυπτογραφημένης συσκευής ξεκλειδωμένης από άλλον χρήστη"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:16
+msgid "Change passphrase for an encrypted device"
+msgstr "Αλλαγή συνθηματικού για μια κρυπτογραφημένη συσκευή"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:17
+msgid ""
+"Authentication is required to change the passphrase for an encrypted device"
+msgstr "Απαιτείται πιστοποίηση για αλλαγή του συνθηματικού για μια κρυπτογραφημένη συσκευή"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:18
+msgid "Manage loop devices"
+msgstr "Διαχείριση συσκευών βρόχου"
+
+#. Translators: Shown in authentication dialog when the user
+#. * requests setting up a loop device.
+#: ../data/org.freedesktop.udisks2.policy.in.h:19
+#: ../src/udiskslinuxmanager.c:337
+msgid "Authentication is required to set up a loop device"
+msgstr "Απαιτείται πιστοποίηση για ρύθμιση μιας συσκευής βρόχου"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:20
+msgid "Delete loop devices"
+msgstr "Διαγραφή συσκευών βρόχου"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:21
+msgid ""
+"Authentication is required to delete a loop device set up by another user"
+msgstr "Απαιτείται πιστοποίηση για διαγραφή μιας συσκευής βρόχου ρυθμισμένης από άλλον χρήστη"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:22
+msgid "Modify loop devices"
+msgstr "Τροποποίηση συσκευών βρόχου"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:23
+msgid ""
+"Authentication is required to modify a loop device set up by another user"
+msgstr "Απαιτείται πιστοποίηση για τροποποίηση μιας συσκευής βρόχου ρυθμισμένης από άλλον χρήστη"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:24
+msgid "Manage swapspace"
+msgstr "Διαχείριση χώρου swap"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:25
+msgid "Authentication is required to manage swapspace"
+msgstr "Απαιτείται πιστοποίηση για διαχείριση του χώρου swap"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:26
+msgid "Manage RAID arrays"
+msgstr "Διαχείριση διατάξεων RAID"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:27
+msgid "Authentication is required to manage RAID arrays"
+msgstr "Απαιτείται πιστοποίηση για διαχείριση διατάξεων RAID"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:28
+msgid "Power off drive"
+msgstr "Κλείσιμο οδηγού"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:29
+msgid "Authentication is required to power off a drive"
+msgstr "Απαιτείται πιστοποίηση για κλείσιμο ενός οδηγού"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:30
+msgid "Power off a system drive"
+msgstr "Κλείσιμο οδηγού συστήματος"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:31
+msgid "Power off a drive attached to another seat"
+msgstr "Κλείσιμο οδηγού προσαρτημένου σε άλλη θέση"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:32
+msgid ""
+"Authentication is required to power off a drive plugged into another seat"
+msgstr "Απαιτείται πιστοποίηση για κλείσιμο ενός οδηγού συνδεμένου σε άλλη θέση"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:33
+msgid "Eject media"
+msgstr "Εξαγωγή μέσων"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:34
+msgid "Authentication is required to eject media"
+msgstr "Απαιτείται πιστοποίηση για εξαγωγή μέσων"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:35
+msgid "Eject media from a system drive"
+msgstr "Εξαγωγή μέσων από οδηγό συστήματος"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:36
+msgid "Eject media from a drive attached to another seat"
+msgstr "Εξαγωγή μέσων από οδηγό προσαρτημένο σε άλλη θέση"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:37
+msgid ""
+"Authentication is required to eject media from a drive plugged into another "
+"seat"
+msgstr "Απαιτείται πιστοποίηση για εξαγωγή μέσων από οδηγό συνδεμένο σε άλλη θέση"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:38
+msgid "Modify a device"
+msgstr "Τροποποίηση συσκευής"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:39
+msgid "Authentication is required to modify a device"
+msgstr "Απαιτείται πιστοποίηση για τροποποίηση συσκευής"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:40
+msgid "Modify a system device"
+msgstr "Τροποποίηση συσκευής συστήματος"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:41
+msgid ""
+"Authentication is required to modify a device plugged into another seat"
+msgstr "Απαιτείται πιστοποίηση για τροποποίηση συσκευής συνδεμένης σε άλλη θέση"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:42
+msgid "Rescan a device"
+msgstr "Επανασάρωση συσκευής"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:43
+msgid "Authentication is required to rescan a device"
+msgstr "Απαιτείται πιστοποίηση για επανασάρωση συσκευής"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:44
+msgid "Open a device"
+msgstr "Άνοιγμα συσκευής"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:45
+msgid "Authentication is required to open a device"
+msgstr "Απαιτείται πιστοποίηση για άνοιγμα συσκευής"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:46
+msgid "Open a system device"
+msgstr "Άνοιγμα συσκευής συστήματος"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:47
+msgid "Modify system-wide configuration"
+msgstr "Τροποποίηση διαμόρφωσης όλου του συστήματος"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:48
+msgid "Authentication is required to modify system-wide configuration"
+msgstr "Απαιτείται πιστοποίηση για τροποποίηση της διαμόρφωσης όλου του συστήματος"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:49
+msgid ""
+"Authentication is required to retrieve secrets from system-wide "
+"configuration"
+msgstr "Απαιτείται πιστοποίηση για ανάκτηση μυστικών από τη διαμόρφωση όλου του συστήματος"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:50
+msgid "Modify drive settings"
+msgstr "Τροποποίηση ρυθμίσεων οδηγού"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:51
+msgid "Authentication is required to modify drive settings"
+msgstr "Απαιτείται πιστοποίηση για τροποποίηση ρυθμίσεων συσκευής"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:52
+msgid "Update SMART data"
+msgstr "Ενημέρωση δεδομένων SMART"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:53
+msgid "Authentication is required to update SMART data"
+msgstr "Απαιτείται πιστοποίηση για ενημέρωση δεδομένων SMART"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:54
+msgid "Set SMART data from blob"
+msgstr "Ορισμός δεδομένων SMART από μεγάλο δυαδικό αντικείμενο (blob)"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:55
+msgid "Authentication is required to set SMART data from blob"
+msgstr "Απαιτείται πιστοποίηση για ορισμό δεδομένων SMART από blob"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:56
+msgid "Run SMART self-test"
+msgstr "Εκτέλεση αυτοδιάγνωσης SMART"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:57
+msgid "Authentication is required to run a SMART self-test"
+msgstr "Απαιτείται πιστοποίηση για εκτέλεση αυτοδιάγνωσης SMART"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:58
+msgid "Enable/Disable SMART"
+msgstr "Ενεργοποίηση/απενεργοποίηση SMART"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:59
+msgid "Authentication is required to enable/disable SMART"
+msgstr "Απαιτείται πιστοποίηση για ενεργοποίηση/απενεργοποίηση του SMART"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:60
+msgid "Check power state"
+msgstr "Έλεγχος κατάστασης ισχύος"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:61
+msgid "Authentication is required to check the power state"
+msgstr "Απαιτείται πιστοποίηση για έλεγχο της κατάστασης ισχύος"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:62
+msgid "Send standby command"
+msgstr "Αποστολή εντολής αναμονής"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:63
+msgid "Authentication is required to put a drive into standby mode"
+msgstr "Απαιτείται πιστοποίηση για τοποθέτηση ενός οδηγού σε κατάσταση αναμονής"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:64
+msgid "Send standby command to a system drive"
+msgstr "Αποστολή εντολής αναμονής για οδηγό συστήματος"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:65
+msgid "Send standby command to drive on other seat"
+msgstr "Αποστολή εντολής αναμονής για μετακίνηση σε άλλη θέση"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:66
+msgid "Securely erase a hard disk"
+msgstr "Ασφαλές σβήσιμο σκληρού δίσκου"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:67
+msgid "Authentication is required to securely erase a hard disk"
+msgstr "Απαιτείται πιστοποίηση για ασφαλές σβήσιμο του σκληρού δίσκου"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:68
+msgid "Cancel job"
+msgstr "Ακύρωση εργασίας"
+
+#. Translators: Shown in authentication dialog when canceling a job.
+#: ../data/org.freedesktop.udisks2.policy.in.h:69 ../src/udisksbasejob.c:404
+msgid "Authentication is required to cancel a job"
+msgstr "Απαιτείται πιστοποίηση για ακύρωση εργασίας"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:70
+msgid "Cancel job started by another user"
+msgstr "Η ακύρωση εργασίας ξεκίνησε από άλλον χρήστη"
+
+#: ../data/org.freedesktop.udisks2.policy.in.h:71
+msgid "Authentication is required to cancel a job started by another user"
+msgstr "Απαιτείται πιστοποίηση για την ακύρωση εργασίας που ξεκίνησε από άλλον χρήστη"
+
+#. Translators: This is shown in an authentcation dialog when
+#. * the user is editing settings that involve system-level
+#. * passwords and secrets
+#: ../src/udiskslinuxblock.c:1011
+msgid "Authentication is required to read system-level secrets"
+msgstr "Απαιτείται πιστοποίηση για ανάγνωση μυστικών επιπέδου συστήματος"
+
+#. Translators: shown in authentication dialog - do not translate /etc/fstab
+#: ../src/udiskslinuxblock.c:1545
+msgid "Authentication is required to add an entry to the /etc/fstab file"
+msgstr "Απαιτείται πιστοποίηση για προσθήκη καταχώρισης στο αρχείο /etc/fstab"
+
+#. Translators: shown in authentication dialog - do not tranlsate
+#. /etc/crypttab
+#: ../src/udiskslinuxblock.c:1563
+msgid "Authentication is required to add an entry to the /etc/crypttab file"
+msgstr "Απαιτείται πιστοποίηση για προσθήκη καταχώρισης στο αρχείο /etc/crypttab"
+
+#. Translators: shown in authentication dialog - do not translate /etc/fstab
+#: ../src/udiskslinuxblock.c:1622
+msgid "Authentication is required to remove an entry from /etc/fstab file"
+msgstr "Απαιτείται πιστοποίηση για αφαίρεση καταχώρισης από το αρχείο /etc/fstab"
+
+#. Translators: shown in authentication dialog - do not translate
+#. /etc/crypttab
+#: ../src/udiskslinuxblock.c:1640
+msgid ""
+"Authentication is required to remove an entry from the /etc/crypttab file"
+msgstr "Απαιτείται πιστοποίηση για αφαίρεση καταχώρισης από το αρχείο /etc/crypttab"
+
+#. Translators: shown in authentication dialog - do not translate /etc/fstab
+#: ../src/udiskslinuxblock.c:1712
+msgid "Authentication is required to modify the /etc/fstab file"
+msgstr "Απαιτείται πιστοποίηση για τροποποίηση του αρχείου /etc/fstab"
+
+#. Translators: shown in authentication dialog - do not translate
+#. /etc/crypttab
+#: ../src/udiskslinuxblock.c:1730
+msgid "Authentication is required to modify the /etc/crypttab file"
+msgstr "Απαιτείται πιστοποίηση για τροποποίηση του αρχείου /etc/crypttab"
+
+#. Translators: Shown in authentication dialog when the user
+#. * requests erasing a hard disk using the SECURE ERASE UNIT
+#. * command.
+#. *
+#. * Do not translate $(drive), it's a placeholder and
+#. * will be replaced by the name of the drive/device in question
+#. Translators: Shown in authentication dialog when the user
+#. * requests erasing a hard disk using the SECURE ERASE UNIT command.
+#. *
+#. * Do not translate $(drive), it's a placeholder and
+#. * will be replaced by the name of the drive/device in question
+#: ../src/udiskslinuxblock.c:2237 ../src/udiskslinuxdriveata.c:2244
+msgid "Authentication is required to perform a secure erase of $(drive)"
+msgstr "Απαιτείται πιστοποίηση για εκτέλεση ασφαλούς σβησίματος του $(drive)"
+
+#. Translators: Shown in authentication dialog when formatting a
+#. * device. This includes both creating a filesystem or partition
+#. * table.
+#. *
+#. * Do not translate $(drive), it's a placeholder and will
+#. * be replaced by the name of the drive/device in question
+#: ../src/udiskslinuxblock.c:2249
+msgid "Authentication is required to format $(drive)"
+msgstr "Απαιτείται πιστοποίηση για διαμόρφωση του $(drive)"
+
+#: ../src/udiskslinuxblock.c:2286 ../src/udiskslinuxdriveata.c:2256
+msgid "Formatting Device"
+msgstr "Διαμόρφωση συσκευής"
+
+#. Translators: Shown in authentication dialog when creating a
+#. * disk image file.
+#. *
+#. * Do not translate $(drive), it's a placeholder and will
+#. * be replaced by the name of the drive/device in question
+#: ../src/udiskslinuxblock.c:2705
+msgid "Authentication is required to open $(drive) for reading"
+msgstr "Απαιτείται πιστοποίηση για άνοιγμα του $(drive) για ανάγνωση"
+
+#. Translators: Shown in authentication dialog when restoring
+#. * from a disk image file.
+#. *
+#. * Do not translate $(drive), it's a placeholder and will
+#. * be replaced by the name of the drive/device in question
+#: ../src/udiskslinuxblock.c:2769
+msgid "Authentication is required to open $(drive) for writing"
+msgstr "Απαιτείται πιστοποίηση για άνοιγμα του $(drive) για εγγραφή"
+
+#. Translators: Shown in authentication dialog when an application
+#. * wants to benchmark a device.
+#. *
+#. * Do not translate $(drive), it's a placeholder and will
+#. * be replaced by the name of the drive/device in question
+#: ../src/udiskslinuxblock.c:2835
+msgid "Authentication is required to open $(drive) for benchmarking"
+msgstr "Απαιτείται πιστοποίηση για άνοιγμα του $(drive) για μέτρηση επιδόσεων"
+
+#. Translators: Shown in authentication dialog when an application
+#. * wants to rescan a device.
+#. *
+#. * Do not translate $(drive), it's a placeholder and will
+#. * be replaced by the name of the drive/device in question
+#: ../src/udiskslinuxblock.c:2896
+msgid "Authentication is required to rescan $(drive)"
+msgstr "Απαιτείται πιστοποίηση για επανασάρωση του $(drive)"
+
+#. Translators: Shown in authentication dialog when the user
+#. * requests ejecting media from a drive.
+#. *
+#. * Do not translate $(drive), it's a placeholder and
+#. * will be replaced by the name of the drive/device in question
+#: ../src/udiskslinuxdrive.c:1022
+msgid "Authentication is required to eject $(drive)"
+msgstr "Απαιτείται πιστοποίηση για εξαγωγή του $(drive)"
+
+#. Translators: Shown in authentication dialog when the user
+#. * changes settings for a drive.
+#. *
+#. * Do not translate $(drive), it's a placeholder and will be
+#. * replaced by the name of the drive/device in question
+#: ../src/udiskslinuxdrive.c:1110
+msgid "Authentication is required to configure settings for $(drive)"
+msgstr "Απαιτείται πιστοποίηση για διαμόρφωση ρυθμίσεων για το $(drive)"
+
+#. Translators: Shown in authentication dialog when the user
+#. * requests ejecting media from a drive.
+#. *
+#. * Do not translate $(drive), it's a placeholder and
+#. * will be replaced by the name of the drive/device in question
+#: ../src/udiskslinuxdrive.c:1425
+msgid "Authentication is required to power off $(drive)"
+msgstr "Απαιτείται πιστοποίηση για τερματισμό του $(drive)"
+
+#. Translators: Shown in authentication dialog when the user
+#. * refreshes SMART data from a disk.
+#. *
+#. * Do not translate $(drive), it's a placeholder and
+#. * will be replaced by the name of the drive/device in question
+#: ../src/udiskslinuxdriveata.c:744
+msgid "Authentication is required to update SMART data from $(drive)"
+msgstr "Απαιτείται πιστοποίηση για ενημέρωση των δεδομένων SMART από το $(drive)"
+
+#. Translators: Shown in authentication dialog when the user
+#. * tries to simulate SMART data from a libatasmart blob.
+#. *
+#. * Do not translate $(drive), it's a placeholder and
+#. * will be replaced by the name of the drive/device in question
+#: ../src/udiskslinuxdriveata.c:755
+msgid "Authentication is required to set SMART data from a blob on $(drive)"
+msgstr "Απαιτείται πιστοποίηση για ορισμό δεδομένων SMART από ένα μεγάλο δυαδικό αντικείμενο στο $(drive)"
+
+#. Translators: Shown in authentication dialog when the user
+#. * aborts a running SMART self-test.
+#. *
+#. * Do not translate $(drive), it's a placeholder and
+#. * will be replaced by the name of the drive/device in question
+#: ../src/udiskslinuxdriveata.c:889
+msgid "Authentication is required to abort a SMART self-test on $(drive)"
+msgstr "Απαιτείται πιστοποίηση για ματαίωση αυτοδιάγνωσης SMART σε $(drive)"
+
+#. Translators: Shown in authentication dialog when the user
+#. * initiates a SMART self-test.
+#. *
+#. * Do not translate $(drive), it's a placeholder and
+#. * will be replaced by the name of the drive/device in question
+#: ../src/udiskslinuxdriveata.c:1139
+msgid "Authentication is required to start a SMART self-test on $(drive)"
+msgstr "Απαιτείται πιστοποίηση για έναρξη αυτοδιάγνωσης SMART στο $(drive)"
+
+#. Translators: Shown in authentication dialog when the user
+#. * requests the power state of a drive.
+#. *
+#. * Do not translate $(drive), it's a placeholder and
+#. * will be replaced by the name of the drive/device in question
+#: ../src/udiskslinuxdriveata.c:1226
+msgid "Authentication is required to check power state for $(drive)"
+msgstr "Απαιτείται πιστοποίηση για έλεγχο κατάστασης ισχύος για το $(drive)"
+
+#. Translators: Shown in authentication dialog when the user
+#. * tries to put a drive into standby mode.
+#. *
+#. * Do not translate $(drive), it's a placeholder and
+#. * will be replaced by the name of the drive/device in question
+#: ../src/udiskslinuxdriveata.c:1351
+msgid "Authentication is required to put $(drive) in standby mode"
+msgstr "Απαιτείται πιστοποίηση για τοποθέτηση του $(drive) σε κατάσταση αναμονής"
+
+#. Translators: Shown in authentication dialog when the user
+#. * tries to wake up a drive from standby mode.
+#. *
+#. * Do not translate $(drive), it's a placeholder and
+#. * will be replaced by the name of the drive/device in question
+#: ../src/udiskslinuxdriveata.c:1483
+msgid "Authentication is required to wake up $(drive) from standby mode"
+msgstr "Απαιτείται πιστοποίηση για ενεργοποίηση του $(drive) από κατάσταση αναμονής"
+
+#. Translators: Shown in authentication dialog when the user
+#. * requests enabling SMART on a disk.
+#. *
+#. * Do not translate $(drive), it's a placeholder and
+#. * will be replaced by the name of the drive/device in question
+#: ../src/udiskslinuxdriveata.c:2337
+msgid "Authentication is required to enable SMART on $(drive)"
+msgstr "Απαιτείται πιστοποίηση για ενεργοποίηση του SMART στο $(drive)"
+
+#. Translators: Shown in authentication dialog when the user
+#. * requests enabling SMART on a disk.
+#. *
+#. * Do not translate $(drive), it's a placeholder and
+#. * will be replaced by the name of the drive/device in question
+#: ../src/udiskslinuxdriveata.c:2347
+msgid "Authentication is required to disable SMART on $(drive)"
+msgstr "Απαιτείται πιστοποίηση για απενεργοποίηση του SMART στο $(drive)"
+
+#. Translators: Shown in authentication dialog when the user
+#. * requests unlocking an encrypted device.
+#. *
+#. * Do not translate $(drive), it's a placeholder and
+#. * will be replaced by the name of the drive/device in question
+#: ../src/udiskslinuxencrypted.c:352 ../src/udiskslinuxencrypted.c:704
+msgid "Authentication is required to unlock the encrypted device $(drive)"
+msgstr "Απαιτείται πιστοποίηση για ξεκλείδωμα της κρυπτογραφημένης συσκευής $(drive)"
+
+#. Translators: Shown in authentication dialog when the user
+#. * requests locking an encrypted device that was previously.
+#. * unlocked by another user.
+#. *
+#. * Do not translate $(drive), it's a placeholder and
+#. * will be replaced by the name of the drive/device in question
+#: ../src/udiskslinuxencrypted.c:582
+msgid ""
+"Authentication is required to lock the encrypted device $(drive) unlocked by"
+" another user"
+msgstr "Απαιτείται πιστοποίηση για κλείδωμα μιας κρυπτογραφημένης συσκευής $(drive) που ξεκλειδώθηκε από άλλον χρήστη"
+
+#. Translators: Shown in authentication dialog when the user
+#. * requests mounting a filesystem.
+#. *
+#. * Do not translate $(drive), it's a placeholder and
+#. * will be replaced by the name of the drive/device in question
+#: ../src/udiskslinuxfilesystem.c:1255 ../src/udiskslinuxfilesystem.c:1417
+msgid "Authentication is required to mount $(drive)"
+msgstr "Απαιτείται πιστοποίηση για προσάρτηση του $(drive)"
+
+#. Translators: Shown in authentication dialog when the
+#. * user requests mounting a filesystem that is in
+#. * /etc/fstab file with the x-udisks-auth option.
+#. *
+#. * Do not translate $(drive), it's a
+#. * placeholder and will be replaced by the name of
+#. * the drive/device in question
+#. *
+#. * Do not translate /etc/fstab
+#: ../src/udiskslinuxfilesystem.c:1324
+msgid ""
+"Authentication is required to mount $(drive) referenced in the /etc/fstab "
+"file"
+msgstr "Απαιτείται πιστοποίηση για προσάρτηση του $(drive) που αναφέρθηκε στο αρχείο /etc/fstab"
+
+#. Translators: Shown in authentication dialog when the
+#. * user requests unmounting a filesystem that is in
+#. * /etc/fstab file with the x-udisks-auth option.
+#. *
+#. * Do not translate $(drive), it's a
+#. * placeholder and will be replaced by the name of
+#. * the drive/device in question
+#. *
+#. * Do not translate /etc/fstab
+#: ../src/udiskslinuxfilesystem.c:1671
+msgid ""
+"Authentication is required to unmount $(drive) referenced in the /etc/fstab "
+"file"
+msgstr "Απαιτείται πιστοποίηση για αποπροσάρτηση του $(drive) που αναφέρθηκε στο αρχείο /etc/fstab"
+
+#. Translators: Shown in authentication dialog when the user
+#. * requests unmounting a filesystem previously mounted by
+#. * another user.
+#. *
+#. * Do not translate $(drive), it's a placeholder and
+#. * will be replaced by the name of the drive/device in question
+#: ../src/udiskslinuxfilesystem.c:1718
+msgid "Authentication is required to unmount $(drive) mounted by another user"
+msgstr "Απαιτείται πιστοποίηση για την αποπροσάρτηση του $(drive) που προσαρτήθηκε από άλλον χρήστη"
+
+#. Translators: Shown in authentication dialog when the user
+#. * requests changing the filesystem label.
+#. *
+#. * Do not translate $(drive), it's a placeholder and
+#. * will be replaced by the name of the drive/device in question
+#: ../src/udiskslinuxfilesystem.c:1963
+msgid "Authentication is required to change the filesystem label on $(drive)"
+msgstr "Απαιτείται πιστοποίηση για αλλαγή του συστήματος αρχείων στο $(drive)"
+
+#. Translators: Shown in authentication dialog when the user
+#. * requests deleting a loop device previously set up by
+#. * another user.
+#. *
+#. * Do not translate $(drive), it's a placeholder and
+#. * will be replaced by the name of the drive/device in question
+#: ../src/udiskslinuxloop.c:245
+msgid "Authentication is required to delete the loop device $(drive)"
+msgstr "Απαιτείται πιστοποίηση για διαγραφή της συσκευής βρόχου $(drive)"
+
+#. Translators: Shown in authentication dialog when the user
+#. * requests changing autoclear on a loop device set up by
+#. * another user.
+#. *
+#. * Do not translate $(drive), it's a placeholder and
+#. * will be replaced by the name of the drive/device in question
+#: ../src/udiskslinuxloop.c:424
+msgid "Authentication is required to modify the loop device $(drive)"
+msgstr "Απαιτείται πιστοποίηση για τροποποίηση της συσκευής βρόχου $(drive)"
+
+#. Translators: Shown in authentication dialog when the user
+#. * attempts to start a RAID Array.
+#. TODO: variables
+#: ../src/udiskslinuxmanager.c:570
+msgid "Authentication is required to create a RAID array"
+msgstr "Απαιτείται πιστοποίηση για δημιουργία διάταξης RAID"
+
+#. Translators: Shown in authentication dialog when the user
+#. * attempts to start a RAID Array.
+#. TODO: variables
+#: ../src/udiskslinuxmdraid.c:639
+msgid "Authentication is required to start a RAID array"
+msgstr "Απαιτείται πιστοποίηση για έναρξη διάταξης RAID"
+
+#. Translators: Shown in authentication dialog when the user
+#. * attempts to stop a RAID Array.
+#. TODO: variables
+#: ../src/udiskslinuxmdraid.c:808
+msgid "Authentication is required to stop a RAID array"
+msgstr "Απαιτείται πιστοποίηση για διακοπή διάταξης RAID"
+
+#. Translators: Shown in authentication dialog when the user
+#. * attempts to remove a device from a RAID Array.
+#. TODO: variables
+#: ../src/udiskslinuxmdraid.c:1013
+msgid "Authentication is required to remove a device from a RAID array"
+msgstr "Απαιτείται πιστοποίηση για αφαίρεση συσκευής από διάταξη RAID"
+
+#. Translators: Shown in authentication dialog when the user
+#. * attempts to add a device to a RAID Array.
+#. TODO: variables
+#: ../src/udiskslinuxmdraid.c:1209
+msgid "Authentication is required to add a device to a RAID array"
+msgstr "Απαιτείται πιστοποίηση για προσθήκη συσκευής σε διάταξη RAID"
+
+#. Translators: Shown in authentication dialog when the user
+#. * attempts to change whether it has a write-intent bitmap
+#. TODO: variables
+#: ../src/udiskslinuxmdraid.c:1339
+msgid ""
+"Authentication is required to configure the write-intent bitmap on a RAID "
+"array"
+msgstr "Απαιτείται πιστοποίηση για διαμόρφωση της ψηφιογραφίας στόχου εγγραφής σε διάταξη RAID"
+
+#. Translators: Shown in authentication dialog when the user
+#. * attempts to start/stop data scrubbing operations
+#. TODO: variables
+#: ../src/udiskslinuxmdraid.c:1463
+msgid ""
+"Authentication is required to start/stop data scrubbing of a RAID array"
+msgstr "Απαιτείται πιστοποίηση για έναρξη/διακοπή εξυγίανσης δεδομένων σε διάταξη RAID"
+
+#. Translators: Shown in authentication dialog when the user
+#. * requests modifying a partition (changing type, flags, name etc.).
+#. *
+#. * Do not translate $(drive), it's a placeholder and
+#. * will be replaced by the name of the drive/device in question
+#: ../src/udiskslinuxpartition.c:281 ../src/udiskslinuxpartition.c:446
+#: ../src/udiskslinuxpartition.c:788
+msgid "Authentication is required to modify the partition on device $(drive)"
+msgstr "Απαιτείται πιστοποίηση για τροποποίηση κατάτμησης σε συσκευή $(drive)"
+
+#. Translators: Shown in authentication dialog when the user
+#. * requests deleting a partition.
+#. *
+#. * Do not translate $(drive), it's a placeholder and
+#. * will be replaced by the name of the drive/device in question
+#: ../src/udiskslinuxpartition.c:899
+msgid "Authentication is required to delete the partition $(drive)"
+msgstr "Απαιτείται πιστοποίηση για διαγραφή κατάτμησης $(drive)"
+
+#. Translators: Shown in authentication dialog when the user
+#. * requests creating a new partition.
+#. *
+#. * Do not translate $(drive), it's a placeholder and
+#. * will be replaced by the name of the drive/device in question
+#: ../src/udiskslinuxpartitiontable.c:399
+msgid "Authentication is required to create a partition on $(drive)"
+msgstr "Απαιτείται πιστοποίηση για δημιουργία κατάτμησης σε $(drive)"
+
+#. Translators: Shown in authentication dialog when the user
+#. * requests activating a swap device.
+#. *
+#. * Do not translate $(drive), it's a placeholder and
+#. * will be replaced by the name of the drive/device in question
+#: ../src/udiskslinuxswapspace.c:201
+msgid "Authentication is required to activate swapspace on $(drive)"
+msgstr "Απαιτείται πιστοποίηση για ενεργοποίηση χώρου swap σε $(drive)"
+
+#. Translators: Shown in authentication dialog when the user
+#. * requests deactivating a swap device.
+#. *
+#. * Do not translate $(drive), it's a placeholder and
+#. * will be replaced by the name of the drive/device in question
+#: ../src/udiskslinuxswapspace.c:293
+msgid "Authentication is required to deactivate swapspace on $(drive)"
+msgstr "Απαιτείται πιστοποίηση για απενεργοποίηση χώρου swap σε $(drive)"
+
+#. Translators: Corresponds to the DOS/Master-Boot-Record "bootable" flag for
+#. a partition
+#: ../udisks/udisksclient.c:1094
+msgctxt "dos-part-flag"
+msgid "Bootable"
+msgstr "Εκκινήσιμο"
+
+#. Translators: Corresponds to the GPT "system" flag for a partition,
+#. * see http://en.wikipedia.org/wiki/GUID_Partition_Table
+#: ../udisks/udisksclient.c:1104
+msgctxt "gpt-part-flag"
+msgid "System"
+msgstr "Σύστημα"
+
+#. Translators: Corresponds to the GPT "legacy bios bootable" flag for a
+#. partition,
+#. * see http://en.wikipedia.org/wiki/GUID_Partition_Table
+#: ../udisks/udisksclient.c:1111
+msgctxt "gpt-part-flag"
+msgid "Legacy BIOS Bootable"
+msgstr "Παλιό εκκινήσιμο BIOS"
+
+#. Translators: Corresponds to the GPT "read-only" flag for a partition,
+#. * see http://en.wikipedia.org/wiki/GUID_Partition_Table
+#: ../udisks/udisksclient.c:1118
+msgctxt "gpt-part-flag"
+msgid "Read-only"
+msgstr "Μόνο για ανάγνωση"
+
+#. Translators: Corresponds to the GPT "hidden" flag for a partition,
+#. * see http://en.wikipedia.org/wiki/GUID_Partition_Table
+#: ../udisks/udisksclient.c:1125
+msgctxt "gpt-part-flag"
+msgid "Hidden"
+msgstr "Κρυφό"
+
+#. Translators: Corresponds to the GPT "no automount" flag for a partition,
+#. * see http://en.wikipedia.org/wiki/GUID_Partition_Table
+#: ../udisks/udisksclient.c:1132
+msgctxt "gpt-part-flag"
+msgid "No Automount"
+msgstr "Χωρίς αυτόματη προσάρτηση"
+
+#. Translators: Partition info. First %s is the type, second %s is a list of
+#. flags
+#: ../udisks/udisksclient.c:1145
+#, c-format
+msgctxt "partition-info"
+msgid "%s (%s)"
+msgstr "%s (%s)"
+
+#. Translators: The Partition info when unknown
+#: ../udisks/udisksclient.c:1156
+msgctxt "partition-info"
+msgid "Unknown"
+msgstr "Άγνωστο"
+
+#. Translators: The first %s is the size in power-of-2 units, e.g. '64 KiB'
+#. * the second %s is the size as a number e.g. '65,536' (always > 1)
+#: ../udisks/udisksclient.c:1711
+#, c-format
+msgctxt "byte-size-pow2"
+msgid "%s (%s bytes)"
+msgstr "%s (%s bytes)"
+
+#. Translators: The first %s is the size in power-of-10 units, e.g. '100 kB'
+#. * the second %s is the size as a number e.g. '100,000' (always > 1)
+#: ../udisks/udisksclient.c:1721
+#, c-format
+msgctxt "byte-size-pow10"
+msgid "%s (%s bytes)"
+msgstr "%s (%s bytes)"
+
+#. Translators: This word is used to describe the media inserted into a device
+#: ../udisks/udisksclient.c:1782
+msgctxt "media"
+msgid "CompactFlash"
+msgstr "CompactFlash"
+
+#. Translators: This word is used to describe the media inserted into a device
+#: ../udisks/udisksclient.c:1787
+msgctxt "media"
+msgid "MemoryStick"
+msgstr "MemoryStick"
+
+#. Translators: This word is used to describe the media inserted into a device
+#: ../udisks/udisksclient.c:1792
+msgctxt "media"
+msgid "SmartMedia"
+msgstr "SmartMedia"
+
+#. Translators: This word is used to describe the media inserted into a device
+#: ../udisks/udisksclient.c:1797
+msgctxt "media"
+msgid "SecureDigital"
+msgstr "SecureDigital"
+
+#. Translators: This word is used to describe the media inserted into a device
+#: ../udisks/udisksclient.c:1802
+msgctxt "media"
+msgid "SD High Capacity"
+msgstr "Υψηλή χωρητικότητα SD"
+
+#. Translators: This word is used to describe the media inserted into a device
+#: ../udisks/udisksclient.c:1807
+msgctxt "media"
+msgid "Floppy"
+msgstr "Δισκέτα"
+
+#. Translators: This word is used to describe the media inserted into a device
+#: ../udisks/udisksclient.c:1812
+msgctxt "media"
+msgid "Zip"
+msgstr "Συσκευή συμπίεσης"
+
+#. Translators: This word is used to describe the media inserted into a device
+#: ../udisks/udisksclient.c:1817
+msgctxt "media"
+msgid "Jaz"
+msgstr "Jaz"
+
+#. Translators: This word is used to describe the media inserted into a device
+#: ../udisks/udisksclient.c:1822
+msgctxt "media"
+msgid "Flash"
+msgstr "Flash"
+
+#. Translators: This word is used to describe the optical disc type, it may
+#. appear
+#. * in a slash-separated list e.g. 'CD/DVD/Blu-Ray'
+#: ../udisks/udisksclient.c:1856
+msgctxt "disc-type"
+msgid "CD"
+msgstr "CD"
+
+#. Translators: This word is used to describe the optical disc type, it may
+#. appear
+#. * in a slash-separated list e.g. 'CD/DVD/Blu-Ray'
+#: ../udisks/udisksclient.c:1865
+msgctxt "disc-type"
+msgid "DVD"
+msgstr "DVD"
+
+#. Translators: This word is used to describe the optical disc type, it may
+#. appear
+#. * in a slash-separated list e.g. 'CD/DVD/Blu-Ray'
+#: ../udisks/udisksclient.c:1874
+msgctxt "disc-type"
+msgid "Blu-Ray"
+msgstr "Blu-Ray"
+
+#. Translators: This word is used to describe the optical disc type, it may
+#. appear
+#. * in a slash-separated list e.g. 'CD/DVD/Blu-Ray'
+#: ../udisks/udisksclient.c:1883
+msgctxt "disc-type"
+msgid "HDDVD"
+msgstr "HDDVD"
+
+#: ../udisks/udisksclient.c:1904
+msgctxt "fs-type"
+msgid "FAT (12-bit version)"
+msgstr "FAT (έκδοση 12-bit)"
+
+#: ../udisks/udisksclient.c:1904 ../udisks/udisksclient.c:1905
+#: ../udisks/udisksclient.c:1906 ../udisks/udisksclient.c:1907
+#: ../udisks/udisksclient.c:1908
+msgctxt "fs-type"
+msgid "FAT"
+msgstr "FAT"
+
+#: ../udisks/udisksclient.c:1905
+msgctxt "fs-type"
+msgid "FAT (16-bit version)"
+msgstr "FAT (έκδοση 16-bit)"
+
+#: ../udisks/udisksclient.c:1906
+msgctxt "fs-type"
+msgid "FAT (32-bit version)"
+msgstr "FAT (έκδοση 32-bit)"
+
+#: ../udisks/udisksclient.c:1907
+#, c-format
+msgctxt "fs-type"
+msgid "FAT (version %s)"
+msgstr "FAT (έκδοση %s)"
+
+#: ../udisks/udisksclient.c:1909
+#, c-format
+msgctxt "fs-type"
+msgid "NTFS (version %s)"
+msgstr "NTFS (έκδοση %s)"
+
+#: ../udisks/udisksclient.c:1909 ../udisks/udisksclient.c:1910
+msgctxt "fs-type"
+msgid "NTFS"
+msgstr "NTFS"
+
+#: ../udisks/udisksclient.c:1911
+msgctxt "fs-type"
+msgid "HFS"
+msgstr "HFS"
+
+#: ../udisks/udisksclient.c:1912
+msgctxt "fs-type"
+msgid "HFS+"
+msgstr "HFS+"
+
+#: ../udisks/udisksclient.c:1913
+#, c-format
+msgctxt "fs-type"
+msgid "Ext2 (version %s)"
+msgstr "Ext2 (έκδοση %s)"
+
+#: ../udisks/udisksclient.c:1913 ../udisks/udisksclient.c:1914
+msgctxt "fs-type"
+msgid "Ext2"
+msgstr "Ext2"
+
+#: ../udisks/udisksclient.c:1915
+#, c-format
+msgctxt "fs-type"
+msgid "Ext3 (version %s)"
+msgstr "Ext3 (έκδοση %s)"
+
+#: ../udisks/udisksclient.c:1915 ../udisks/udisksclient.c:1916
+msgctxt "fs-type"
+msgid "Ext3"
+msgstr "Ext3"
+
+#: ../udisks/udisksclient.c:1917
+#, c-format
+msgctxt "fs-type"
+msgid "Ext4 (version %s)"
+msgstr "Ext4 (έκδοση %s)"
+
+#: ../udisks/udisksclient.c:1917 ../udisks/udisksclient.c:1918
+msgctxt "fs-type"
+msgid "Ext4"
+msgstr "Ext4"
+
+#: ../udisks/udisksclient.c:1919
+#, c-format
+msgctxt "fs-type"
+msgid "Journal for Ext (version %s)"
+msgstr "Journal για Ext (έκδοση %s)"
+
+#: ../udisks/udisksclient.c:1919 ../udisks/udisksclient.c:1920
+msgctxt "fs-type"
+msgid "JDB"
+msgstr "JDB"
+
+#: ../udisks/udisksclient.c:1920
+msgctxt "fs-type"
+msgid "Journal for Ext"
+msgstr "Journal για Ext"
+
+#: ../udisks/udisksclient.c:1921
+#, c-format
+msgctxt "fs-type"
+msgid "XFS (version %s)"
+msgstr "XFS (έκδοση %s)"
+
+#: ../udisks/udisksclient.c:1921 ../udisks/udisksclient.c:1922
+msgctxt "fs-type"
+msgid "XFS"
+msgstr "XFS"
+
+#. TODO: No ID_FS_VERSION yet for btrfs...
+#: ../udisks/udisksclient.c:1924
+msgctxt "fs-type"
+msgid "Btrfs"
+msgstr "Btrfs"
+
+#: ../udisks/udisksclient.c:1925
+#, c-format
+msgctxt "fs-type"
+msgid "ISO 9660 (version %s)"
+msgstr "ISO 9660 (έκδοση %s)"
+
+#: ../udisks/udisksclient.c:1925 ../udisks/udisksclient.c:1926
+msgctxt "fs-type"
+msgid "ISO9660"
+msgstr "ISO9660"
+
+#: ../udisks/udisksclient.c:1926
+msgctxt "fs-type"
+msgid "ISO 9660"
+msgstr "ISO 9660"
+
+#: ../udisks/udisksclient.c:1927
+#, c-format
+msgctxt "fs-type"
+msgid "UDF (version %s)"
+msgstr "UDF (έκδοση %s)"
+
+#: ../udisks/udisksclient.c:1927 ../udisks/udisksclient.c:1928
+msgctxt "fs-type"
+msgid "UDF"
+msgstr "UDF"
+
+#: ../udisks/udisksclient.c:1929 ../udisks/udisksclient.c:1930
+msgctxt "fs-type"
+msgid "exFAT"
+msgstr "exFAT"
+
+#: ../udisks/udisksclient.c:1930
+#, c-format
+msgctxt "fs-type"
+msgid "exFAT (version %s)"
+msgstr "exFAT (έκδοση %s)"
+
+#: ../udisks/udisksclient.c:1931
+#, c-format
+msgctxt "fs-type"
+msgid "Swap (version %s)"
+msgstr "Swap (έκδοση %s)"
+
+#: ../udisks/udisksclient.c:1931 ../udisks/udisksclient.c:1932
+msgctxt "fs-type"
+msgid "Swap"
+msgstr "Swap"
+
+#: ../udisks/udisksclient.c:1933
+#, c-format
+msgctxt "fs-type"
+msgid "LVM2 Physical Volume (%s)"
+msgstr "Φυσικός τόμος LVM2 (%s)"
+
+#: ../udisks/udisksclient.c:1933 ../udisks/udisksclient.c:1934
+msgctxt "fs-type"
+msgid "LVM2 PV"
+msgstr "LVM2 PV"
+
+#: ../udisks/udisksclient.c:1934
+msgctxt "fs-type"
+msgid "LVM2 Physical Volume"
+msgstr "Φυσικός τόμος LVM2"
+
+#: ../udisks/udisksclient.c:1935
+#, c-format
+msgctxt "fs-type"
+msgid "Linux RAID Member (version %s)"
+msgstr "Μέλος RAID Linux (έκδοση %s)"
+
+#: ../udisks/udisksclient.c:1935 ../udisks/udisksclient.c:1936
+msgctxt "fs-type"
+msgid "Linux RAID Member"
+msgstr "Μέλος RAID Linux"
+
+#: ../udisks/udisksclient.c:1937
+#, c-format
+msgctxt "fs-type"
+msgid "ZFS Device (ZPool version %s)"
+msgstr "Συσκευή ZFS (Έκδοση ZPool %s)"
+
+#: ../udisks/udisksclient.c:1937
+#, c-format
+msgctxt "fs-type"
+msgid "ZFS (v%s)"
+msgstr "ZFS (v%s)"
+
+#: ../udisks/udisksclient.c:1938
+msgctxt "fs-type"
+msgid "ZFS Device"
+msgstr "Συσκευή ZFS"
+
+#: ../udisks/udisksclient.c:1938
+msgctxt "fs-type"
+msgid "ZFS"
+msgstr "ZFS"
+
+#: ../udisks/udisksclient.c:1939
+#, c-format
+msgctxt "fs-type"
+msgid "Intel Matrix RAID Member (version %s)"
+msgstr "Μέλος RAID πίνακα Intel (έκδοση %s)"
+
+#: ../udisks/udisksclient.c:1939
+#, c-format
+msgctxt "fs-type"
+msgid "IMSM RAID Member (%s)"
+msgstr "Μέλος RAID IMSM (%s)"
+
+#: ../udisks/udisksclient.c:1940
+msgctxt "fs-type"
+msgid "Intel Matrix RAID Member"
+msgstr "Μέλος RAID πίνακα Intel"
+
+#: ../udisks/udisksclient.c:1940
+msgctxt "fs-type"
+msgid "IMSM RAID"
+msgstr "RAID IMSM"
+
+#: ../udisks/udisksclient.c:1941
+#, c-format
+msgctxt "fs-type"
+msgid "LUKS Encryption (version %s)"
+msgstr "Κρυπτογράφηση LUKS (έκδοση %s)"
+
+#: ../udisks/udisksclient.c:1941 ../udisks/udisksclient.c:1942
+msgctxt "fs-type"
+msgid "LUKS"
+msgstr "LUKS"
+
+#: ../udisks/udisksclient.c:1942
+msgctxt "fs-type"
+msgid "LUKS Encryption"
+msgstr "Κρυπτογράφηση LUKS"
+
+#: ../udisks/udisksclient.c:1943
+#, c-format
+msgctxt "fs-type"
+msgid "VMFS (version %s)"
+msgstr "VMFS (έκδοση %s)"
+
+#: ../udisks/udisksclient.c:1943
+#, c-format
+msgctxt "fs-type"
+msgid "VMFS (v%s)"
+msgstr "VMFS (v%s)"
+
+#: ../udisks/udisksclient.c:1944
+msgctxt "fs-type"
+msgid "VMFS"
+msgstr "VMFS"
+
+#: ../udisks/udisksclient.c:1945
+#, c-format
+msgctxt "fs-type"
+msgid "VMFS Volume Member (version %s)"
+msgstr "Μέλος τόμου VMFS (έκδοση %s)"
+
+#: ../udisks/udisksclient.c:1945
+#, c-format
+msgctxt "fs-type"
+msgid "VMFS Member (v%s)"
+msgstr "Μέλος VMFS (v%s)"
+
+#: ../udisks/udisksclient.c:1946
+msgctxt "fs-type"
+msgid "VMFS Volume Member"
+msgstr "Μέλος τόμου VMFS"
+
+#: ../udisks/udisksclient.c:1946
+msgctxt "fs-type"
+msgid "VMFS Member"
+msgstr "Μέλος VMFS"
+
+#. Translators: Shown for unknown filesystem types.
+#. * First %s is the raw filesystem type obtained from udev, second %s is
+#. version.
+#: ../udisks/udisksclient.c:2018
+#, c-format
+msgctxt "fs-type"
+msgid "Unknown (%s %s)"
+msgstr "Άγνωστο (%s %s)"
+
+#. Translators: Shown for unknown filesystem types.
+#. * First %s is the raw filesystem type obtained from udev.
+#: ../udisks/udisksclient.c:2027
+#, c-format
+msgctxt "fs-type"
+msgid "Unknown (%s)"
+msgstr "Άγνωστο (%s)"
+
+#. Translators: Shown for unknown filesystem types.
+#: ../udisks/udisksclient.c:2033 ../udisks/udisksclient.c:2047
+msgctxt "fs-type"
+msgid "Unknown"
+msgstr "Άγνωστο"
+
+#. Translators: name of partition table format
+#: ../udisks/udisksclient.c:2064
+msgid "Master Boot Record"
+msgstr "Κύρια εγγραφή εκκίνησης"
+
+#. Translators: name of partition table format
+#: ../udisks/udisksclient.c:2066
+msgid "GUID Partition Table"
+msgstr "Πίνακας κατάτμησης GUID"
+
+#. Translators: name of partition table format
+#: ../udisks/udisksclient.c:2068
+msgid "Apple Partition Map"
+msgstr "Χαρτογράφηση κατάτμησης Apple"
+
+#. Translators: name of partition table format
+#: ../udisks/udisksclient.c:2111 ../udisks/udisksclient.c:2116
+msgctxt "partition-subtype"
+msgid "Generic"
+msgstr "Γενικά"
+
+#: ../udisks/udisksclient.c:2112 ../udisks/udisksclient.c:2117
+msgctxt "partition-subtype"
+msgid "Linux"
+msgstr "Linux"
+
+#: ../udisks/udisksclient.c:2113 ../udisks/udisksclient.c:2118
+#: ../udisks/udisksclient.c:2123
+msgctxt "partition-subtype"
+msgid "Windows"
+msgstr "Windows"
+
+#: ../udisks/udisksclient.c:2114 ../udisks/udisksclient.c:2120
+msgctxt "partition-subtype"
+msgid "Other"
+msgstr "Άλλο"
+
+#: ../udisks/udisksclient.c:2119 ../udisks/udisksclient.c:2122
+msgctxt "partition-subtype"
+msgid "Mac OS X"
+msgstr "Mac OS X"
+
+#. see http://en.wikipedia.org/wiki/GUID_Partition_Table
+#. Not associated with any OS
+#: ../udisks/udisksclient.c:2210
+msgctxt "part-type"
+msgid "MBR Partition Scheme"
+msgstr "Σχήμα κατάτμησης MBR"
+
+#: ../udisks/udisksclient.c:2211
+msgctxt "part-type"
+msgid "EFI System"
+msgstr "Σύστημα EFI"
+
+#: ../udisks/udisksclient.c:2212
+msgctxt "part-type"
+msgid "BIOS Boot"
+msgstr "Εκκίνηση BIOS"
+
+#. This is also defined in the Apple and Solaris section
+#: ../udisks/udisksclient.c:2214
+msgctxt "part-type"
+msgid "ZFS"
+msgstr "ZFS"
+
+#. Extended Boot Partition, see
+#. http://www.freedesktop.org/wiki/Specifications/BootLoaderSpec/
+#: ../udisks/udisksclient.c:2216
+msgctxt "part-type"
+msgid "Extended Boot Partition"
+msgstr "Εκτεταμένη κατάτμηση εκκίνησης"
+
+#. Discoverable Linux Partitions, see
+#. http://www.freedesktop.org/wiki/Specifications/DiscoverablePartitionsSpec
+#: ../udisks/udisksclient.c:2218
+msgctxt "part-type"
+msgid "Linux Root Partition (x86)"
+msgstr "Ριζική κατάτμηση Linux (x86)"
+
+#: ../udisks/udisksclient.c:2219
+msgctxt "part-type"
+msgid "Linux Root Partition (x86_64)"
+msgstr "Ριζική κατάτμηση Linux (x86_64)"
+
+#: ../udisks/udisksclient.c:2220
+msgctxt "part-type"
+msgid "Linux Home Partition"
+msgstr "Αρχική κατάτμηση Linux"
+
+#: ../udisks/udisksclient.c:2221
+msgctxt "part-type"
+msgid "Linux Server Data Partition"
+msgstr "Διακομιστής Linux κατάτμησης δεδομένων"
+
+#. Linux
+#: ../udisks/udisksclient.c:2223
+msgctxt "part-type"
+msgid "Linux Swap"
+msgstr "Linux Swap"
+
+#: ../udisks/udisksclient.c:2224
+msgctxt "part-type"
+msgid "Linux Filesystem"
+msgstr "Σύστημα αρχείων Linux"
+
+#: ../udisks/udisksclient.c:2225
+msgctxt "part-type"
+msgid "Linux RAID"
+msgstr "RAID Linux"
+
+#: ../udisks/udisksclient.c:2226 ../udisks/udisksclient.c:2307
+msgctxt "part-type"
+msgid "Linux LVM"
+msgstr "LVM Linux"
+
+#: ../udisks/udisksclient.c:2227
+msgctxt "part-type"
+msgid "Linux Reserved"
+msgstr "Δεσμευμένο Linux"
+
+#. Microsoft
+#: ../udisks/udisksclient.c:2229
+msgctxt "part-type"
+msgid "Basic Data"
+msgstr "Δεδομένα Basic"
+
+#: ../udisks/udisksclient.c:2230
+msgctxt "part-type"
+msgid "Microsoft Reserved"
+msgstr "Δεσμευμένο Microsoft"
+
+#: ../udisks/udisksclient.c:2231
+msgctxt "part-type"
+msgid "Microsoft LDM metadata"
+msgstr "Μεταδεδομένα LDM Microsoft"
+
+#: ../udisks/udisksclient.c:2232
+msgctxt "part-type"
+msgid "Microsoft LDM data"
+msgstr "Δεδομένα LDM Microsoft"
+
+#: ../udisks/udisksclient.c:2233
+msgctxt "part-type"
+msgid "Microsoft Windows Recovery Environment"
+msgstr "Περιβάλλον ανάκτησης Microsoft Windows"
+
+#. Apple OS X
+#: ../udisks/udisksclient.c:2235
+msgctxt "part-type"
+msgid "Apple HFS/HFS+"
+msgstr "Apple HFS/HFS+"
+
+#. see http://developer.apple.com/documentation/mac/devices/devices-126.html
+#. *     http://lists.apple.com/archives/Darwin-drivers/2003/May/msg00021.html
+#: ../udisks/udisksclient.c:2236 ../udisks/udisksclient.c:2286
+msgctxt "part-type"
+msgid "Apple UFS"
+msgstr "Apple UFS"
+
+#: ../udisks/udisksclient.c:2237
+msgctxt "part-type"
+msgid "Apple ZFS"
+msgstr "Apple ZFS"
+
+#. same as ZFS
+#: ../udisks/udisksclient.c:2238
+msgctxt "part-type"
+msgid "Apple RAID"
+msgstr "RAID Apple"
+
+#: ../udisks/udisksclient.c:2239
+msgctxt "part-type"
+msgid "Apple RAID (offline)"
+msgstr "RAID Apple (χωρίς σύνδεση)"
+
+#: ../udisks/udisksclient.c:2240
+msgctxt "part-type"
+msgid "Apple Boot"
+msgstr "Εκκίνηση Apple"
+
+#: ../udisks/udisksclient.c:2241
+msgctxt "part-type"
+msgid "Apple Label"
+msgstr "Ετικέτα Apple"
+
+#: ../udisks/udisksclient.c:2242
+msgctxt "part-type"
+msgid "Apple TV Recovery"
+msgstr "Ανάκτηση TV Apple"
+
+#: ../udisks/udisksclient.c:2243
+msgctxt "part-type"
+msgid "Apple Core Storage"
+msgstr "Αποθήκευση πυρήνα Apple"
+
+#. HP-UX
+#: ../udisks/udisksclient.c:2245
+msgctxt "part-type"
+msgid "HP-UX Data"
+msgstr "Δεδομένα HP-UX"
+
+#: ../udisks/udisksclient.c:2246
+msgctxt "part-type"
+msgid "HP-UX Service"
+msgstr "Υπηρεσία HP-UX"
+
+#. FreeBSD
+#: ../udisks/udisksclient.c:2248
+msgctxt "part-type"
+msgid "FreeBSD Boot"
+msgstr "Εκκίνηση FreeBSD"
+
+#: ../udisks/udisksclient.c:2249
+msgctxt "part-type"
+msgid "FreeBSD Data"
+msgstr "Δεδομένα FreeBSD"
+
+#: ../udisks/udisksclient.c:2250
+msgctxt "part-type"
+msgid "FreeBSD Swap"
+msgstr "FreeBSD Swap"
+
+#: ../udisks/udisksclient.c:2251
+msgctxt "part-type"
+msgid "FreeBSD UFS"
+msgstr "UFS FreeBSD"
+
+#: ../udisks/udisksclient.c:2252
+msgctxt "part-type"
+msgid "FreeBSD Vinum"
+msgstr "Vinum FreeBSD"
+
+#: ../udisks/udisksclient.c:2253
+msgctxt "part-type"
+msgid "FreeBSD ZFS"
+msgstr "ZFS FreeBSD"
+
+#. Solaris
+#: ../udisks/udisksclient.c:2255
+msgctxt "part-type"
+msgid "Solaris Boot"
+msgstr "Εκκίνηση Solaris"
+
+#: ../udisks/udisksclient.c:2256
+msgctxt "part-type"
+msgid "Solaris Root"
+msgstr "Ριζικό Solaris"
+
+#: ../udisks/udisksclient.c:2257
+msgctxt "part-type"
+msgid "Solaris Swap"
+msgstr "Solaris Swap"
+
+#: ../udisks/udisksclient.c:2258
+msgctxt "part-type"
+msgid "Solaris Backup"
+msgstr "Αντίγραφο ασφαλείας Solaris"
+
+#: ../udisks/udisksclient.c:2259
+msgctxt "part-type"
+msgid "Solaris /usr"
+msgstr "Solaris /usr"
+
+#. same as ZFS
+#: ../udisks/udisksclient.c:2260
+msgctxt "part-type"
+msgid "Solaris /var"
+msgstr "Solaris /var"
+
+#: ../udisks/udisksclient.c:2261
+msgctxt "part-type"
+msgid "Solaris /home"
+msgstr "Solaris /home"
+
+#: ../udisks/udisksclient.c:2262
+msgctxt "part-type"
+msgid "Solaris Alternate Sector"
+msgstr "Εναλλακτικός τομέας Solaris"
+
+#: ../udisks/udisksclient.c:2263
+msgctxt "part-type"
+msgid "Solaris Reserved"
+msgstr "Δεσμευμένο Solaris"
+
+#: ../udisks/udisksclient.c:2264
+msgctxt "part-type"
+msgid "Solaris Reserved (2)"
+msgstr "Δεσμευμένο Solaris (2)"
+
+#: ../udisks/udisksclient.c:2265
+msgctxt "part-type"
+msgid "Solaris Reserved (3)"
+msgstr "Δεσμευμένο Solaris (3)"
+
+#: ../udisks/udisksclient.c:2266
+msgctxt "part-type"
+msgid "Solaris Reserved (4)"
+msgstr "Δεσμευμένο Solaris (4)"
+
+#: ../udisks/udisksclient.c:2267
+msgctxt "part-type"
+msgid "Solaris Reserved (5)"
+msgstr "Δεσμευμένο Solaris (5)"
+
+#. NetBSD
+#: ../udisks/udisksclient.c:2269
+msgctxt "part-type"
+msgid "NetBSD Swap"
+msgstr "NetBSD Swap"
+
+#: ../udisks/udisksclient.c:2270
+msgctxt "part-type"
+msgid "NetBSD FFS"
+msgstr "FFS NetBSD"
+
+#: ../udisks/udisksclient.c:2271
+msgctxt "part-type"
+msgid "NetBSD LFS"
+msgstr "LFS NetBSD"
+
+#: ../udisks/udisksclient.c:2272
+msgctxt "part-type"
+msgid "NetBSD RAID"
+msgstr "RAID NetBSD"
+
+#: ../udisks/udisksclient.c:2273
+msgctxt "part-type"
+msgid "NetBSD Concatenated"
+msgstr "Συνενωμένο NetBSD"
+
+#: ../udisks/udisksclient.c:2274
+msgctxt "part-type"
+msgid "NetBSD Encrypted"
+msgstr "Κρυπτογραφημένο NetBSD"
+
+#. VMWare, see http://blogs.vmware.com/vsphere/2011/08/vsphere-50-storage-
+#. features-part-7-gpt.html
+#: ../udisks/udisksclient.c:2276
+msgctxt "part-type"
+msgid "VMWare VMFS"
+msgstr "VMFS VMWare"
+
+#: ../udisks/udisksclient.c:2277
+msgctxt "part-type"
+msgid "VMWare vmkcore"
+msgstr "VMWare vmkcore"
+
+#. ChromeOS, see http://www.chromium.org/chromium-os/chromiumos-design-docs
+#. /disk-format
+#: ../udisks/udisksclient.c:2279
+msgctxt "part-type"
+msgid "ChromeOS Firmware"
+msgstr "Υλικολογισμικό ChromeOS"
+
+#: ../udisks/udisksclient.c:2280
+msgctxt "part-type"
+msgid "ChromeOS Kernel"
+msgstr "Πυρήνας ChromeOS"
+
+#: ../udisks/udisksclient.c:2281
+msgctxt "part-type"
+msgid "ChromeOS Root Filesystem"
+msgstr "Ριζικό σύστημα αρχείων ChromeOS"
+
+#: ../udisks/udisksclient.c:2282
+msgctxt "part-type"
+msgid "ChromeOS Reserved"
+msgstr "Δεσμευμένο ChromeOS"
+
+#: ../udisks/udisksclient.c:2287
+msgctxt "part-type"
+msgid "Apple HFS/HFS"
+msgstr "Apple HFS/HFS"
+
+#: ../udisks/udisksclient.c:2288
+msgctxt "part-type"
+msgid "Apple Partition Map"
+msgstr "Χαρτογράφηση κατάτμησης Apple"
+
+#: ../udisks/udisksclient.c:2289
+msgctxt "part-type"
+msgid "Unused"
+msgstr "Αχρησιμοποίητο"
+
+#: ../udisks/udisksclient.c:2290
+msgctxt "part-type"
+msgid "Empty"
+msgstr "Κενό"
+
+#: ../udisks/udisksclient.c:2291
+msgctxt "part-type"
+msgid "Driver"
+msgstr "Οδηγός"
+
+#: ../udisks/udisksclient.c:2292
+msgctxt "part-type"
+msgid "Driver 4.3"
+msgstr "Οδηγός 4.3"
+
+#: ../udisks/udisksclient.c:2293
+msgctxt "part-type"
+msgid "ProDOS file system"
+msgstr "Σύστημα αρχείων ProDOS"
+
+#: ../udisks/udisksclient.c:2294
+msgctxt "part-type"
+msgid "FAT 12"
+msgstr "FAT 12"
+
+#: ../udisks/udisksclient.c:2295
+msgctxt "part-type"
+msgid "FAT 16"
+msgstr "FAT 16"
+
+#: ../udisks/udisksclient.c:2296
+msgctxt "part-type"
+msgid "FAT 32"
+msgstr "FAT 32"
+
+#: ../udisks/udisksclient.c:2297
+msgctxt "part-type"
+msgid "FAT 16 (Windows)"
+msgstr "FAT 16 (Windows)"
+
+#: ../udisks/udisksclient.c:2298
+msgctxt "part-type"
+msgid "FAT 32 (Windows)"
+msgstr "FAT 32 (Windows)"
+
+#. see http://www.win.tue.nl/~aeb/partitions/partition_types-1.html
+#: ../udisks/udisksclient.c:2301
+msgctxt "part-type"
+msgid "Extended"
+msgstr "Εκτεταμένο"
+
+#: ../udisks/udisksclient.c:2302
+msgctxt "part-type"
+msgid "EFI GPT"
+msgstr "EFI GPT"
+
+#: ../udisks/udisksclient.c:2303
+msgctxt "part-type"
+msgid "EFI (FAT-12/16/32)"
+msgstr "EFI (FAT-12/16/32)"
+
+#: ../udisks/udisksclient.c:2304
+msgctxt "part-type"
+msgid "Linux swap"
+msgstr "Linux swap"
+
+#: ../udisks/udisksclient.c:2305
+msgctxt "part-type"
+msgid "Linux"
+msgstr "Linux"
+
+#: ../udisks/udisksclient.c:2306
+msgctxt "part-type"
+msgid "Linux Extended"
+msgstr "Εκτεταμένο Linux"
+
+#: ../udisks/udisksclient.c:2308
+msgctxt "part-type"
+msgid "Linux RAID auto"
+msgstr "Αυτόματο RAID Linux"
+
+#: ../udisks/udisksclient.c:2309
+msgctxt "part-type"
+msgid "FAT12"
+msgstr "FAT12"
+
+#: ../udisks/udisksclient.c:2310
+msgctxt "part-type"
+msgid "FAT16 <32M"
+msgstr "FAT16 <32M"
+
+#: ../udisks/udisksclient.c:2311
+msgctxt "part-type"
+msgid "FAT16"
+msgstr "FAT16"
+
+#: ../udisks/udisksclient.c:2312
+msgctxt "part-type"
+msgid "HPFS/NTFS"
+msgstr "HPFS/NTFS"
+
+#: ../udisks/udisksclient.c:2313
+msgctxt "part-type"
+msgid "W95 FAT32"
+msgstr "W95 FAT32"
+
+#: ../udisks/udisksclient.c:2314
+msgctxt "part-type"
+msgid "W95 FAT32 (LBA)"
+msgstr "W95 FAT32 (LBA)"
+
+#: ../udisks/udisksclient.c:2315
+msgctxt "part-type"
+msgid "W95 FAT16 (LBA)"
+msgstr "W95 FAT16 (LBA)"
+
+#: ../udisks/udisksclient.c:2316
+msgctxt "part-type"
+msgid "W95 Ext d (LBA)"
+msgstr "W95 Ext d (LBA)"
+
+#: ../udisks/udisksclient.c:2317
+msgctxt "part-type"
+msgid "Hidden FAT12"
+msgstr "Κρυφό FAT12"
+
+#: ../udisks/udisksclient.c:2318
+msgctxt "part-type"
+msgid "Hidden FAT16 <32M"
+msgstr "Κρυφό FAT16 <32M"
+
+#: ../udisks/udisksclient.c:2319
+msgctxt "part-type"
+msgid "Hidden FAT16"
+msgstr "Κρυφό FAT16"
+
+#: ../udisks/udisksclient.c:2320
+msgctxt "part-type"
+msgid "Hidden HPFS/NTFS"
+msgstr "Κρυφό HPFS/NTFS"
+
+#: ../udisks/udisksclient.c:2321
+msgctxt "part-type"
+msgid "Hidden W95 FAT32"
+msgstr "Κρυφό W95 FAT32"
+
+#: ../udisks/udisksclient.c:2322
+msgctxt "part-type"
+msgid "Hidden W95 FAT32 (LBA)"
+msgstr "Κρυφό W95 FAT32 (LBA)"
+
+#: ../udisks/udisksclient.c:2323
+msgctxt "part-type"
+msgid "Hidden W95 FAT16 (LBA)"
+msgstr "Κρυφό W95 FAT16 (LBA)"
+
+#: ../udisks/udisksclient.c:2324
+msgctxt "part-type"
+msgid "OPUS"
+msgstr "OPUS"
+
+#: ../udisks/udisksclient.c:2325
+msgctxt "part-type"
+msgid "Compaq diagnostics"
+msgstr "Διαγνωστικά Compaq"
+
+#: ../udisks/udisksclient.c:2326
+msgctxt "part-type"
+msgid "PartitionMagic"
+msgstr "PartitionMagic"
+
+#: ../udisks/udisksclient.c:2327
+msgctxt "part-type"
+msgid "Minix"
+msgstr "Minix"
+
+#. cf. http://en.wikipedia.org/wiki/MINIX_file_system
+#: ../udisks/udisksclient.c:2328 ../udisks/udisksclient.c:2329
+msgctxt "part-type"
+msgid "Hibernation"
+msgstr "Αδρανοποίηση"
+
+#: ../udisks/udisksclient.c:2330
+msgctxt "part-type"
+msgid "FreeBSD"
+msgstr "FreeBSD"
+
+#: ../udisks/udisksclient.c:2331
+msgctxt "part-type"
+msgid "OpenBSD"
+msgstr "OpenBSD"
+
+#: ../udisks/udisksclient.c:2332 ../udisks/udisksclient.c:2333
+msgctxt "part-type"
+msgid "Mac OS X"
+msgstr "Mac OS X"
+
+#: ../udisks/udisksclient.c:2334
+msgctxt "part-type"
+msgid "Solaris boot"
+msgstr "Εκκίνηση Solaris"
+
+#: ../udisks/udisksclient.c:2335
+msgctxt "part-type"
+msgid "Solaris"
+msgstr "Solaris"
+
+#: ../udisks/udisksclient.c:2336
+msgctxt "part-type"
+msgid "BeOS BFS"
+msgstr "BeOS BFS"
+
+#: ../udisks/udisksclient.c:2337
+msgctxt "part-type"
+msgid "SkyOS SkyFS"
+msgstr "SkyOS SkyFS"
+
+#: ../udisks/udisksclient.c:2483
+msgctxt "job"
+msgid "SMART self-test"
+msgstr "Αυτοδιάγνωση SMART"
+
+#: ../udisks/udisksclient.c:2484
+msgctxt "job"
+msgid "Ejecting Medium"
+msgstr "Εξαγωγή μέσου"
+
+#: ../udisks/udisksclient.c:2485
+msgctxt "job"
+msgid "Unlocking Device"
+msgstr "Ξεκλείδωμα συσκευής"
+
+#: ../udisks/udisksclient.c:2486
+msgctxt "job"
+msgid "Locking Device"
+msgstr "Κλείδωμα συσκευής"
+
+#: ../udisks/udisksclient.c:2487
+msgctxt "job"
+msgid "Modifying Encrypted Device"
+msgstr "Τροποποίηση κρυπτογραφημένης συσκευής"
+
+#: ../udisks/udisksclient.c:2488
+msgctxt "job"
+msgid "Starting Swap Device"
+msgstr "Έναρξη συσκευής Swap"
+
+#: ../udisks/udisksclient.c:2489
+msgctxt "job"
+msgid "Stopping Swap Device"
+msgstr "Διακοπή συσκευής Swap"
+
+#: ../udisks/udisksclient.c:2490
+msgctxt "job"
+msgid "Mounting Filesystem"
+msgstr "Προσάρτηση συστήματος αρχείων"
+
+#: ../udisks/udisksclient.c:2491
+msgctxt "job"
+msgid "Unmounting Filesystem"
+msgstr "Αποπροσάρτηση συστήματος αρχείων"
+
+#: ../udisks/udisksclient.c:2492
+msgctxt "job"
+msgid "Modifying Filesystem"
+msgstr "Τροποποίηση συστήματος αρχείων"
+
+#: ../udisks/udisksclient.c:2493
+msgctxt "job"
+msgid "Erasing Device"
+msgstr "Σβήσιμο συσκευής"
+
+#: ../udisks/udisksclient.c:2494
+msgctxt "job"
+msgid "Creating Filesystem"
+msgstr "Δημιουργία συστήματος αρχείων"
+
+#: ../udisks/udisksclient.c:2495
+msgctxt "job"
+msgid "Setting Up Loop Device"
+msgstr "Ρύθμιση συσκευής βρόχου"
+
+#: ../udisks/udisksclient.c:2496
+msgctxt "job"
+msgid "Modifying Partition"
+msgstr "Τροποποίηση κατάτμησης"
+
+#: ../udisks/udisksclient.c:2497
+msgctxt "job"
+msgid "Deleting Partition"
+msgstr "Διαγραφή κατάτμησης"
+
+#: ../udisks/udisksclient.c:2498
+msgctxt "job"
+msgid "Creating Partition"
+msgstr "Δημιουργία κατάτμησης"
+
+#: ../udisks/udisksclient.c:2499
+msgctxt "job"
+msgid "Cleaning Up"
+msgstr "Εκκαθάριση"
+
+#: ../udisks/udisksclient.c:2500
+msgctxt "job"
+msgid "ATA Secure Erase"
+msgstr "Ασφαλές σβήσιμο ATA"
+
+#: ../udisks/udisksclient.c:2501
+msgctxt "job"
+msgid "ATA Enhanced Secure Erase"
+msgstr "Βελτιωμένο ασφαλές σβήσιμο ATA"
+
+#: ../udisks/udisksclient.c:2502
+msgctxt "job"
+msgid "Stopping RAID Array"
+msgstr "Διακοπή διάταξης RAID"
+
+#: ../udisks/udisksclient.c:2503
+msgctxt "job"
+msgid "Starting RAID Array"
+msgstr "Έναρξη διάταξης RAID"
+
+#: ../udisks/udisksclient.c:2504
+msgctxt "job"
+msgid "Marking Device as Faulty"
+msgstr "Σημείωση συσκευής ως ελαττωματικής"
+
+#: ../udisks/udisksclient.c:2505
+msgctxt "job"
+msgid "Removing Device from Array"
+msgstr "Αφαίρεση συσκευής από διάταξη"
+
+#: ../udisks/udisksclient.c:2506
+msgctxt "job"
+msgid "Adding Device to Array"
+msgstr "Προσθήκη συσκευής σε διάταξη"
+
+#: ../udisks/udisksclient.c:2507
+msgctxt "job"
+msgid "Setting Write-Intent Bitmap"
+msgstr "Ορισμός ψηφιογραφίας στόχου εγγραφής"
+
+#: ../udisks/udisksclient.c:2508
+msgctxt "job"
+msgid "Creating RAID Array"
+msgstr "Δημιουργία διάταξης RAID"
+
+#: ../udisks/udisksclient.c:2516
+#, c-format
+msgctxt "unknown-job"
+msgid "Unknown (%s)"
+msgstr "Άγνωστο (%s)"
+
+#. Translators: 'Thumb' here refers to "USB thumb drive", see
+#. http://en.wikipedia.org/wiki/Thumb_drive
+#: ../udisks/udisksobjectinfo.c:162
+msgctxt "media-type"
+msgid "Thumb"
+msgstr "Thumb"
+
+#: ../udisks/udisksobjectinfo.c:164
+msgctxt "media-type"
+msgid "Floppy"
+msgstr "Δισκέτα"
+
+#: ../udisks/udisksobjectinfo.c:165
+msgctxt "media-type"
+msgid "Zip"
+msgstr "Συσκευή συμπίεσης"
+
+#: ../udisks/udisksobjectinfo.c:166
+msgctxt "media-type"
+msgid "Jaz"
+msgstr "Jaz"
+
+#: ../udisks/udisksobjectinfo.c:168
+msgctxt "media-type"
+msgid "Flash"
+msgstr "Flash"
+
+#: ../udisks/udisksobjectinfo.c:169
+msgctxt "media-type"
+msgid "MemoryStick"
+msgstr "MemoryStick"
+
+#: ../udisks/udisksobjectinfo.c:170
+msgctxt "media-type"
+msgid "SmartMedia"
+msgstr "SmartMedia"
+
+#: ../udisks/udisksobjectinfo.c:171
+msgctxt "media-type"
+msgid "CompactFlash"
+msgstr "CompactFlash"
+
+#: ../udisks/udisksobjectinfo.c:172
+msgctxt "media-type"
+msgid "MMC"
+msgstr "MMC"
+
+#: ../udisks/udisksobjectinfo.c:172 ../udisks/udisksobjectinfo.c:173
+#: ../udisks/udisksobjectinfo.c:174 ../udisks/udisksobjectinfo.c:175
+msgctxt "media-type"
+msgid "SD"
+msgstr "SD"
+
+#: ../udisks/udisksobjectinfo.c:174
+msgctxt "media-type"
+msgid "SDXC"
+msgstr "SDXC"
+
+#: ../udisks/udisksobjectinfo.c:175
+msgctxt "media-type"
+msgid "SDHC"
+msgstr "SDHC"
+
+#: ../udisks/udisksobjectinfo.c:177
+msgctxt "media-type"
+msgid "CD-ROM"
+msgstr "CD-ROM"
+
+#: ../udisks/udisksobjectinfo.c:177 ../udisks/udisksobjectinfo.c:178
+#: ../udisks/udisksobjectinfo.c:179 ../udisks/udisksobjectinfo.c:194
+#: ../udisks/udisksobjectinfo.c:195 ../udisks/udisksobjectinfo.c:196
+msgctxt "media-type"
+msgid "CD"
+msgstr "CD"
+
+#: ../udisks/udisksobjectinfo.c:178
+msgctxt "media-type"
+msgid "CD-R"
+msgstr "CD-R"
+
+#: ../udisks/udisksobjectinfo.c:179
+msgctxt "media-type"
+msgid "CD-RW"
+msgstr "CD-RW"
+
+#: ../udisks/udisksobjectinfo.c:180 ../udisks/udisksobjectinfo.c:181
+#: ../udisks/udisksobjectinfo.c:182 ../udisks/udisksobjectinfo.c:183
+#: ../udisks/udisksobjectinfo.c:184 ../udisks/udisksobjectinfo.c:185
+#: ../udisks/udisksobjectinfo.c:186 ../udisks/udisksobjectinfo.c:187
+msgctxt "media-type"
+msgid "DVD"
+msgstr "DVD"
+
+#: ../udisks/udisksobjectinfo.c:181
+msgctxt "media-type"
+msgid "DVD-R"
+msgstr "DVD-R"
+
+#: ../udisks/udisksobjectinfo.c:182
+msgctxt "media-type"
+msgid "DVD-RW"
+msgstr "DVD-RW"
+
+#: ../udisks/udisksobjectinfo.c:183
+msgctxt "media-type"
+msgid "DVD-RAM"
+msgstr "DVD-RAM"
+
+#: ../udisks/udisksobjectinfo.c:184
+msgctxt "media-type"
+msgid "DVD+R"
+msgstr "DVD+R"
+
+#: ../udisks/udisksobjectinfo.c:185
+msgctxt "media-type"
+msgid "DVD+RW"
+msgstr "DVD+RW"
+
+#: ../udisks/udisksobjectinfo.c:186
+msgctxt "media-type"
+msgid "DVD+R DL"
+msgstr "DVD+R DL"
+
+#: ../udisks/udisksobjectinfo.c:187
+msgctxt "media-type"
+msgid "DVD+RW DL"
+msgstr "DVD+RW DL"
+
+#: ../udisks/udisksobjectinfo.c:188
+msgctxt "media-type"
+msgid "BD-ROM"
+msgstr "BD-ROM"
+
+#: ../udisks/udisksobjectinfo.c:188 ../udisks/udisksobjectinfo.c:189
+#: ../udisks/udisksobjectinfo.c:190
+msgctxt "media-type"
+msgid "Blu-Ray"
+msgstr "Blu-Ray"
+
+#: ../udisks/udisksobjectinfo.c:189
+msgctxt "media-type"
+msgid "BD-R"
+msgstr "BD-R"
+
+#: ../udisks/udisksobjectinfo.c:190
+msgctxt "media-type"
+msgid "BD-RE"
+msgstr "BD-RE"
+
+#: ../udisks/udisksobjectinfo.c:191 ../udisks/udisksobjectinfo.c:192
+#: ../udisks/udisksobjectinfo.c:193
+msgctxt "media-type"
+msgid "HDDVD"
+msgstr "HDDVD"
+
+#: ../udisks/udisksobjectinfo.c:192
+msgctxt "media-type"
+msgid "HDDVD-R"
+msgstr "HDDVD-R"
+
+#: ../udisks/udisksobjectinfo.c:193
+msgctxt "media-type"
+msgid "HDDVD-RW"
+msgstr "HDDVD-RW"
+
+#: ../udisks/udisksobjectinfo.c:194
+msgctxt "media-type"
+msgid "MO"
+msgstr "MO"
+
+#: ../udisks/udisksobjectinfo.c:195
+msgctxt "media-type"
+msgid "MRW"
+msgstr "MRW"
+
+#: ../udisks/udisksobjectinfo.c:196
+msgctxt "media-type"
+msgid "MRW-W"
+msgstr "MRW-W"
+
+#: ../udisks/udisksobjectinfo.c:252
+#, c-format
+msgid "%s Block Device"
+msgstr "Συσκευή ομάδας %s"
+
+#: ../udisks/udisksobjectinfo.c:256
+msgid "Block Device"
+msgstr "Συσκευή ομάδας"
+
+#. Translators: Used to describe a partition of a block device.
+#. *              The %d is the partition number.
+#. *              The %s is the description for the block device (e.g. "5 GB
+#. Block Device").
+#: ../udisks/udisksobjectinfo.c:265
+#, c-format
+msgctxt "part-block"
+msgid "Partition %d of %s"
+msgstr "Κατάτμηση %d του %s"
+
+#. Translators: String used for one-liner description of a block device.
+#. *              The first %s is the description of the object (e.g. "50 GB
+#. Block Device").
+#. *              The second %s is the special device file (e.g. "/dev/sda2").
+#: ../udisks/udisksobjectinfo.c:275
+#, c-format
+msgctxt "one-liner-block"
+msgid "%s (%s)"
+msgstr "%s (%s)"
+
+#: ../udisks/udisksobjectinfo.c:306
+#, c-format
+msgid "%s Loop Device"
+msgstr "Συσκευή βρόχου %s"
+
+#: ../udisks/udisksobjectinfo.c:310
+msgid "Loop Device"
+msgstr "Συσκευή βρόχου"
+
+#. Translators: Used to describe a partition of a loop device.
+#. *              The %d is the partition number.
+#. *              The %s is the description for the loop device (e.g. "5 GB
+#. Loop Device").
+#: ../udisks/udisksobjectinfo.c:319
+#, c-format
+msgctxt "part-loop"
+msgid "Partition %d of %s"
+msgstr "Κατάτμηση %d του %s"
+
+#. Translators: String used for one-liner description of a loop device.
+#. *              The first %s is the description of the object (e.g. "2 GB
+#. Loop Device").
+#. *              The second %s is the name of the backing file (e.g.
+#. "/home/davidz/file.iso").
+#. *              The third %s is the special device file (e.g. "/dev/loop2").
+#: ../udisks/udisksobjectinfo.c:330
+#, c-format
+msgctxt "one-liner-loop"
+msgid "%s — %s (%s)"
+msgstr "%s — %s (%s)"
+
+#: ../udisks/udisksobjectinfo.c:348
+msgctxt "mdraid-desc"
+msgid "RAID-0 Array"
+msgstr "Διάταξη RAID-0"
+
+#: ../udisks/udisksobjectinfo.c:350
+msgctxt "mdraid-desc"
+msgid "RAID-1 Array"
+msgstr "Διάταξη RAID-1"
+
+#: ../udisks/udisksobjectinfo.c:352
+msgctxt "mdraid-desc"
+msgid "RAID-4 Array"
+msgstr "Διάταξη RAID-4"
+
+#: ../udisks/udisksobjectinfo.c:354
+msgctxt "mdraid-desc"
+msgid "RAID-5 Array"
+msgstr "Διάταξη RAID-5"
+
+#: ../udisks/udisksobjectinfo.c:356
+msgctxt "mdraid-desc"
+msgid "RAID-6 Array"
+msgstr "Διάταξη RAID-6"
+
+#: ../udisks/udisksobjectinfo.c:358
+msgctxt "mdraid-desc"
+msgid "RAID-10 Array"
+msgstr "Διάταξη RAID-10"
+
+#: ../udisks/udisksobjectinfo.c:360
+msgctxt "mdraid-desc"
+msgid "RAID Array"
+msgstr "Συστοιχία RAID"
+
+#. Translators: Used to format the description for a RAID array.
+#. *              The first %s is the size (e.g. '42.0 GB').
+#. *              The second %s is the level (e.g. 'RAID-5 Array').
+#: ../udisks/udisksobjectinfo.c:400
+#, c-format
+msgctxt "mdraid-desc"
+msgid "%s %s"
+msgstr "%s %s"
+
+#. Translators: Used to describe a partition of a RAID Array.
+#. *              The %d is the partition number.
+#. *              The %s is the description for the drive (e.g. "2 TB
+#. RAID-5").
+#: ../udisks/udisksobjectinfo.c:415
+#, c-format
+msgctxt "part-raid"
+msgid "Partition %d of %s"
+msgstr "Κατάτμηση %d του %s"
+
+#. Translators: String used for one-liner description of running RAID array.
+#. *              The first %s is the array name (e.g. "AlphaGo").
+#. *              The second %s is the size and level (e.g. "2 TB RAID-5").
+#. *              The third %s is the special device file (e.g. "/dev/sda").
+#: ../udisks/udisksobjectinfo.c:430
+#, c-format
+msgctxt "one-liner-mdraid-running"
+msgid "%s — %s (%s)"
+msgstr "%s — %s (%s)"
+
+#. Translators: String used for one-liner description of non-running RAID
+#. array.
+#. *              The first %s is the array name (e.g. "AlphaGo").
+#. *              The second %s is the size and level (e.g. "2 TB RAID-5").
+#: ../udisks/udisksobjectinfo.c:441
+#, c-format
+msgctxt "one-liner-mdraid-not-running"
+msgid "%s — %s"
+msgstr "%s — %s"
+
+#. Translators: String used for one-liner description of running RAID array
+#. w/o a name.
+#. *              The first %s is the array name (e.g. "AlphaGo").
+#. *              The second %s is the size and level (e.g. "2 TB RAID-5").
+#. *              The third %s is the special device file (e.g. "/dev/sda").
+#: ../udisks/udisksobjectinfo.c:455
+#, c-format
+msgctxt "one-liner-mdraid-no-name-running"
+msgid "%s — %s"
+msgstr "%s — %s"
+
+#. Translators: String used for one-liner description of non-running RAID
+#. array w/o a name.
+#. *              The first %s is the array name (e.g. "AlphaGo").
+#. *              The second %s is the size and level (e.g. "2 TB RAID-5").
+#: ../udisks/udisksobjectinfo.c:465
+#, c-format
+msgctxt "one-liner-mdraid-no-name-not-running"
+msgid "%s"
+msgstr "%s"
+
+#. Translators: Used to describe drive without removable media. The %s is the
+#. type, e.g. 'Thumb'
+#: ../udisks/udisksobjectinfo.c:591
+#, c-format
+msgctxt "drive-with-fixed-media"
+msgid "%s Drive"
+msgstr "Οδηγός %s"
+
+#. Translators: Used to describe generic media. The %s is the type, e.g. 'Zip'
+#. or 'Floppy'
+#: ../udisks/udisksobjectinfo.c:595
+#, c-format
+msgctxt "drive-with-generic-media"
+msgid "%s Disk"
+msgstr "Δίσκος %s"
+
+#. Translators: Used to describe flash media. The %s is the type, e.g. 'SD' or
+#. 'CompactFlash'
+#: ../udisks/udisksobjectinfo.c:599
+#, c-format
+msgctxt "flash-media"
+msgid "%s Card"
+msgstr "Κάρτα %s"
+
+#. Translators: Used to describe optical discs. The %s is the type, e.g.
+#. 'CD-R' or 'DVD-ROM'
+#: ../udisks/udisksobjectinfo.c:603
+#, c-format
+msgctxt "optical-media"
+msgid "%s Disc"
+msgstr "Δίσκος %s"
+
+#. Translators: Used to describe a drive. The %s is the size, e.g. '20 GB'
+#: ../udisks/udisksobjectinfo.c:623
+#, c-format
+msgctxt "drive-with-size"
+msgid "%s Drive"
+msgstr "Οδηγός %s"
+
+#. Translators: Used to describe a drive we know very little about (removable
+#. media or size not known)
+#: ../udisks/udisksobjectinfo.c:628
+msgctxt "generic-drive"
+msgid "Drive"
+msgstr "Οδηγός"
+
+#. Translators: Used to describe a non-rotating drive (rotation rate either
+#. unknown
+#. * or it's a solid-state drive). The %s is the size, e.g. '20 GB'.
+#: ../udisks/udisksobjectinfo.c:639
+#, c-format
+msgctxt "disk-non-rotational"
+msgid "%s Disk"
+msgstr "Δίσκος %s"
+
+#. Translators: Used to describe a non-rotating drive (rotation rate either
+#. unknown
+#. * or it's a solid-state drive). The drive is either using removable media
+#. or its
+#. * size not known.
+#: ../udisks/udisksobjectinfo.c:646
+msgctxt "disk-non-rotational"
+msgid "Disk"
+msgstr "Δίσκος"
+
+#. Translators: Used to describe a hard-disk drive (HDD). The %s is the size,
+#. e.g. '20 GB'.
+#: ../udisks/udisksobjectinfo.c:654
+#, c-format
+msgctxt "disk-hdd"
+msgid "%s Hard Disk"
+msgstr "Σκληρός δίσκος %s"
+
+#. Translators: Used to describe a hard-disk drive (HDD) (removable media or
+#. size not known)
+#: ../udisks/udisksobjectinfo.c:659
+msgctxt "disk-hdd"
+msgid "Hard Disk"
+msgstr "Σκληρός δίσκος"
+
+#. Translators: Used to describe a card reader. The %s is the card type e.g.
+#. 'CompactFlash'.
+#: ../udisks/udisksobjectinfo.c:667
+#, c-format
+msgctxt "drive-card-reader"
+msgid "%s Card Reader"
+msgstr "Αναγνώστης κάρτας %s"
+
+#. Translators: Used to describe drive. The first %s is the size e.g. '20 GB'
+#. and the
+#. * second %s is the drive type e.g. 'Thumb'.
+#: ../udisks/udisksobjectinfo.c:678
+#, c-format
+msgctxt "drive-with-size-and-type"
+msgid "%s %s Drive"
+msgstr "Οδηγός %s %s"
+
+#. Translators: Used to describe drive. The first %s is the drive type e.g.
+#. 'Thumb'.
+#: ../udisks/udisksobjectinfo.c:684
+#, c-format
+msgctxt "drive-with-type"
+msgid "%s Drive"
+msgstr "Οδηγός %s"
+
+#. Translators: String used for a blank disc. The %s is the disc type e.g.
+#. "CD-RW Disc"
+#: ../udisks/udisksobjectinfo.c:763
+#, c-format
+msgctxt "optical-media"
+msgid "Blank %s"
+msgstr "Κενός %s"
+
+#. Translators: String used for a mixed disc. The %s is the disc type e.g.
+#. "CD-ROM Disc"
+#: ../udisks/udisksobjectinfo.c:771
+#, c-format
+msgctxt "optical-media"
+msgid "Mixed %s"
+msgstr "Μικτός %s"
+
+#. Translators: String used for an audio disc. The %s is the disc type e.g.
+#. "CD-ROM Disc"
+#: ../udisks/udisksobjectinfo.c:779
+#, c-format
+msgctxt "optical-media"
+msgid "Audio %s"
+msgstr "Ηχητικός %s"
+
+#. Translators: Used to describe a partition of a drive.
+#. *              The %d is the partition number.
+#. *              The %s is the description for the drive (e.g. "2 GB Thumb
+#. Drive").
+#: ../udisks/udisksobjectinfo.c:832
+#, c-format
+msgctxt "part-drive"
+msgid "Partition %d of %s"
+msgstr "Κατάτμηση %d στο %s"
+
+#. Translators: String used for one-liner description of drive.
+#. *              The first %s is the description of the object (e.g. "80 GB
+#. Disk" or "Partition 2 of 2 GB Thumb Drive").
+#. *              The second %s is the name of the object (e.g. "INTEL
+#. SSDSA2MH080G1GC").
+#. *              The third %s is the fw revision (e.g "45ABX21").
+#. *              The fourth %s is the special device file (e.g. "/dev/sda").
+#: ../udisks/udisksobjectinfo.c:850
+#, c-format
+msgctxt "one-liner-drive"
+msgid "%s — %s [%s] (%s)"
+msgstr "%s — %s [%s] (%s)"
+
+#. Translators: String used for one-liner description of drive w/o known fw
+#. revision.
+#. *              The first %s is the description of the object (e.g. "80 GB
+#. Disk").
+#. *              The second %s is the name of the object (e.g. "INTEL
+#. SSDSA2MH080G1GC").
+#. *              The third %s is the special device file (e.g. "/dev/sda").
+#: ../udisks/udisksobjectinfo.c:863
+#, c-format
+msgctxt "one-liner-drive"
+msgid "%s — %s (%s)"
+msgstr "%s — %s (%s)"

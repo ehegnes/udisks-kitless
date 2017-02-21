@@ -1,265 +1,238 @@
-dnl Process this file with autoconf to produce a configure script.
 
-AC_PREREQ(2.59c)
-AC_INIT(udisks, 1.0.5, http://bugs.freedesktop.org/enter_bug.cgi?product=udisks)
-AM_INIT_AUTOMAKE(udisks, 1.0.5)
-AM_CONFIG_HEADER(config.h)
+m4_define([udisks_major_version], [2])
+m4_define([udisks_minor_version], [1])
+m4_define([udisks_micro_version], [8])
+
+m4_define([udisks_version], [udisks_major_version.udisks_minor_version.udisks_micro_version])
+
+AC_INIT([udisks],[udisks_version],[http://bugs.freedesktop.org/enter_bug.cgi?product=udisks],[udisks])
+
+UDISKS_MAJOR_VERSION=udisks_major_version
+UDISKS_MINOR_VERSION=udisks_minor_version
+UDISKS_MICRO_VERSION=udisks_micro_version
+UDISKS_VERSION=udisks_version
+AC_SUBST(UDISKS_MAJOR_VERSION)
+AC_SUBST(UDISKS_MINOR_VERSION)
+AC_SUBST(UDISKS_MICRO_VERSION)
+AC_SUBST(UDISKS_VERSION)
+
+AC_CONFIG_MACRO_DIR([m4])
+AC_CONFIG_SRCDIR([src])
+AC_CONFIG_HEADERS([config.h])
+AC_CONFIG_AUX_DIR([build-aux])
+
+AM_INIT_AUTOMAKE([1.11 foreign silent-rules dist-bzip2 no-dist-gzip])
 AM_MAINTAINER_MODE
+AM_SILENT_RULES([yes])
 
-AC_ISC_POSIX
+AX_CHECK_ENABLE_DEBUG
+
 AC_PROG_CC
-AM_PROG_CC_STDC
+AC_ISC_POSIX
 AC_HEADER_STDC
-AM_PROG_LIBTOOL
-AC_PROG_MAKE_SET
-AC_PROG_LN_S
-AC_SYS_LARGEFILE
-AM_PROG_CC_C_O
+AC_PROG_LIBTOOL
 
-m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 
-# Taken from dbus
-AC_ARG_ENABLE(ansi,             [  --enable-ansi           enable -ansi -pedantic gcc flags],enable_ansi=$enableval,enable_ansi=no)
-AC_ARG_ENABLE(verbose-mode,     [  --enable-verbose-mode   support verbose debug mode],enable_verbose_mode=$enableval,enable_verbose_mode=$USE_MAINTAINER_MODE)
-AC_ARG_ENABLE(man-pages,        [  --enable-man-pages      build manual pages],enable_man_pages=$enableval,enable_man_pages=yes)
-AC_ARG_ENABLE(profiling,        [  --enable-profiling      add tracing instrumentation for plot-timeline.py], enable_profiling=$enableval,enable_profiling=$USE_MAINTAINER_MODE)
-AC_ARG_ENABLE(strict,           [  --enable-strict         Enable strict compilation options], enable_strict=$enableval,enable_strict=$USE_MAINTAINER_MODE)
+# Compilation
+#
 
-if test "x$enable_profiling" = "xyes"; then
-  AC_DEFINE(PROFILING, 1, [Define to 1 if profiling is enabled ])
-fi
+GNOME_COMPILE_WARNINGS([maximum])
 
-if test "${enable_man_page}" != no; then
-dnl
-dnl Check for xsltproc
-dnl
+CC_CHECK_CFLAGS_APPEND([                          \
+        -Waggregate-return                        \
+        -Wall                                     \
+        -W                                        \
+        -Wextra                                   \
+        -Wcast-align                              \
+        -Wdeclaration-after-statement             \
+        -Wendif-labels                            \
+        -Werror=format-security                   \
+        -Werror=implicit-function-declaration     \
+        -Werror=overflow                          \
+        -Wformat-nonliteral                       \
+        -Wformat=2                                \
+        -Wimplicit                                \
+        -Winit-self                               \
+        -Wlogical-op                              \
+        -Wmissing-declarations                    \
+        -Wmissing-format-attribute                \
+        -Wmissing-include-dirs                    \
+        -Wmissing-noreturn                        \
+        -Wmissing-prototypes                      \
+        -Wnested-externs                          \
+        -Wno-inline                               \
+        -Wno-long-long                            \
+        -Wno-missing-field-initializers           \
+        -Wno-overlength-strings                   \
+        -Wno-switch-enum                          \
+        -Wno-unused-parameter                     \
+        -Wno-unused-result                        \
+        -Wold-style-definition                    \
+        -Wpacked                                  \
+        -Wpointer-arith                           \
+        -Wshadow                                  \
+        -Wsign-compare                            \
+        -Wstrict-aliasing=2                       \
+        -Wstrict-prototypes                       \
+        -Wundef                                   \
+        -Wuninitialized                           \
+        -Wmaybe-uninitialized                     \
+        -Wunsafe-loop-optimizations               \
+        -Wvla                                     \
+        -Wwrite-strings                           \
+        -fdata-sections                           \
+        -fdiagnostics-show-option                 \
+        -ffast-math                               \
+        -ffunction-sections                       \
+        -fno-common                               \
+        -fno-strict-aliasing                      \
+        -D_LARGEFILE64_SOURCE                     \
+        -D_FILE_OFFSET_BITS=64                    \
+])
+
 AC_PATH_PROG([XSLTPROC], [xsltproc])
-  if test -z "$XSLTPROC"; then
-    enable_man_pages=no
-  fi
-fi
-AM_CONDITIONAL(MAN_PAGES_ENABLED, test x$enable_man_pages = xyes)
-
-GTK_DOC_CHECK([1.3])
-
-#### gcc warning flags
-
-if test "x$GCC" = "xyes"; then
-  changequote(,)dnl
-  case " $CFLAGS " in
-  *[\ \	]-Wall[\ \	]*) ;;
-  *) CFLAGS="$CFLAGS -Wall" ;;
-  esac
-
-  case " $CFLAGS " in
-  *[\ \	]-Wchar-subscripts[\ \	]*) ;;
-  *) CFLAGS="$CFLAGS -Wchar-subscripts" ;;
-  esac
-
-  case " $CFLAGS " in
-  *[\ \	]-Wmissing-declarations[\ \	]*) ;;
-  *) CFLAGS="$CFLAGS -Wmissing-declarations" ;;
-  esac
-
-  case " $CFLAGS " in
-  *[\ \	]-Wnested-externs[\ \	]*) ;;
-  *) CFLAGS="$CFLAGS -Wnested-externs" ;;
-  esac
-
-  case " $CFLAGS " in
-  *[\ \	]-Wpointer-arith[\ \	]*) ;;
-  *) CFLAGS="$CFLAGS -Wpointer-arith" ;;
-  esac
-
-  case " $CFLAGS " in
-  *[\ \	]-Wcast-align[\ \	]*) ;;
-  *) CFLAGS="$CFLAGS -Wcast-align" ;;
-  esac
-
-  case " $CFLAGS " in
-  *[\ \	]-Wsign-compare[\ \	]*) ;;
-  *) CFLAGS="$CFLAGS -Wsign-compare" ;;
-  esac
-
-  case " $CFLAGS " in
-  *[\ \	]-Wformat[\ \	]*) ;;
-  *) CFLAGS="$CFLAGS -Wformat" ;;
-  esac
-
-  case " $CFLAGS " in
-  *[\ \	]-Wformat-security[\ \	]*) ;;
-  *) CFLAGS="$CFLAGS -Wformat-security" ;;
-  esac
-
-  if test "x$enable_ansi" = "xyes"; then
-    case " $CFLAGS " in
-    *[\ \	]-ansi[\ \	]*) ;;
-    *) CFLAGS="$CFLAGS -ansi" ;;
-    esac
-
-    case " $CFLAGS " in
-    *[\ \	]-D_POSIX_C_SOURCE*) ;;
-    *) CFLAGS="$CFLAGS -D_POSIX_C_SOURCE=199309L" ;;
-    esac
-
-    case " $CFLAGS " in
-    *[\ \	]-D_BSD_SOURCE[\ \	]*) ;;
-    *) CFLAGS="$CFLAGS -D_BSD_SOURCE" ;;
-    esac
-
-    case " $CFLAGS " in
-    *[\ \	]-pedantic[\ \	]*) ;;
-    *) CFLAGS="$CFLAGS -pedantic" ;;
-    esac
-  fi
-
-  if test "x$enable_strict" = "xyes"; then
-    CFLAGS="$CFLAGS -Werror"
-  fi
-
-  changequote([,])dnl
+if test -z "$XSLTPROC"; then
+  AC_MSG_ERROR([xsltproc is needed])
 fi
 
-have_sgutils="false"
-AC_CHECK_LIB([sgutils2], [sg_ll_inquiry], have_sgutils="true")
-if test x$have_sgutils != "xtrue"; then
-   AC_MSG_ERROR([libsgutils2 is needed])
+GTK_DOC_CHECK([1.3],[--flavour no-tmpl])
+
+AC_ARG_ENABLE(man,
+              [AS_HELP_STRING([--enable-man],
+                              [generate man pages [default=auto]])],,
+              enable_man=maybe)
+AS_IF([test "$enable_man" != no], [
+  AC_PATH_PROG([XSLTPROC], [xsltproc])
+  AS_IF([test -z "$XSLTPROC"], [
+    AS_IF([test "$enable_man" = yes], [
+      AC_MSG_ERROR([xsltproc is required for --enable-man])
+    ])
+    enable_man=no
+  ])
+  enable_man=yes
+])
+AM_CONDITIONAL(ENABLE_MAN, test "$enable_man" != no)
+
+GOBJECT_INTROSPECTION_CHECK([0.6.2])
+
+# Behavior
+#
+
+AC_ARG_ENABLE(fhs-media,
+              [AS_HELP_STRING([--enable-fhs-media],
+                              [Mount devices in /media instead of /run/media [default=no]])],
+              fhs_media=yes,
+              fhs_media=no)
+if test "x$fhs_media" = "xyes"; then
+  AC_DEFINE([HAVE_FHS_MEDIA], 1, [Define to 1 to use /media for mounting])
 fi
-SGUTILS_CFLAGS=""
-SGUTILS_LIBS="-lsgutils2"
-AC_SUBST(SGUTILS_CFLAGS)
-AC_SUBST(SGUTILS_LIBS)
 
+# Libraries
+#
 
-PKG_CHECK_MODULES(GUDEV, [gudev-1.0 >= 147])
+PKG_CHECK_MODULES(GUDEV, [gudev-1.0 >= 165])
 AC_SUBST(GUDEV_CFLAGS)
 AC_SUBST(GUDEV_LIBS)
 
-PKG_CHECK_MODULES(GLIB, [glib-2.0 >= 2.6.0])
+PKG_CHECK_MODULES(GLIB, [glib-2.0 >= 2.36])
 AC_SUBST(GLIB_CFLAGS)
 AC_SUBST(GLIB_LIBS)
 
-PKG_CHECK_MODULES(GIO, [gio-unix-2.0 >= 2.15.0])
+PKG_CHECK_MODULES(GIO, [gio-unix-2.0 >= 2.36])
 AC_SUBST(GIO_CFLAGS)
 AC_SUBST(GIO_LIBS)
 
-PKG_CHECK_MODULES(DBUS, [dbus-1 >= 1.0])
-AC_SUBST(DBUS_CFLAGS)
-AC_SUBST(DBUS_LIBS)
+PKG_CHECK_MODULES(POLKIT_GOBJECT_1, [polkit-gobject-1 >= 0.102])
+AC_SUBST(POLKIT_GOBJECT_1_CFLAGS)
+AC_SUBST(POLKIT_GOBJECT_1_LIBS)
 
-PKG_CHECK_MODULES(DBUS_GLIB, [dbus-glib-1 >= 0.82])
-AC_SUBST(DBUS_GLIB_CFLAGS)
-AC_SUBST(DBUS_GLIB_LIBS)
+PKG_CHECK_MODULES(POLKIT_AGENT_1, [polkit-agent-1 >= 0.102])
+AC_SUBST(POLKIT_AGENT_1_CFLAGS)
+AC_SUBST(POLKIT_AGENT_1_LIBS)
 
-have_polkit=no
-AC_ARG_ENABLE(polkit, AS_HELP_STRING([--enable-policykit], [enable Policykit support]))
-if test "x$enable_policykit" = "xyes"; then
-  PKG_CHECK_MODULES(POLKIT_GOBJECT_1, polkit-gobject-1 >= 0.97,
-                    [AC_DEFINE(HAVE_POLKIT, 1, [Define if Policykit is available]) have_polkit=yes],
-                    have_polkit=no)
-  AC_SUBST(POLKIT_GOBJECT_1_CFLAGS)
-  AC_SUBST(POLKIT_GOBJECT_1_LIBS)
-fi
-AM_CONDITIONAL(HAVE_POLKIT, [test "$have_polkit" = "yes"])
-
-PKG_CHECK_MODULES(LIBPARTED, [libparted >= 1.8.8])
-AC_SUBST(LIBPARTED_CFLAGS)
-AC_SUBST(LIBPARTED_LIBS)
-
-PKG_CHECK_MODULES(DEVMAPPER, [devmapper >= 1.02])
-AC_SUBST(DEVMAPPER_CFLAGS)
-AC_SUBST(DEVMAPPER_LIBS)
-
-have_lvm2=no
-AC_ARG_ENABLE(lvm2, AS_HELP_STRING([--enable-lvm2], [enable LVM2 support]))
-if test "x$enable_lvm2" = "xyes"; then
-  PKG_CHECK_MODULES(LVM2, lvm2app >= 2.2,
-                    [AC_DEFINE(HAVE_LVM2, 1, [Define if LVM2 is available]) have_lvm2=yes],
-                    have_lvm2=no)
-  AC_SUBST(LVM2_CFLAGS)
-  AC_SUBST(LVM2_LIBS)
-  if test "x$have_lvm2" = xno -a "x$enable_lvm2" = xyes; then
-    AC_MSG_ERROR([lvm2 support requested but libraries not found])
-  fi
-fi
-AM_CONDITIONAL(HAVE_LVM2, [test "$have_lvm2" = "yes"])
-
-have_dmmp=no
-AC_ARG_ENABLE(dmmp, AS_HELP_STRING([--enable-dmmp], [enable dm-multipath support]))
-if test "x$enable_dmmp" = "xyes"; then
-  have_dmmp=yes
-  AC_DEFINE(HAVE_DMMP, 1, [Define to 1 if dmmp is available])
-fi
-AM_CONDITIONAL(HAVE_DMMP, [test "$have_dmmp" = "yes"])
-
-PKG_CHECK_MODULES(LIBATASMART, [libatasmart >= 0.14])
+PKG_CHECK_MODULES(LIBATASMART, [libatasmart >= 0.17])
 AC_SUBST(LIBATASMART_CFLAGS)
 AC_SUBST(LIBATASMART_LIBS)
 
-PKG_CHECK_MODULES(LIBUDEV, [libudev >= 143])
-AC_SUBST(LIBUDEV_CFLAGS)
-AC_SUBST(LIBUDEV_LIBS)
-
-if test "x$GCC" = "xyes"; then
-  LDFLAGS="-Wl,--as-needed $LDFLAGS"
+PKG_CHECK_MODULES(LIBSYSTEMD_LOGIN, [libsystemd >= 209], [have_libsystemd_login=yes],
+                  [PKG_CHECK_MODULES(LIBSYSTEMD_LOGIN, [libsystemd-login >= 44 libsystemd-daemon],
+                  [have_libsystemd_login=yes],
+                  [have_libsystemd_login=no])])
+AM_CONDITIONAL(HAVE_LIBSYSTEMD_LOGIN, test x$have_libsystemd_login = xyes)
+if test "x$have_libsystemd_login" = "xyes"; then
+  AC_DEFINE([HAVE_LIBSYSTEMD_LOGIN], 1, [Define to 1 if libsystemd-login is available])
 fi
+AC_SUBST(HAVE_LIBSYSTEMD_LOGIN)
+AC_SUBST(LIBSYSTEMD_LOGIN_CFLAGS)
+AC_SUBST(LIBSYSTEMD_LOGIN_LIBS)
 
-if test "$prefix" = "/usr" -o "$prefix" = "/usr/local" ; then
-  slashlibdir=/lib
-  slashsbindir=/sbin
-else
-  slashlibdir=$prefix/lib
-  slashsbindir=$prefix/sbin
-fi
-AC_SUBST(slashlibdir)
-AC_SUBST(slashsbindir)
-
-# *************
-# Remote Access
-# *************
-remote_access=no
-AC_ARG_ENABLE(remote_access, AS_HELP_STRING([--disable-remote-access], [disable remote access]))
-if test "x$enable_remote_access" != "xno"; then
-   AC_DEFINE(REMOTE_ACCESS_ENABLED, 1, [Defined if remote access is enabled])
-   remote_access=yes
-fi
-AM_CONDITIONAL(REMOTE_ACCESS_ENABLED, [test "$remote_access" = "yes"])
+# udevdir
+AC_ARG_WITH([udevdir],
+            AS_HELP_STRING([--with-udevdir=DIR], [Directory for udev]),
+            [],
+            [with_udevdir=$($PKG_CONFIG --variable=udevdir udev)])
+AC_SUBST([udevdir], [$with_udevdir])
 
 # systemd
 AC_ARG_WITH([systemdsystemunitdir],
-	    AS_HELP_STRING([--with-systemdsystemunitdir=DIR], [Directory for systemd service files]),
-	    [],
-	    [with_systemdsystemunitdir=$($PKG_CONFIG --variable=systemdsystemunitdir systemd)])
+            AS_HELP_STRING([--with-systemdsystemunitdir=DIR], [Directory for systemd service files]),
+            [],
+            [with_systemdsystemunitdir=$($PKG_CONFIG --variable=systemdsystemunitdir systemd)])
 if test "x$with_systemdsystemunitdir" != "xno"; then
-	AC_SUBST([systemdsystemunitdir], [$with_systemdsystemunitdir])
+  AC_SUBST([systemdsystemunitdir], [$with_systemdsystemunitdir])
 fi
 AM_CONDITIONAL(HAVE_SYSTEMD, [test -n "$systemdsystemunitdir"])
 
-# ********************
-# Internationalization
-# ********************
+have_acl=no
+AC_ARG_ENABLE(acl, AS_HELP_STRING([--disable-acl], [disable acl support]))
+if test "x$enable_acl" != "xno"; then
+  AC_CHECK_HEADERS(
+          [sys/acl.h acl/libacl.h],
+          [
+            AC_CHECK_LIB(
+                [acl],
+                [acl_get_file],
+                [AC_DEFINE(HAVE_ACL, 1, [Define if libacl is available]) have_acl=yes],
+                have_acl=no)
+          ],
+          have_acl=no)
+  if test "x$have_acl" = "xyes"; then
+    ACL_CFLAGS=""
+    ACL_LIBS="-lacl"
+  fi
+  AC_SUBST(ACL_CFLAGS)
+  AC_SUBST(ACL_LIBS)
+  if test "x$have_acl" = xno -a "x$enable_acl" = xyes; then
+    AC_MSG_ERROR([acl support requested but libraries not found])
+  fi
+fi
+AM_CONDITIONAL(HAVE_ACL, [test "$have_acl" = "yes"])
 
-IT_PROG_INTLTOOL([0.36.0])
-GETTEXT_PACKAGE=udisks
+
+# Internationalization
+#
+
+IT_PROG_INTLTOOL([$INTLTOOL_REQUIRED])
+GETTEXT_PACKAGE=udisks2
 AC_SUBST([GETTEXT_PACKAGE])
 AM_GLIB_GNU_GETTEXT
 AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE],["$GETTEXT_PACKAGE"],[gettext domain])
 
+# Generate
+#
+
 AC_OUTPUT([
 Makefile
 data/Makefile
-data/udisks.pc
+udisks/Makefile
+udisks/udisks2.pc
 src/Makefile
-src/helpers/Makefile
-src/probers/Makefile
+src/tests/Makefile
 tools/Makefile
 doc/Makefile
 doc/version.xml
 doc/man/Makefile
-doc/dbus/Makefile
-policy/Makefile
 po/Makefile.in
-tests/Makefile
 ])
 
 dnl ==========================================================================
@@ -276,21 +249,19 @@ echo "
         sysconfdir:                 ${sysconfdir}
         localstatedir:              ${localstatedir}
         docdir:                     ${docdir}
-        slashlibdir:                ${slashlibdir}
-        slashsbindir:               ${slashsbindir}
+        introspection:              ${found_introspection}
+
+        udevdir:                    ${udevdir}
         systemdsystemunitdir:       ${systemdsystemunitdir}
+        using libsystemd-login:     ${have_libsystemd_login}
+        use /media for mounting:    ${fhs_media}
+        acl support:                ${have_acl}
 
         compiler:                   ${CC}
         cflags:                     ${CFLAGS}
         cppflags:                   ${CPPFLAGS}
-        xsltproc:                   ${XSLTPROC}
-
-        LVM2 support:               ${have_lvm2}
-        dm-multipath:               ${have_dmmp}
-        Remote Access:              ${remote_access}
 
         Maintainer mode:            ${USE_MAINTAINER_MODE}
-        Profiling:                  ${enable_profiling}
         Building api docs:          ${enable_gtk_doc}
-        Building man pages:         ${enable_man_pages}
+        Building man pages:         ${enable_man}
 "

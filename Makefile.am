@@ -1,37 +1,46 @@
 ## Process this file with automake to produce Makefile.in
 
-SUBDIRS = data src doc tools policy po tests
+NULL =
 
-# Creating ChangeLog from git log (taken from cairo/Makefile.am):
-ChangeLog: $(srcdir)/ChangeLog
+SUBDIRS = data udisks src tools po doc
 
-$(srcdir)/ChangeLog:
-	@if test -d "$(srcdir)/.git"; then \
-	  (cd "$(srcdir)" && \
-	  ./missing --run git-log --stat) | fmt --split-only > $@.tmp \
-	  && mv -f $@.tmp $@ \
-	  || ($(RM) $@.tmp; \
-	      echo Failed to generate ChangeLog, your ChangeLog may be outdated >&2; \
-	      (test -f $@ || echo git-log is required to generate this file >> $@)); \
-	else \
-	  test -f $@ || \
-	  (echo A git checkout and git-log is required to generate ChangeLog >&2 && \
-	  echo A git checkout and git-log is required to generate this file >> $@); \
-	fi
+ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
+
+GCC_COLORS ?= 'auto'
+export GCC_COLORS
 
 EXTRA_DIST = 			\
 	HACKING 		\
-	ChangeLog
+	$(NULL)
 
-# xsltproc barfs on 'make distcheck'; disable for now
-DISTCHECK_CONFIGURE_FLAGS=--disable-man-pages --disable-gtk-doc \
-			  --with-systemdsystemunitdir=$$dc_install_base/$(systemdsystemunitdir)
+DISTCHECK_CONFIGURE_FLAGS=							\
+	--enable-gtk-doc 							\
+	--disable-introspection							\
+	--with-udevdir=$$dc_install_base/$(udevdir)				\
+	--with-systemdsystemunitdir=$$dc_install_base/$(systemdsystemunitdir)	\
+	$(NULL)
+
+sign : dist
+	gpg --armor --detach-sign --output udisks-$(VERSION).tar.bz2.sign udisks-$(VERSION).tar.bz2
+
+publish : sign
+	scp udisks-$(VERSION).tar.bz2 udisks-$(VERSION).tar.bz2.sign "people.freedesktop.org:/srv/udisks.freedesktop.org/www/releases/"
+
+publish-docs :
+	gtkdoc-rebase --html-dir doc/html --online
+	ssh "people.freedesktop.org" "mkdir -p /srv/udisks.freedesktop.org/www/docs/$(VERSION)"
+	scp doc/html/* "people.freedesktop.org:/srv/udisks.freedesktop.org/www/docs/$(VERSION)"
+	ssh "people.freedesktop.org" "rm -f /srv/udisks.freedesktop.org/www/docs/latest; ln -s $(VERSION) /srv/udisks.freedesktop.org/www/docs/latest"
+
+# publish docs readable from http://udisks.freedesktop.org/docs/master/ (instead of latest)
+#
+# This is useful for work-in-progress when hacking on master and you want
+# to easily share API ideas etc. with others without requiring them to
+# build master themselves
+publish-docs-master :
+	gtkdoc-rebase --html-dir doc/html --online
+	ssh "people.freedesktop.org" "rm -rf /srv/udisks.freedesktop.org/www/docs/master; mkdir -p /srv/udisks.freedesktop.org/www/docs/master"
+	scp doc/html/* "people.freedesktop.org:/srv/udisks.freedesktop.org/www/docs/master"
 
 clean-local :
 	rm -f *~
-
-dist-hook:
-	-rm $(distdir)/src/*-glue.h $(distdir)/tools/*-glue.h
-
-TESTS_ENVIRONMENT = sudo
-TESTS = tests/run
