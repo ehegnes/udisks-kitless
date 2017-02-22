@@ -1563,7 +1563,7 @@ Optional Features:
                           Enable introspection for this build
   --enable-fhs-media      Mount devices in /media instead of /run/media
                           [default=no]
-  --enable-polkit         enable Policykit support
+  --enable-policykit      enable Policykit support
   --disable-acl           disable acl support
   --disable-nls           do not use Native Language Support
 
@@ -13388,7 +13388,7 @@ if test "${enable_polkit+set}" = set; then :
   enableval=$enable_polkit;
 fi
 
-if test "x$enable_polkit" = "xyes"; then
+if test "x$enable_policykit" = "xyes"; then
 
 pkg_failed=no
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for POLKIT_GOBJECT_1" >&5
