@@ -42,6 +42,9 @@
 /* Define to 1 if you have the <memory.h> header file. */
 #undef HAVE_MEMORY_H
 
+/* Define if Policykit is available */
+#undef HAVE_POLKIT
+
 /* Define to 1 if you have the <stdint.h> header file. */
 #undef HAVE_STDINT_H
 
@@ -68,9 +71,6 @@
 
 /* Define to the sub-directory where libtool stores uninstalled libraries. */
 #undef LT_OBJDIR
-
-/* Define if debugging is disabled */
-#undef NDEBUG
 
 /* Name of package */
 #undef PACKAGE

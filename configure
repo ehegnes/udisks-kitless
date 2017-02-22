@@ -700,6 +700,8 @@ LIBSYSTEMD_LOGIN_LIBS
 LIBSYSTEMD_LOGIN_CFLAGS
 LIBATASMART_LIBS
 LIBATASMART_CFLAGS
+HAVE_POLKIT_FALSE
+HAVE_POLKIT_TRUE
 POLKIT_AGENT_1_LIBS
 POLKIT_AGENT_1_CFLAGS
 POLKIT_GOBJECT_1_LIBS
@@ -745,7 +747,6 @@ PKG_CONFIG_LIBDIR
 PKG_CONFIG_PATH
 PKG_CONFIG
 XSLTPROC
-WARN_CFLAGS
 LT_SYS_LIBRARY_PATH
 OTOOL64
 OTOOL
@@ -847,7 +848,6 @@ infodir
 docdir
 oldincludedir
 includedir
-runstatedir
 localstatedir
 sharedstatedir
 sysconfdir
@@ -872,7 +872,6 @@ ac_user_opts='
 enable_option_checking
 enable_silent_rules
 enable_maintainer_mode
-enable_debug
 enable_dependency_tracking
 enable_shared
 enable_static
@@ -882,8 +881,6 @@ with_aix_soname
 with_gnu_ld
 with_sysroot
 enable_libtool_lock
-enable_compile_warnings
-enable_iso_c
 with_html_dir
 enable_gtk_doc
 enable_gtk_doc_html
@@ -891,6 +888,7 @@ enable_gtk_doc_pdf
 enable_man
 enable_introspection
 enable_fhs_media
+enable_polkit
 with_udevdir
 with_systemdsystemunitdir
 enable_acl
@@ -963,7 +961,6 @@ datadir='${datarootdir}'
 sysconfdir='${prefix}/etc'
 sharedstatedir='${prefix}/com'
 localstatedir='${prefix}/var'
-runstatedir='${localstatedir}/run'
 includedir='${prefix}/include'
 oldincludedir='/usr/include'
 docdir='${datarootdir}/doc/${PACKAGE_TARNAME}'
@@ -1216,15 +1213,6 @@ do
   | -silent | --silent | --silen | --sile | --sil)
     silent=yes ;;
 
-  -runstatedir | --runstatedir | --runstatedi | --runstated \
-  | --runstate | --runstat | --runsta | --runst | --runs \
-  | --run | --ru | --r)
-    ac_prev=runstatedir ;;
-  -runstatedir=* | --runstatedir=* | --runstatedi=* | --runstated=* \
-  | --runstate=* | --runstat=* | --runsta=* | --runst=* | --runs=* \
-  | --run=* | --ru=* | --r=*)
-    runstatedir=$ac_optarg ;;
-
   -sbindir | --sbindir | --sbindi | --sbind | --sbin | --sbi | --sb)
     ac_prev=sbindir ;;
   -sbindir=* | --sbindir=* | --sbindi=* | --sbind=* | --sbin=* \
@@ -1362,7 +1350,7 @@ fi
 for ac_var in	exec_prefix prefix bindir sbindir libexecdir datarootdir \
 		datadir sysconfdir sharedstatedir localstatedir includedir \
 		oldincludedir docdir infodir htmldir dvidir pdfdir psdir \
-		libdir localedir mandir runstatedir
+		libdir localedir mandir
 do
   eval ac_val=\$$ac_var
   # Remove trailing slashes.
@@ -1515,7 +1503,6 @@ Fine tuning of the installation directories:
   --sysconfdir=DIR        read-only single-machine data [PREFIX/etc]
   --sharedstatedir=DIR    modifiable architecture-independent data [PREFIX/com]
   --localstatedir=DIR     modifiable single-machine data [PREFIX/var]
-  --runstatedir=DIR       modifiable per-process data [LOCALSTATEDIR/run]
   --libdir=DIR            object code libraries [EPREFIX/lib]
   --includedir=DIR        C header files [PREFIX/include]
   --oldincludedir=DIR     C header files for non-gcc [/usr/include]
@@ -1559,8 +1546,6 @@ Optional Features:
   --enable-maintainer-mode
                           enable make rules and dependencies not useful (and
                           sometimes confusing) to the casual installer
-  --enable-debug=[yes/info/profile/no]
-                          compile with debugging
   --enable-dependency-tracking
                           do not reject slow dependency extractors
   --disable-dependency-tracking
@@ -1570,9 +1555,6 @@ Optional Features:
   --enable-fast-install[=PKGS]
                           optimize for fast installation [default=yes]
   --disable-libtool-lock  avoid locking (might break parallel builds)
-  --enable-compile-warnings=[no/minimum/yes/maximum/error]
-                          Turn on compiler warnings
-  --enable-iso-c          Try to warn if code is not ISO C
   --enable-gtk-doc        use gtk-doc to build documentation [[default=no]]
   --enable-gtk-doc-html   build documentation in html format [[default=yes]]
   --enable-gtk-doc-pdf    build documentation in pdf format [[default=no]]
@@ -1581,6 +1563,7 @@ Optional Features:
                           Enable introspection for this build
   --enable-fhs-media      Mount devices in /media instead of /run/media
                           [default=no]
+  --enable-polkit         enable Policykit support
   --disable-acl           disable acl support
   --disable-nls           do not use Native Language Support
 
@@ -3113,99 +3096,7 @@ fi
 AM_BACKSLASH='\'
 
 
-
-
-    { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to enable debugging" >&5
-$as_echo_n "checking whether to enable debugging... " >&6; }
-
-    ax_enable_debug_default=no
-    ax_enable_debug_is_release=$ax_is_release
-
-    # If this is a release, override the default.
-    if test "$ax_enable_debug_is_release" = "yes"; then :
-  ax_enable_debug_default="no"
-fi
-
-
-
-
-    # Check whether --enable-debug was given.
-if test "${enable_debug+set}" = set; then :
-  enableval=$enable_debug;
-else
-  enable_debug=$ax_enable_debug_default
-fi
-
-
-    # empty mean debug yes
-    if test "x$enable_debug" = "x"; then :
-  enable_debug="yes"
-fi
-
-    # case of debug
-    case $enable_debug in #(
-  yes) :
-
-	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
-$as_echo "yes" >&6; }
-	CFLAGS="${CFLAGS} -g -O0"
-	CXXFLAGS="${CXXFLAGS} -g -O0"
-	FFLAGS="${FFLAGS} -g -O0"
-	FCFLAGS="${FCFLAGS} -g -O0"
-	OBJCFLAGS="${OBJCFLAGS} -g -O0"
-       ;; #(
-  info) :
-
-	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: info" >&5
-$as_echo "info" >&6; }
-	CFLAGS="${CFLAGS} -g"
-	CXXFLAGS="${CXXFLAGS} -g"
-	FFLAGS="${FFLAGS} -g"
-	FCFLAGS="${FCFLAGS} -g"
-	OBJCFLAGS="${OBJCFLAGS} -g"
-       ;; #(
-  profile) :
-
-	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: profile" >&5
-$as_echo "profile" >&6; }
-	CFLAGS="${CFLAGS} -g -pg"
-	CXXFLAGS="${CXXFLAGS} -g -pg"
-	FFLAGS="${FFLAGS} -g -pg"
-	FCFLAGS="${FCFLAGS} -g -pg"
-	OBJCFLAGS="${OBJCFLAGS} -g -pg"
-	LDFLAGS="${LDFLAGS} -pg"
-       ;; #(
-  *) :
-
-	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
-$as_echo "no" >&6; }
-			if test "x${CFLAGS+set}" != "xset"; then :
-  CFLAGS=""
-fi
-	if test "x${CXXFLAGS+set}" != "xset"; then :
-  CXXFLAGS=""
-fi
-	if test "x${FFLAGS+set}" != "xset"; then :
-  FFLAGS=""
-fi
-	if test "x${FCFLAGS+set}" != "xset"; then :
-  FCFLAGS=""
-fi
-	if test "x${OBJCFLAGS+set}" != "xset"; then :
-  OBJCFLAGS=""
-fi
-       ;;
-esac
-
-            if test "x$enable_debug" = "xyes"; then :
-
-else
-
-$as_echo "#define NDEBUG /**/" >>confdefs.h
-
-fi
-    ax_enable_debug=$enable_debug
-
+AX_CHECK_ENABLE_DEBUG
 
 ac_ext=c
 ac_cpp='$CPP $CPPFLAGS'
@@ -12392,128 +12283,7 @@ CC=$lt_save_CC
 # Compilation
 #
 
-
-
-    # Check whether --enable-compile-warnings was given.
-if test "${enable_compile_warnings+set}" = set; then :
-  enableval=$enable_compile_warnings;
-else
-  enable_compile_warnings="maximum"
-fi
-
-
-    if test "x$GCC" != xyes; then
-	enable_compile_warnings=no
-    fi
-
-    warning_flags=
-    realsave_CFLAGS="$CFLAGS"
-
-            base_warn_flags=" \
-        -Wall \
-        -Wstrict-prototypes \
-        -Wnested-externs \
-    "
-
-                    base_error_flags=" \
-        -Werror=missing-prototypes \
-        -Werror=implicit-function-declaration \
-        -Werror=pointer-arith \
-        -Werror=init-self \
-        -Werror=format-security \
-        -Werror=format=2 \
-        -Werror=missing-include-dirs \
-        -Werror=return-type \
-    "
-
-                additional_flags=""
-
-    case "$enable_compile_warnings" in
-    no)
-        warning_flags="-w"
-        ;;
-    minimum)
-        warning_flags="-Wall"
-        ;;
-    yes|maximum|error)
-        warning_flags="$base_warn_flags $base_error_flags $additional_flags"
-        ;;
-    *)
-        as_fn_error $? "Unknown argument '$enable_compile_warnings' to --enable-compile-warnings" "$LINENO" 5
-        ;;
-    esac
-
-    if test "$enable_compile_warnings" = "error" ; then
-        warning_flags="$warning_flags -Werror"
-    fi
-
-        for option in $warning_flags; do
-	save_CFLAGS="$CFLAGS"
-	CFLAGS="$CFLAGS $option"
-	{ $as_echo "$as_me:${as_lineno-$LINENO}: checking whether gcc understands $option" >&5
-$as_echo_n "checking whether gcc understands $option... " >&6; }
-	cat confdefs.h - <<_ACEOF >conftest.$ac_ext
-/* end confdefs.h.  */
-
-int
-main ()
-{
-
-  ;
-  return 0;
-}
-_ACEOF
-if ac_fn_c_try_compile "$LINENO"; then :
-  has_option=yes
-else
-  has_option=no
-fi
-rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
-	CFLAGS="$save_CFLAGS"
-	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $has_option" >&5
-$as_echo "$has_option" >&6; }
-	if test $has_option = yes; then
-	    tested_warning_flags="$tested_warning_flags $option"
-	fi
-	unset has_option
-	unset save_CFLAGS
-    done
-    unset option
-    CFLAGS="$realsave_CFLAGS"
-    { $as_echo "$as_me:${as_lineno-$LINENO}: checking what warning flags to pass to the C compiler" >&5
-$as_echo_n "checking what warning flags to pass to the C compiler... " >&6; }
-    { $as_echo "$as_me:${as_lineno-$LINENO}: result: $tested_warning_flags" >&5
-$as_echo "$tested_warning_flags" >&6; }
-
-    # Check whether --enable-iso-c was given.
-if test "${enable_iso_c+set}" = set; then :
-  enableval=$enable_iso_c;
-else
-  enable_iso_c=no
-fi
-
-
-    { $as_echo "$as_me:${as_lineno-$LINENO}: checking what language compliance flags to pass to the C compiler" >&5
-$as_echo_n "checking what language compliance flags to pass to the C compiler... " >&6; }
-    complCFLAGS=
-    if test "x$enable_iso_c" != "xno"; then
-	if test "x$GCC" = "xyes"; then
-	case " $CFLAGS " in
-	    *\ \	-ansi\ \	*) ;;
-	    *) complCFLAGS="$complCFLAGS -ansi" ;;
-	esac
-	case " $CFLAGS " in
-	    *\ \	-pedantic\ \	*) ;;
-	    *) complCFLAGS="$complCFLAGS -pedantic" ;;
-	esac
-	fi
-    fi
-    { $as_echo "$as_me:${as_lineno-$LINENO}: result: $complCFLAGS" >&5
-$as_echo "$complCFLAGS" >&6; }
-
-    WARN_CFLAGS="$tested_warning_flags $complCFLAGS"
-
-
+#GNOME_COMPILE_WARNINGS([maximum])
 
 
   for flag in                           \
@@ -13612,6 +13382,13 @@ fi
 
 
 
+have_polkit=no
+# Check whether --enable-polkit was given.
+if test "${enable_polkit+set}" = set; then :
+  enableval=$enable_polkit;
+fi
+
+if test "x$enable_polkit" = "xyes"; then
 
 pkg_failed=no
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for POLKIT_GOBJECT_1" >&5
@@ -13621,12 +13398,21 @@ if test -n "$POLKIT_GOBJECT_1_CFLAGS"; then
     pkg_cv_POLKIT_GOBJECT_1_CFLAGS="$POLKIT_GOBJECT_1_CFLAGS"
  elif test -n "$PKG_CONFIG"; then
     if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"polkit-gobject-1 >= 0.102\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "polkit-gobject-1 >= 0.102") 2>&5
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"polkit-gobject-1 >= 0.102
+
+$as_echo "#define HAVE_POLKIT 1" >>confdefs.h
+ have_polkit=yes\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "polkit-gobject-1 >= 0.102
+
+$as_echo "#define HAVE_POLKIT 1" >>confdefs.h
+ have_polkit=yes") 2>&5
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
-  pkg_cv_POLKIT_GOBJECT_1_CFLAGS=`$PKG_CONFIG --cflags "polkit-gobject-1 >= 0.102" 2>/dev/null`
+  pkg_cv_POLKIT_GOBJECT_1_CFLAGS=`$PKG_CONFIG --cflags "polkit-gobject-1 >= 0.102
+
+$as_echo "#define HAVE_POLKIT 1" >>confdefs.h
+ have_polkit=yes" 2>/dev/null`
 		      test "x$?" != "x0" && pkg_failed=yes
 else
   pkg_failed=yes
@@ -13638,12 +13424,21 @@ if test -n "$POLKIT_GOBJECT_1_LIBS"; then
     pkg_cv_POLKIT_GOBJECT_1_LIBS="$POLKIT_GOBJECT_1_LIBS"
  elif test -n "$PKG_CONFIG"; then
     if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"polkit-gobject-1 >= 0.102\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "polkit-gobject-1 >= 0.102") 2>&5
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"polkit-gobject-1 >= 0.102
+
+$as_echo "#define HAVE_POLKIT 1" >>confdefs.h
+ have_polkit=yes\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "polkit-gobject-1 >= 0.102
+
+$as_echo "#define HAVE_POLKIT 1" >>confdefs.h
+ have_polkit=yes") 2>&5
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
-  pkg_cv_POLKIT_GOBJECT_1_LIBS=`$PKG_CONFIG --libs "polkit-gobject-1 >= 0.102" 2>/dev/null`
+  pkg_cv_POLKIT_GOBJECT_1_LIBS=`$PKG_CONFIG --libs "polkit-gobject-1 >= 0.102
+
+$as_echo "#define HAVE_POLKIT 1" >>confdefs.h
+ have_polkit=yes" 2>/dev/null`
 		      test "x$?" != "x0" && pkg_failed=yes
 else
   pkg_failed=yes
@@ -13664,14 +13459,23 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-	        POLKIT_GOBJECT_1_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "polkit-gobject-1 >= 0.102" 2>&1`
+	        POLKIT_GOBJECT_1_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "polkit-gobject-1 >= 0.102
+
+$as_echo "#define HAVE_POLKIT 1" >>confdefs.h
+ have_polkit=yes" 2>&1`
         else
-	        POLKIT_GOBJECT_1_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "polkit-gobject-1 >= 0.102" 2>&1`
+	        POLKIT_GOBJECT_1_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "polkit-gobject-1 >= 0.102
+
+$as_echo "#define HAVE_POLKIT 1" >>confdefs.h
+ have_polkit=yes" 2>&1`
         fi
 	# Put the nasty error message in config.log where it belongs
 	echo "$POLKIT_GOBJECT_1_PKG_ERRORS" >&5
 
-	as_fn_error $? "Package requirements (polkit-gobject-1 >= 0.102) were not met:
+	as_fn_error $? "Package requirements (polkit-gobject-1 >= 0.102
+
+$as_echo "#define HAVE_POLKIT 1" >>confdefs.h
+ have_polkit=yes) were not met:
 
 $POLKIT_GOBJECT_1_PKG_ERRORS
 
@@ -13701,9 +13505,8 @@ else
 	POLKIT_GOBJECT_1_LIBS=$pkg_cv_POLKIT_GOBJECT_1_LIBS
         { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 $as_echo "yes" >&6; }
-
+	have_polkit=no
 fi
-
 
 
 
@@ -13798,6 +13601,15 @@ $as_echo "yes" >&6; }
 
 fi
 
+
+fi
+ if test "$have_polkit" = "yes"; then
+  HAVE_POLKIT_TRUE=
+  HAVE_POLKIT_FALSE='#'
+else
+  HAVE_POLKIT_TRUE='#'
+  HAVE_POLKIT_FALSE=
+fi
 
 
 
@@ -15675,6 +15487,10 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${HAVE_INTROSPECTION_TRUE}" && test -z "${HAVE_INTROSPECTION_FALSE}"; then
   as_fn_error $? "conditional \"HAVE_INTROSPECTION\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${HAVE_POLKIT_TRUE}" && test -z "${HAVE_POLKIT_FALSE}"; then
+  as_fn_error $? "conditional \"HAVE_POLKIT\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${HAVE_LIBSYSTEMD_LOGIN_TRUE}" && test -z "${HAVE_LIBSYSTEMD_LOGIN_FALSE}"; then

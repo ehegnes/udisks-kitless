@@ -36,7 +36,7 @@ AC_PROG_LIBTOOL
 # Compilation
 #
 
-GNOME_COMPILE_WARNINGS([maximum])
+#GNOME_COMPILE_WARNINGS([maximum])
 
 CC_CHECK_CFLAGS_APPEND([                          \
         -Waggregate-return                        \
@@ -142,13 +142,19 @@ PKG_CHECK_MODULES(GIO, [gio-unix-2.0 >= 2.36])
 AC_SUBST(GIO_CFLAGS)
 AC_SUBST(GIO_LIBS)
 
-PKG_CHECK_MODULES(POLKIT_GOBJECT_1, [polkit-gobject-1 >= 0.102])
-AC_SUBST(POLKIT_GOBJECT_1_CFLAGS)
-AC_SUBST(POLKIT_GOBJECT_1_LIBS)
-
-PKG_CHECK_MODULES(POLKIT_AGENT_1, [polkit-agent-1 >= 0.102])
-AC_SUBST(POLKIT_AGENT_1_CFLAGS)
-AC_SUBST(POLKIT_AGENT_1_LIBS)
+have_polkit=no
+AC_ARG_ENABLE(polkit, AS_HELP_STRING([--enable-polkit], [enable Policykit support]))
+if test "x$enable_polkit" = "xyes"; then
+  PKG_CHECK_MODULES(POLKIT_GOBJECT_1, polkit-gobject-1 >= 0.102
+                    [AC_DEFINE(HAVE_POLKIT, 1, [Define if Policykit is available]) have_polkit=yes],
+                    have_polkit=no)
+  AC_SUBST(POLKIT_GOBJECT_1_CFLAGS)
+  AC_SUBST(POLKIT_GOBJECT_1_LIBS)
+  PKG_CHECK_MODULES(POLKIT_AGENT_1, [polkit-agent-1 >= 0.102])
+  AC_SUBST(POLKIT_AGENT_1_CFLAGS)
+  AC_SUBST(POLKIT_AGENT_1_LIBS)
+fi
+AM_CONDITIONAL(HAVE_POLKIT, [test "$have_polkit" = "yes"])
 
 PKG_CHECK_MODULES(LIBATASMART, [libatasmart >= 0.17])
 AC_SUBST(LIBATASMART_CFLAGS)
