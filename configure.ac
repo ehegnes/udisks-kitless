@@ -143,8 +143,8 @@ AC_SUBST(GIO_CFLAGS)
 AC_SUBST(GIO_LIBS)
 
 have_polkit=no
-AC_ARG_ENABLE(polkit, AS_HELP_STRING([--enable-polkit], [enable Policykit support]))
-if test "x$enable_polkit" = "xyes"; then
+AC_ARG_ENABLE(polkit, AS_HELP_STRING([--enable-policykit], [enable Policykit support]))
+if test "x$enable_policykit" = "xyes"; then
   PKG_CHECK_MODULES(POLKIT_GOBJECT_1, polkit-gobject-1 >= 0.102
                     [AC_DEFINE(HAVE_POLKIT, 1, [Define if Policykit is available]) have_polkit=yes],
                     have_polkit=no)
