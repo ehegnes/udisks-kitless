@@ -422,6 +422,7 @@ udisks_daemon_util_setup_by_user (UDisksDaemon *daemon,
   return ret;
 }
 
+#ifdef HAVE_POLKIT
 /* Need this until we can depend on a libpolkit with this bugfix
  *
  * http://cgit.freedesktop.org/polkit/commit/?h=wip/js-rule-files&id=224f7b892478302dccbe7e567b013d3c73d376fd
@@ -495,6 +496,7 @@ check_authorization_no_polkit (UDisksDaemon          *daemon,
  out:
   return ret;
 }
+#endif
 
 /**
  * udisks_daemon_util_check_authorization_sync:
@@ -540,6 +542,7 @@ udisks_daemon_util_check_authorization_sync (UDisksDaemon          *daemon,
                                              const gchar           *message,
                                              GDBusMethodInvocation *invocation)
 {
+#ifdef HAVE_POLKIT
   PolkitAuthority *authority = NULL;
   PolkitSubject *subject = NULL;
   PolkitDetails *details = NULL;
@@ -752,6 +755,9 @@ udisks_daemon_util_check_authorization_sync (UDisksDaemon          *daemon,
   g_clear_object (&details);
   g_clear_object (&result);
   return ret;
+#else
+  return TRUE;
+#endif
 }
 
 /* ---------------------------------------------------------------------------------------------------- */

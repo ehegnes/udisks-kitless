@@ -37,7 +37,9 @@ UDisksMountMonitor       *udisks_daemon_get_mount_monitor     (UDisksDaemon    *
 UDisksFstabMonitor       *udisks_daemon_get_fstab_monitor     (UDisksDaemon    *daemon);
 UDisksCrypttabMonitor    *udisks_daemon_get_crypttab_monitor  (UDisksDaemon    *daemon);
 UDisksLinuxProvider      *udisks_daemon_get_linux_provider    (UDisksDaemon    *daemon);
+#ifdef HAVE_POLKIT
 PolkitAuthority          *udisks_daemon_get_authority         (UDisksDaemon    *daemon);
+#endif
 UDisksState              *udisks_daemon_get_state             (UDisksDaemon    *daemon);
 
 /**
