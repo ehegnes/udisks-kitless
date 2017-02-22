@@ -67,12 +67,12 @@ pkg_setup() {
 }
 
 src_unpack() {
-	wget -O ${P}.tar.gz https://github.com/ehegnes/udisks/archive/master.tar.gz \
+	wget -O ${P}.tar.gz https://github.com/ehegnes/udisks/archive/v${PV}.tar.gz \
 		|| die "Failed to download source from repository"
 
 	unpack ./${P}.tar.gz
 	# GitHub nests the source in repo-master
-	mv ./udisks-master ./${P}
+	mv ./${REPO}-${PV} ./${P}
 }
 
 
